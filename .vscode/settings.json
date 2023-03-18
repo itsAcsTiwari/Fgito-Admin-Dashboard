@@ -1,0 +1,13 @@
+{
+	"cSpell.words": ["fgito", "Novasie"],
+	"editor.formatOnSave": true,
+	"editor.fontLigatures": true,
+	"editor.formatOnPaste": false,
+	"editor.cursorBlinking": "smooth",
+	"editor.cursorSmoothCaretAnimation": "on",
+	"editor.cursorStyle": "line",
+	"editor.quickSuggestions": {
+		"strings": true
+	},
+	"css.lint.unknownAtRules": "ignore"
+}
