@@ -10,13 +10,13 @@ export const authAPI = axios.create({
 })
 
 export const loginApi = async (payload) => {
-	const { data } = await authAPI.post(`/auth/login`, payload)
+	const { data } = await authAPI.post('/auth/login', payload)
 	return data
 }
 
 export const showError = (error) => {
 	const res = error.response
-	const message = res.data.message
+	const message = res?.data?.message
 
 	console.error(message === undefined ? 'Something went wrong!' : message)
 }
