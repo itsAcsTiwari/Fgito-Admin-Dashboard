@@ -10,21 +10,18 @@ export const metadata = {
 
 const roboto = Roboto({ 
 	subsets: ['latin'],
-	weight: ['400'] 
+	weight: ['700'] 
 })
-const robotoCondensed = Roboto_Condensed({ 
-	subsets: ['latin'],
-	weight: ['400'] 
-})
+
 
 const RootLayout = ({ children }) => {
 	return (
 		<html lang="en" className={roboto.className}>
 			<body className="xl:max-w-screen-2xl mx-auto">
 				{/* <Header /> */}
-				<div className="h-screen flex flex-row justify-start" >
+				<div className="flex flex-row justify-start" >
 					<SideBarNav/>
-					<div className="bg-gray-200 flex-1 p-4 text-green-300">
+					<div className="bg-gray-200 flex-1 p-4 text-black-300">
 						{children}
 					</div>
 				</div>
