@@ -5,11 +5,12 @@ import { Footer, SideBarNav } from '@src/components'
 import { Roboto, Roboto_Condensed } from 'next/font/google'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
+import Head from 'next/head'
 
-export const metadata = {
-	title: 'Admin web',
-	description: 'To manage fgito data',
-}
+// export const metadata = {
+// 	title: 'Admin web',
+// 	description: 'To manage fgito data',
+// }
 
 const roboto = Roboto({
 	subsets: ['latin'],
@@ -26,7 +27,7 @@ const RootLayout = ({ children }) => {
 				<div className="flex flex-row justify-start">
 					<SideBarNav />
 					<QueryClientProvider client={queryClient}>
-						<div className="bg-gray-200 flex-1 p-4 text-green-300">{children}</div>
+						<div className="bg-gray-200 flex-1 p-4 text-black">{children}</div>
 						<ReactQueryDevtools initialIsOpen={false} />
 					</QueryClientProvider>
 				</div>
