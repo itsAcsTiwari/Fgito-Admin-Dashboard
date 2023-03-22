@@ -1,12 +1,22 @@
 'use client'
+
 import React from 'react'
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+
 import AddHomeChefTable from '@src/components/homechef/allhomecheftable'
+
 const queryClient = new QueryClient()
 // export const metadata = {
 // 	title: 'All Homechefs',
 // 	description: 'To manage fgito data',
 // }
+
+const ErrorComponent = ({ error }) => (
+	<div>
+		<h2>An error has occurred:</h2>
+		<p>{error.message}</p>
+	</div>
+)
 
 const page = () => {
 	const { isLoading, error, data } = useQuery('repoData', () =>
@@ -15,14 +25,14 @@ const page = () => {
 	console.log('============', data?.data)
 	if (isLoading) return 'Loading...'
 
-	if (error) return 'An error has occurred: ' + error.message
+	// if (error) return 'An error has occurred: ' + error.message
+	if (error) return <ErrorComponent error={error} />
+
 	return (
-		<>
-			<div>
-				<h1>Home Chef's</h1>
-			</div>
+		<div>
+			<h1>Home Chef's</h1>
 			<AddHomeChefTable data={data} />
-		</>
+		</div>
 	)
 }
 

@@ -1,8 +1,9 @@
 import { Table } from 'antd'
-import 'tailwindcss/tailwind.css'
+
+import styles from './AddHomeChefTable.module.css'
 
 const AddHomeChefTable = ({ data }) => {
-	// console.log(data)
+	//Table Headings
 	const columns = [
 		{
 			title: 'Id',
@@ -18,7 +19,7 @@ const AddHomeChefTable = ({ data }) => {
 			title: 'Cuisine',
 			dataIndex: 'Cuisine',
 			key: 'Cuisine',
-			render: (text) => <div style={{ width: 70 }}>{text}</div>,
+			render: (text) => <div style={{ width: 80 }}>{text}</div>,
 		},
 		{
 			title: 'Address',
@@ -35,29 +36,7 @@ const AddHomeChefTable = ({ data }) => {
 
 	return (
 		<div className="w-full antialiased text-gray-900">
-			<Table columns={columns} dataSource={data?.data} className="ant-table">
-				<style jsx>{`
-					.ant-table {
-						margin: 1rem 0;
-						border-collapse: collapse;
-						width: 100%;
-						font-size: 0.875rem;
-						color: #4b5563;
-					}
-
-					.ant-table th {
-						background-color: #edf2f7;
-						padding: 0.75rem;
-						font-weight: 500;
-						text-align: left;
-					}
-
-					.ant-table td {
-						padding: 0.75rem;
-						border-bottom: 1px solid #e2e8f0;
-					}
-				`}</style>
-			</Table>
+			<Table columns={columns} dataSource={data?.data} className={`${styles.antTable} ant-table`}></Table>
 		</div>
 	)
 }
