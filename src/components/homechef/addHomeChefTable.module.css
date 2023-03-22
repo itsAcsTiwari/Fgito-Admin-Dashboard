@@ -6,10 +6,18 @@
     color: #4b5563;
 }
 
+.blueText {
+    color: blue;
+}
+
 .ant-table th {
     @apply bg-gray-100 py-3 font-medium text-left;
 }
 
 .ant-table td {
     @apply py-3 border-b border-gray-200;
+}
+
+.blueText {
+    color: blue;
 }
