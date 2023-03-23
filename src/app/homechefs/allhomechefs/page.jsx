@@ -1,38 +1,23 @@
-"use client"
-import React from 'react'
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
-const queryClient = new QueryClient()
-// export const metadata = {
-// 	title: 'All Homechefs',
-// 	description: 'To manage fgito data',
-// }
+'use client'
 
-const page = () => {
+import { ErrorComponent } from '@src/components'
+import AddHomeChefTable from '@src/components/homechef/allhomecheftable'
+import { useQuery } from 'react-query'
+
+const AllHomeChefs = () => {
 	const { isLoading, error, data } = useQuery('repoData', () =>
-	fetch('/api/homechefs/allhomechefs').then(res =>
-	  res.json()
+		fetch('/api/homechefs/allhomechefs').then((res) => res.json()),
 	)
-  )
-  console.log("============",data?.data)
-  if (isLoading) return 'Loading...'
- 
-  if (error) return 'An error has occurred: ' + error.message
-	return (
-		<>
-			<div><h1>data</h1></div>
-			{
-				data?.data.map((data1,idx) => {
-					return (
-						<div key={idx}>
-							<h3>{data1.Name}</h3>
-						</div>
-					)
+	console.dir('============', data?.data)
+	if (isLoading) return 'Loading...'
 
-				})
-			}
-			
-		</>
+	if (error) return <ErrorComponent error={error} />
+
+	return (
+		<div>
+			<h1>Home Chef&apos;s</h1>
+			<AddHomeChefTable data={data} />
+		</div>
 	)
 }
-
-export default page
+export default AllHomeChefs

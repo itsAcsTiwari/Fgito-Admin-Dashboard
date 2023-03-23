@@ -1,0 +1,15 @@
+.ant-table {
+	margin: 1rem 0;
+	border-collapse: collapse;
+	width: 100%;
+	font-size: 0.875rem;
+	color: #4b5563;
+}
+
+.ant-table th {
+	@apply bg-gray-100 py-3 font-medium text-left;
+}
+
+.ant-table td {
+	@apply py-3 border-b border-gray-200;
+}

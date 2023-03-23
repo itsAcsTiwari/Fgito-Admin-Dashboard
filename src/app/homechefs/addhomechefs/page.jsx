@@ -1,13 +1,9 @@
-import React from 'react'
-import { Space, Table, Tag } from 'antd';
-
-const page = () => {
-    
+const AddHomeChef = () => {
 	return (
-        <>
-		<div>Form for adding new homechefs</div>
-        </>
+		<>
+			<div>Form for adding new homechefs</div>
+		</>
 	)
 }
 
-export default page
+export default AddHomeChef

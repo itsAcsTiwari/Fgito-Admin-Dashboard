@@ -11,7 +11,7 @@
 		"import/first": "error",
 		"import/newline-after-import": "error",
 		"import/no-duplicates": "error",
-		"no-console": ["error", { "allow": ["warn", "error"] }],
+		"no-console": ["error", { "allow": ["warn", "error", "dir"] }],
 		"indent": ["error", "tab"],
 		"quotes": ["error", "single"],
 		"semi": ["error", "never"]
