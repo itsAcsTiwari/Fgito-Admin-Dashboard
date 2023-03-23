@@ -1,6 +1,4 @@
-import React from 'react'
-
-const page = () => {
+const Orders = () => {
 	return (
 		<div>
 			<h1>Orders</h1>
@@ -8,4 +6,4 @@ const page = () => {
 	)
 }
 
-export default page
+export default Orders

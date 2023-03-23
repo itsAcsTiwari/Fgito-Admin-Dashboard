@@ -1,11 +1,11 @@
 'use client'
+
 import './globals.css'
 
 import { Footer, SideBarNav } from '@src/components'
-import { Roboto, Roboto_Condensed } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import Head from 'next/head'
 
 // export const metadata = {
 // 	title: 'Admin web',
@@ -14,10 +14,9 @@ import Head from 'next/head'
 
 const roboto = Roboto({
 	subsets: ['latin'],
-	weight: ['700'] 
+	weight: ['700'],
 })
 const queryClient = new QueryClient({})
-
 
 const RootLayout = ({ children }) => {
 	return (

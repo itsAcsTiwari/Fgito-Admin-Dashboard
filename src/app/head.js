@@ -1,7 +1,7 @@
 export default function Head() {
-    return (
-      <>
-        <title>My Title</title>
-      </>
-    );
-  }
+	return (
+		<>
+			<title>My Title</title>
+		</>
+	)
+}
