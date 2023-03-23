@@ -3,14 +3,12 @@ import { Table, Tag } from 'antd'
 import styles from './AddHomeChefTable.module.css'
 
 const AddHomeChefTable = ({ data }) => {
-	// console.log(data)
-
 	// Handle id column click event
 	const handleIdClick = (id) => {
 		console.log(`Clicked id ${id}`)
 	}
 
-	// Table columns
+	// Table Headings
 	const columns = [
 		{
 			title: 'S.No',
