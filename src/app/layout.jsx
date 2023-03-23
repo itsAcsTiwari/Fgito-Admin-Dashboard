@@ -7,10 +7,10 @@ import { Roboto } from 'next/font/google'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
-// export const metadata = {
-// 	title: 'Admin web',
-// 	description: 'To manage fgito data',
-// }
+export const metadata = {
+	title: 'Admin web',
+	description: 'To manage fgito data',
+}
 
 const roboto = Roboto({
 	subsets: ['latin'],

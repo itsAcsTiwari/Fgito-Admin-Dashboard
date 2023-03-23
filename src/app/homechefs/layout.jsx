@@ -33,7 +33,7 @@ export default function Layout({ children }) {
 					</Link>
 				</div>
 			</div>
-			<hr class="h-px -mx-10 bg-neutral-400 border-0 dark:bg-neutral-400"></hr>
+			<hr className="h-px -mx-10 bg-neutral-400 border-0 dark:bg-neutral-400"></hr>
 			<div>{children}</div>
 		</div>
 	)
