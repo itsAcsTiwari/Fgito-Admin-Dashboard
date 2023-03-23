@@ -20,8 +20,8 @@ const AddHomeChefTable = ({ data }) => {
 			dataIndex: 'Id',
 			key: 'Id',
 			render: (text) => (
-				<button className="text-blue-400" onClick={() => handleIdClick(text)}>
-					{text}
+				<button onClick={() => handleIdClick(text)}>
+					<Tag color="blue">{text}</Tag>
 				</button>
 			),
 		},
