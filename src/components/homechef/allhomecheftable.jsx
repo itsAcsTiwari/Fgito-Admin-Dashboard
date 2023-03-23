@@ -8,7 +8,7 @@ const AddHomeChefTable = ({ data }) => {
 		console.dir(`Clicked id ${id}`)
 	}
 
-	// Table columns
+	// Table Headings
 	const columns = [
 		{
 			title: 'S.No',
