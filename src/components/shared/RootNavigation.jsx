@@ -28,7 +28,7 @@ const RootNavigation = () => {
                 pathname.includes("/orders") ? 
                 "bg-slate-300 border-r-4 border-[#009879]":""
                 )}>
-                <Link href="/orders">
+                <Link href="/orders/allorders">
                 <h2 className={pathname.includes("/orders") ? `${navigationActiveWrapper} ${robotoCondensed.className}`:`${navigationWrapper} ${robotoCondensed.className}`} >orders</h2>
                 </Link>
             </div>
