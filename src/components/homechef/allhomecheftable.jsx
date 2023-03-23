@@ -3,11 +3,9 @@ import { Table, Tag } from 'antd'
 import styles from './AddHomeChefTable.module.css'
 
 const AddHomeChefTable = ({ data }) => {
-	// console.log(data)
-
 	// Handle id column click event
 	const handleIdClick = (id) => {
-		console.log(`Clicked id ${id}`)
+		console.dir(`Clicked id ${id}`)
 	}
 
 	// Table columns
@@ -22,9 +20,9 @@ const AddHomeChefTable = ({ data }) => {
 			dataIndex: 'Id',
 			key: 'Id',
 			render: (text) => (
-				<a href="#" onClick={() => handleIdClick(text)}>
-					<Tag color="blue">{text}</Tag>
-				</a>
+				<button className="text-blue-400" onClick={() => handleIdClick(text)}>
+					{text}
+				</button>
 			),
 		},
 		{
@@ -41,9 +39,7 @@ const AddHomeChefTable = ({ data }) => {
 			title: 'OpeningDays',
 			dataIndex: 'OpeningDays',
 			key: 'OpeningDays',
-			render: (text) => (
-				<div style={{ width: 75 }}>{text.toString().charAt(0).toUpperCase() + text.toString().slice(1)}</div>
-			),
+			render: (text) => <div className="capitalize w-20">{text}</div>,
 		},
 		{
 			title: 'Status',
