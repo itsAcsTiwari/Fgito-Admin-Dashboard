@@ -53,6 +53,10 @@ const AddHomeChefTable = ({ data }) => {
 		<div className="w-full antialiased text-gray-900">
 			<Table
 				columns={columns}
+				pagination={{ 
+					position: ["bottomCenter"],
+					pageSize:20 
+					}}
 				dataSource={data?.data.map((item, index) => ({ ...item, serialNumber: index + 1 }))}
 				className={`${styles.antTable} ant-table`}
 			/>
