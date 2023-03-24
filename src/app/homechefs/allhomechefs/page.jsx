@@ -1,6 +1,6 @@
 'use client'
 
-import { ErrorComponent } from '@src/components'
+import { ErrorComponent,Loader } from '@src/components'
 import AddHomeChefTable from '@src/components/homechef/allhomecheftable'
 import { useQuery } from 'react-query'
 
@@ -9,7 +9,7 @@ const AllHomeChefs = () => {
 		fetch('/api/homechefs/allhomechefs').then((res) => res.json()),
 	)
 	console.dir('============', data?.data)
-	if (isLoading) return 'Loading...'
+	if (isLoading) return <Loader />
 
 	if (error) return <ErrorComponent error={error} />
 

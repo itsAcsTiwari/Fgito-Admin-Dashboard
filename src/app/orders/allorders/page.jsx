@@ -11,13 +11,8 @@ const Page = () => {
 	  res.json()
 	)
   )
-  console.log("============",data?.data)
-  if (isLoading) {
-    return (
-        <Loader />
-    )}
- 
-  if (error) return 'An error has occurred: ' + error.message
+  	if (isLoading) return<Loader /> 
+	if (error) return <ErrorComponent error={error} />
   return (
     <>
 			<div><h1>OrderId</h1></div>
