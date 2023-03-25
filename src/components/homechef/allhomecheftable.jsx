@@ -1,11 +1,15 @@
+"use client"
 import { Table, Tag } from 'antd'
+import { useRouter } from 'next/navigation';
 
 import styles from './AddHomeChefTable.module.css'
 
 const AddHomeChefTable = ({ data }) => {
+	const router = useRouter();
 	// Handle id column click event
 	const handleIdClick = (id) => {
-		console.dir(`Clicked id ${id}`)
+		router.push(`/homechefs/${id}`)
+		
 	}
 
 	// Table Headings
