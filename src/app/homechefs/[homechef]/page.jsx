@@ -1,15 +1,13 @@
-import React from 'react'
-
-const Page = ({ params,searchParams,}) => {
-  console.log("pageParam", params)
-  const homechefId = params.homechef
-  const homechefSerchIs = searchParams?.id
-  return (
-    <>
-    <div>{homechefId}</div>
-    <div>{homechefSerchIs}</div>
-    </>
-  )
+const Page = ({ params, searchParams }) => {
+	console.dir('pageParam', params)
+	const homeChefId = params.homeChef
+	const homeChefSearchIs = searchParams?.id
+	return (
+		<>
+			<div>{homeChefId}</div>
+			<div>{homeChefSearchIs}</div>
+		</>
+	)
 }
 
 export default Page

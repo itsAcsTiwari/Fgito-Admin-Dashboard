@@ -5,6 +5,7 @@ const OrdersTable = ({ data }) => {
 	const handleIdClick = (id) => {
 		console.dir(`Clicked id ${id}`)
 	}
+
 	const columns = [
 		{
 			title: 'S.No',

@@ -1,9 +1,5 @@
-import React from 'react'
-
 const page = () => {
-	return (
-		<div>loginpage</div>
-	)
+	return <div>login page</div>
 }
 
 export default page
