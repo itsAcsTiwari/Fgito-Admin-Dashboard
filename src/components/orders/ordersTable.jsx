@@ -1,10 +1,23 @@
+'use client'
+
 import { Table, Tag } from 'antd'
 import classNames from 'classnames'
+import { useState } from 'react'
+
+import OrderDetails from './orderDetails'
 
 const OrdersTable = ({ data }) => {
+	const [selectedOrderId, setSelectedOrderId] = useState(null)
+
 	const handleIdClick = (id) => {
-		console.dir(`Clicked id ${id}`)
+		setSelectedOrderId(id)
+		console.dir(id)
 	}
+
+	const handleModalClose = () => {
+		setSelectedOrderId(null)
+	}
+
 	const columns = [
 		{
 			title: 'S.No',
@@ -17,7 +30,7 @@ const OrdersTable = ({ data }) => {
 			dataIndex: 'id',
 			key: 'id',
 			render: (text) => (
-				<button onClick={() => handleIdClick(text)}>
+				<button onClick={(e) => handleIdClick(e.target.innerHTML)}>
 					<Tag color="blue">{text}</Tag>
 				</button>
 			),
@@ -63,7 +76,20 @@ const OrdersTable = ({ data }) => {
 	]
 
 	return (
-		<Table dataSource={data?.data} columns={columns} rowKey={(record) => record.id} scroll={{ x: 'max-content' }} />
+		<>
+			<Table
+				className="max-w-screen-lg"
+				dataSource={data?.data}
+				columns={columns}
+				rowKey={(record) => record.id}
+				scroll={{ x: 'max-content' }}
+				pagination={{
+					position: ['bottomCenter'],
+					pageSize: 20,
+				}}
+			/>
+			{selectedOrderId && <OrderDetails orderId={selectedOrderId} onClose={handleModalClose} data={data} />}
+		</>
 	)
 }
 

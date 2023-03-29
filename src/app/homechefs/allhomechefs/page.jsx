@@ -1,6 +1,6 @@
 'use client'
 
-import { ErrorComponent,Loader } from '@src/components'
+import { ErrorComponent, Loader } from '@src/components'
 import AddHomeChefTable from '@src/components/homechef/allhomecheftable'
 import { useQuery } from 'react-query'
 
@@ -15,7 +15,7 @@ const AllHomeChefs = () => {
 
 	return (
 		<div>
-			<h1>Home Chef&apos;s</h1>
+			<h1>Home Chefs</h1>
 			<AddHomeChefTable data={data} />
 		</div>
 	)
