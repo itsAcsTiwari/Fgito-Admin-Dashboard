@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-export default function layout({ children }) {
+export default function Layout({ children }) {
 	const pathname = usePathname()
 	return (
 		<div className="flex flex-col mx-10 my-10">

@@ -45,7 +45,6 @@ const OrdersTable = ({ data }) => {
 			dataIndex: 'orderStatus',
 			key: 'orderStatus',
 			className: classNames('text-green-500'),
-			render: (text) => <span>{text ? text.toUpperCase() : ''}</span>,
 		},
 		{
 			title: 'Order Date',
