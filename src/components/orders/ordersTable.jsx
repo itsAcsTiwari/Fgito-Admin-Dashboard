@@ -57,7 +57,6 @@ const OrdersTable = ({ data }) => {
 			dataIndex: 'orderStatus',
 			key: 'orderStatus',
 			className: classNames('text-green-500'),
-			render: (text) => <span>{text ? text.toUpperCase() : ''}</span>,
 		},
 		{
 			title: 'Order Date',
@@ -88,7 +87,12 @@ const OrdersTable = ({ data }) => {
 					pageSize: 20,
 				}}
 			/>
-			{selectedOrderId && <OrderDetails orderId={selectedOrderId} onClose={handleModalClose} data={data} />}
+			<OrderDetails
+				orderId={selectedOrderId}
+				onClose={handleModalClose}
+				data={data}
+				isOpen={selectedOrderId !== null}
+			/>
 		</>
 	)
 }

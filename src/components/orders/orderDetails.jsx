@@ -2,7 +2,7 @@
 import { Modal, Spin } from 'antd'
 import { useState } from 'react'
 
-const OrderDetails = ({ orderId, onClose, data }) => {
+const OrderDetails = ({ orderId, onClose, data, isOpen }) => {
 	const [isLoading, setIsLoading] = useState(true)
 	const [orderData, setOrderData] = useState(null)
 
@@ -30,8 +30,8 @@ const OrderDetails = ({ orderId, onClose, data }) => {
 	return (
 		<Modal
 			title={`Order Id: ${orderId}`}
-			visible={true}
 			onCancel={onClose}
+			open={isOpen}
 			onOk={handleModalOk}
 			okText="OK"
 			footer={null}
@@ -46,7 +46,7 @@ const OrderDetails = ({ orderId, onClose, data }) => {
 					<p className="font-bold">Order No.: {orderData.orderNo}</p>
 					<p className="mt-2">User Id: {orderData.userId}</p>
 					<p className="mt-2">User Name: {orderData.orderDetails.UserName}</p>
-					<p className="mt-2">Order Status: {orderData.orderStatus}</p>
+					{/* <p className="mt-2">Order Status: {orderData.orderStatus}</p> */}
 					<p className="mt-2">Order Date: {orderData.orderDetails.orderDate}</p>
 					<p className="mt-2">Order Amount: {orderData.orderDetails.orderAmount}</p>
 				</div>
