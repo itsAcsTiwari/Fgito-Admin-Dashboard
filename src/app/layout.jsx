@@ -2,7 +2,7 @@
 
 import './globals.css'
 
-import { Footer, SideBarNav } from '@src/components'
+import { Footer } from '@src/components'
 import { Roboto } from 'next/font/google'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
@@ -16,11 +16,13 @@ const queryClient = new QueryClient({})
 const RootLayout = ({ children }) => {
 	return (
 		<html lang="en" className={roboto.className}>
-			<QueryClientProvider client={queryClient}>
-				<body className="xl:max-w-screen-2xl mx-auto">{children}</body>
-				<ReactQueryDevtools initialIsOpen={false} />
-			</QueryClientProvider>
-			<Footer />
+			<body>
+				<QueryClientProvider client={queryClient}>
+					<main className="xl:max-w-screen-2xl mx-auto">{children}</main>
+					<ReactQueryDevtools initialIsOpen={false} />
+				</QueryClientProvider>
+				<Footer />
+			</body>
 		</html>
 	)
 }
