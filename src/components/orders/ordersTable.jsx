@@ -7,15 +7,15 @@ import { useState } from 'react'
 import OrderDetails from './orderDetails'
 
 const OrdersTable = ({ data }) => {
-	const [selectedOrderId, setSelectedOrderId] = useState(null)
+	const [selectedOrder, setSelectedOrder] = useState(null)
 
 	const handleIdClick = (id) => {
-		setSelectedOrderId(id)
-		console.dir(id)
+		const order = data.data.find((orderObj) => orderObj.id === id)
+		setSelectedOrder(order)
 	}
 
 	const handleModalClose = () => {
-		setSelectedOrderId(null)
+		setSelectedOrder(null)
 	}
 
 	const columns = [
@@ -87,12 +87,7 @@ const OrdersTable = ({ data }) => {
 					pageSize: 20,
 				}}
 			/>
-			<OrderDetails
-				orderId={selectedOrderId}
-				onClose={handleModalClose}
-				data={data}
-				isOpen={selectedOrderId !== null}
-			/>
+			<OrderDetails order={selectedOrder} onClose={handleModalClose} isOpen={selectedOrder !== null} />
 		</>
 	)
 }
