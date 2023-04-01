@@ -1,4 +1,5 @@
 'use client'
+
 import { ErrorComponent, Loader } from '@src/components'
 import OrdersTable from '@src/components/orders/ordersTable'
 import { useQuery } from 'react-query'
@@ -8,18 +9,13 @@ const Page = () => {
 		fetch('/api/orders/allOrders').then((res) => res.json()),
 	)
 
+	if (isLoading) return <Loader />
 	if (error) return <ErrorComponent error={error} />
 
 	return (
 		<div>
-			{isLoading ? (
-				<Loader />
-			) : (
-				<>
-					<h1>Orders</h1>
-					<OrdersTable data={data} />
-				</>
-			)}
+			<h1>Orders</h1>
+			<OrdersTable data={data} />
 		</div>
 	)
 }

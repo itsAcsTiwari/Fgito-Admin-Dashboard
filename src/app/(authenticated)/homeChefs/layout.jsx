@@ -1,4 +1,5 @@
 'use client'
+
 import classNames from 'classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -8,17 +9,27 @@ export default function Layout({ children }) {
 	return (
 		<div className="flex flex-col mx-10 my-10">
 			<div className="text-left uppercase  text-neutral-400 text-4xl ">
-				<h3>ORDERS CONTROLS</h3>
+				<h3>HOME_CHEFS&apos; CONTROLS</h3>
 			</div>
 			<div className="flex flex-row mt-10 mb-2 uppercase font-medium text-xl">
 				<div
 					className={classNames(
 						'px-5 py-2 mx-1 align-middle ',
-						pathname.includes('/orders') ? 'bg-slate-300 rounded-3xl' : '',
+						pathname.includes('/allHomeChefs') ? 'bg-slate-300 rounded-3xl' : '',
 					)}
 				>
-					<Link href="/homechefs/allhomechefs">
-						<h3>All Order</h3>
+					<Link href="/homeChefs/allHomeChefs">
+						<h3>All HomeChefs</h3>
+					</Link>
+				</div>
+				<div
+					className={classNames(
+						'px-5 py-2 mx-1 align-middle ',
+						pathname.includes('/addHomeChefs') ? 'bg-slate-300 rounded-3xl' : '',
+					)}
+				>
+					<Link href="/homeChefs/addHomeChefs">
+						<h3>Add HomeChefs</h3>
 					</Link>
 				</div>
 			</div>
