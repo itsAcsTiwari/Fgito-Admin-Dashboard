@@ -5,6 +5,7 @@ const OrdersTable = ({ data }) => {
 	const handleIdClick = (id) => {
 		console.dir(`Clicked id ${id}`)
 	}
+
 	const columns = [
 		{
 			title: 'S.No',
@@ -44,7 +45,6 @@ const OrdersTable = ({ data }) => {
 			dataIndex: 'orderStatus',
 			key: 'orderStatus',
 			className: classNames('text-green-500'),
-			render: (text) => <span>{text ? text.toUpperCase() : ''}</span>,
 		},
 		{
 			title: 'Order Date',

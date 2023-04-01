@@ -1,12 +1,12 @@
 'use client'
 
-import { ErrorComponent,Loader } from '@src/components'
-import AddHomeChefTable from '@src/components/homechef/allhomecheftable'
+import { ErrorComponent, Loader } from '@src/components'
+import AddHomeChefTable from '@src/components/homeChef/allHomeChefTable'
 import { useQuery } from 'react-query'
 
 const AllHomeChefs = () => {
 	const { isLoading, error, data } = useQuery('repoData', () =>
-		fetch('/api/homechefs/allhomechefs').then((res) => res.json()),
+		fetch('/api/homeChefs/allHomeChefs').then((res) => res.json()),
 	)
 	console.dir('============', data?.data)
 	if (isLoading) return <Loader />
