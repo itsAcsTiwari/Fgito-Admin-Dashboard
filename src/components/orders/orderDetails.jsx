@@ -1,7 +1,7 @@
 'use client'
 
 import { Modal, Spin } from 'antd'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const OrderDetails = ({ orderId, onClose, data }) => {
 	const [isLoading, setIsLoading] = useState(true)
@@ -9,36 +9,30 @@ const OrderDetails = ({ orderId, onClose, data }) => {
 
 	const order = data.data.find((orderObj) => orderObj.id === orderId)
 
-	const handleModalClose = () => {
-		onClose()
-	}
-
 	const handleModalOk = () => {
 		console.dir('OK button clicked')
 	}
 
-	useEffect(() => {
-		setTimeout(() => {
-			setOrderData({
-				id: orderId,
-				orderNo: order.orderNo,
-				userId: order.userId,
-				orderDetails: {
-					UserName: order.orderDetails.UserName,
-					orderDate: order.orderDetails.orderDate,
-					orderAmount: order.orderDetails.orderAmount,
-				},
-				orderStatus: order.orderStatus,
-			})
-			setIsLoading(false)
-		}, 1000)
-	}, [orderId, order])
+	if (isLoading && order) {
+		setOrderData({
+			id: orderId,
+			orderNo: order.orderNo,
+			userId: order.userId,
+			orderDetails: {
+				UserName: order.orderDetails.UserName,
+				orderDate: order.orderDetails.orderDate,
+				orderAmount: order.orderDetails.orderAmount,
+			},
+			orderStatus: order.orderStatus,
+		})
+		setIsLoading(false)
+	}
 
 	return (
 		<Modal
 			title={`Order Id: ${orderId}`}
 			visible={true}
-			onCancel={handleModalClose}
+			onCancel={onClose}
 			onOk={handleModalOk}
 			okText="OK"
 			footer={null}
