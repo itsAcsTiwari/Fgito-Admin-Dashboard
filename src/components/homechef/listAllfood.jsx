@@ -1,9 +1,9 @@
 import React from 'react'
 
 const ListAllFood = () => {
-  return (
-    <div>ListAllFood</div>
-  )
+	return (
+		<div>ListAllFood</div>
+	)
 }
 
 export default ListAllFood

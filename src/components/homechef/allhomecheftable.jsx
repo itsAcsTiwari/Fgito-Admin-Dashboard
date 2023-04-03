@@ -1,11 +1,11 @@
-"use client"
+'use client'
 import { Table, Tag } from 'antd'
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation'
 
 import styles from './AddHomeChefTable.module.css'
 
 const AddHomeChefTable = ({ data }) => {
-	const router = useRouter();
+	const router = useRouter()
 	// Handle id column click event
 	const handleIdClick = (id) => {
 		router.push(`/homechefs/${id}`)
@@ -58,9 +58,9 @@ const AddHomeChefTable = ({ data }) => {
 			<Table
 				columns={columns}
 				pagination={{ 
-					position: ["bottomCenter"],
+					position: ['bottomCenter'],
 					pageSize:20 
-					}}
+				}}
 				dataSource={data?.data.map((item, index) => ({ ...item, serialNumber: index + 1 }))}
 				className={`${styles.antTable} ant-table`}
 			/>

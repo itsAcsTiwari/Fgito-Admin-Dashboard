@@ -12,7 +12,7 @@
 		"import/newline-after-import": "error",
 		"import/no-duplicates": "error",
 		"no-console": ["error", { "allow": ["warn", "error", "dir"] }],
-		"indent": ["error", "tab"],
+		"indent": ["error", 4, { "SwitchCase": 1 }, "tab"],
 		"quotes": ["error", "single"],
 		"semi": ["error", "never"]
 	}

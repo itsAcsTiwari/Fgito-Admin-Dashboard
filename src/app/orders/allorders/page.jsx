@@ -1,8 +1,7 @@
 'use client'
 import { ErrorComponent, Loader } from '@src/components'
-import { useQuery } from 'react-query'
-
 import OrdersTable from '@src/components/orders/ordersTable'
+import { useQuery } from 'react-query'
 
 const Page = () => {
 	const { isLoading, error, data } = useQuery('repoData', () =>
