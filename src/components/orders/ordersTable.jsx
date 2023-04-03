@@ -7,15 +7,15 @@ import { useState } from 'react'
 import OrderDetails from './orderDetails'
 
 const OrdersTable = ({ data }) => {
-	const [selectedOrderId, setSelectedOrderId] = useState(null)
+	const [selectedOrder, setSelectedOrder] = useState(null)
 
 	const handleIdClick = (id) => {
-		setSelectedOrderId(id)
-		console.dir(id)
+		const order = data.data.find((orderObj) => orderObj.id === id)
+		setSelectedOrder(order)
 	}
 
 	const handleModalClose = () => {
-		setSelectedOrderId(null)
+		setSelectedOrder(null)
 	}
 
 	const columns = [
@@ -57,7 +57,6 @@ const OrdersTable = ({ data }) => {
 			dataIndex: 'orderStatus',
 			key: 'orderStatus',
 			className: classNames('text-green-500'),
-			render: (text) => <span>{text ? text.toUpperCase() : ''}</span>,
 		},
 		{
 			title: 'Order Date',
@@ -88,7 +87,7 @@ const OrdersTable = ({ data }) => {
 					pageSize: 20,
 				}}
 			/>
-			{selectedOrderId && <OrderDetails orderId={selectedOrderId} onClose={handleModalClose} data={data} />}
+			<OrderDetails order={selectedOrder} onClose={handleModalClose} isOpen={selectedOrder !== null} />
 		</>
 	)
 }

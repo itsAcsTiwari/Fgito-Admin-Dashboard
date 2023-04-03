@@ -1,5 +1,6 @@
 'use client'
 
+<<<<<<< HEAD:src/app/homechefs/addhomechefs/page.jsx
 import { Button, Form, Input, message, Modal, Select, TimePicker } from 'antd'
 import moment from 'moment'
 import { useState } from 'react'
@@ -191,6 +192,13 @@ const AddHomeChefModal = ({ visible, onCancel, onCreate }) => {
 				</Form.Item>
 			</Form>
 		</Modal>
+=======
+const AddHomeChef = () => {
+	return (
+		<>
+			<div>Form for adding new homeChefs</div>
+		</>
+>>>>>>> 797db55b1e3dfdb04aef6584101e322d76b87281:src/app/(authenticated)/homeChefs/addHomeChefs/page.jsx
 	)
 }
 

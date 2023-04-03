@@ -1,5 +1,7 @@
 'use client'
+import { Modal } from 'antd'
 
+<<<<<<< HEAD
 import { Modal, Spin } from 'antd'
 import { useState } from 'react'
 
@@ -9,10 +11,17 @@ const OrderDetails = ({ orderId, onClose, data }) => {
 
 	const order = data.data.find((orderObj) => orderObj.id === orderId)
 
+=======
+const OrderDetails = ({ order, onClose, isOpen }) => {
+	if (!order) return <></>
+	const { id, orderNo, orderDetails, userId, orderStatus } = order
+	const { UserName, orderAmount, orderDate } = orderDetails
+>>>>>>> 797db55b1e3dfdb04aef6584101e322d76b87281
 	const handleModalOk = () => {
 		console.dir('OK button clicked')
 	}
 
+<<<<<<< HEAD
 	if (isLoading && order) {
 		setOrderData({
 			id: orderId,
@@ -33,25 +42,26 @@ const OrderDetails = ({ orderId, onClose, data }) => {
 			title={`Order Id: ${orderId}`}
 			visible={true}
 			onCancel={onClose}
+=======
+	return (
+		<Modal
+			title={`Order Id: ${id}`}
+			onCancel={onClose}
+			open={isOpen}
+>>>>>>> 797db55b1e3dfdb04aef6584101e322d76b87281
 			onOk={handleModalOk}
 			okText="OK"
 			footer={null}
 			className="w-full max-w-sm mx-auto"
 		>
-			{isLoading ? (
-				<div className="flex justify-center items-center h-32">
-					<Spin size="large" />
-				</div>
-			) : (
-				<div className="p-4">
-					<p className="font-bold">Order No.: {orderData.orderNo}</p>
-					<p className="mt-2">User Id: {orderData.userId}</p>
-					<p className="mt-2">User Name: {orderData.orderDetails.UserName}</p>
-					<p className="mt-2">Order Status: {orderData.orderStatus}</p>
-					<p className="mt-2">Order Date: {orderData.orderDetails.orderDate}</p>
-					<p className="mt-2">Order Amount: {orderData.orderDetails.orderAmount}</p>
-				</div>
-			)}
+			<div className="p-4 space-y-2">
+				<p className="font-bold">Order No.: {orderNo ? orderNo : ''}</p>
+				<p>User Id: {userId ? userId : ''}</p>
+				<p>User Name: {UserName ? UserName : ''}</p>
+				<p>Order Status: {typeof orderStatus == 'string' ? orderStatus : 'not available atm'}</p>
+				<p>Order Date: {orderDate ? orderDate : ''}</p>
+				<p>Order Amount: {orderAmount ? orderAmount : ''}</p>
+			</div>
 		</Modal>
 	)
 }
