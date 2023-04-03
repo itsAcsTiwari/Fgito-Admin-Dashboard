@@ -8,16 +8,16 @@ const AddHomeChefTable = ({ data }) => {
 	const router = useRouter()
 	// Handle id column click event
 	const handleIdClick = (id) => {
-		router.push(`/homechefs/${id}`)
-		
+		router.push(`/homeChefs/${id}`)
 	}
 
 	// Table Headings
 	const columns = [
 		{
 			title: 'S.No',
-			dataIndex: 'serialNumber',
-			key: 'serialNumber',
+			dataIndex: 'index',
+			key: 'index',
+			render: (text, record, index) => index + 1,
 		},
 		{
 			title: 'Id',
@@ -57,9 +57,9 @@ const AddHomeChefTable = ({ data }) => {
 		<div className="w-full antialiased text-gray-900">
 			<Table
 				columns={columns}
-				pagination={{ 
+				pagination={{
 					position: ['bottomCenter'],
-					pageSize:20 
+					pageSize: 20,
 				}}
 				dataSource={data?.data.map((item, index) => ({ ...item, serialNumber: index + 1 }))}
 				className={`${styles.antTable} ant-table`}
