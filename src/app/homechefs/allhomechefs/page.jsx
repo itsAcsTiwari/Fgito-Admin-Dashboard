@@ -1,7 +1,6 @@
 'use client'
 
-import { ErrorComponent,Loader } from '@src/components'
-import AddHomeChefTable from '@src/components/homechef/allhomecheftable'
+import { ErrorComponent,Loader,AddHomeChefTable } from '@src/components'
 import { useQuery } from 'react-query'
 
 const AllHomeChefs = () => {
