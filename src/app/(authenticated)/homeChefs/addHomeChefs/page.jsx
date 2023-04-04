@@ -1,9 +1,8 @@
 'use client'
 
 import { ApiRoutes } from '@src/core'
-import { Button, Form, Input, Modal, Select, TimePicker } from 'antd'
+import { Button, Form, Input, Select, TimePicker } from 'antd'
 import moment from 'moment'
-import { useState } from 'react'
 import { useMutation } from 'react-query'
 
 const { Option } = Select
