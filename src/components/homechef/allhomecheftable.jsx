@@ -11,7 +11,6 @@ const AddHomeChefTable = ({ data }) => {
 		router.push(`/homeChefs/${id}`)
 	}
 
-	// Table Headings
 	const columns = [
 		{
 			title: 'S.No',
