@@ -1,5 +1,6 @@
 'use client'
 
+import { PageRoutes } from '@src/core'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -15,20 +16,20 @@ export default function Layout({ children }) {
 				<div
 					className={classNames(
 						'px-5 py-2 mx-1 align-middle ',
-						pathname.includes('/allHomeChefs') ? 'bg-slate-300 rounded-3xl' : '',
+						pathname.includes('/allHomechefs') ? 'bg-slate-300 rounded-3xl' : '',
 					)}
 				>
-					<Link href="/homeChefs/allHomeChefs">
+					<Link href={PageRoutes.All_HOME_CHEFS}>
 						<h3>All HomeChefs</h3>
 					</Link>
 				</div>
 				<div
 					className={classNames(
 						'px-5 py-2 mx-1 align-middle ',
-						pathname.includes('/addHomeChefs') ? 'bg-slate-300 rounded-3xl' : '',
+						pathname.includes('/addHomechefs') ? 'bg-slate-300 rounded-3xl' : '',
 					)}
 				>
-					<Link href="/homeChefs/addHomeChefs">
+					<Link href={PageRoutes.ADD_HOME_CHEFS}>
 						<h3>Add HomeChefs</h3>
 					</Link>
 				</div>

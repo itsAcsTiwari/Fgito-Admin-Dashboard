@@ -2,7 +2,7 @@
 
 import './globals.css'
 
-import { Footer, SideBarNav } from '@src/components'
+import { Footer } from '@src/components'
 import { Roboto } from 'next/font/google'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'

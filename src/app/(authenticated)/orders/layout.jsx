@@ -1,4 +1,5 @@
 'use client'
+import { ORDERS, PageRoutes } from '@src/core'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -14,10 +15,10 @@ export default function Layout({ children }) {
 				<div
 					className={classNames(
 						'px-5 py-2 mx-1 align-middle ',
-						pathname.includes('/orders') ? 'bg-slate-300 rounded-3xl' : '',
+						pathname.includes(ORDERS) ? 'bg-slate-300 rounded-3xl' : '',
 					)}
 				>
-					<Link href="/homeChefs/allHomeChefs">
+					<Link href={PageRoutes.All_HOME_CHEFS}>
 						<h3>All Order</h3>
 					</Link>
 				</div>
