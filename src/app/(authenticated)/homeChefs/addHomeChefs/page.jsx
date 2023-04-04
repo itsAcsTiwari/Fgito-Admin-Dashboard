@@ -1,12 +1,14 @@
 'use client'
 
-import { Button, Form, Input, message, Modal, Select, TimePicker } from 'antd'
+import { ApiRoutes } from '@src/core'
+import { Button, Form, Input, Modal, Select, TimePicker } from 'antd'
 import moment from 'moment'
 import { useState } from 'react'
+import { useMutation } from 'react-query'
 
 const { Option } = Select
 
-const AddHomeChefModal = ({ visible, onCancel, onCreate }) => {
+const AddHomeChef = () => {
 	const [form] = Form.useForm()
 
 	const initialValues = {
@@ -32,76 +34,61 @@ const AddHomeChefModal = ({ visible, onCancel, onCreate }) => {
 		closingTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
 	}
 
-	const [loading, setLoading] = useState(false)
+	const { mutate, isLoading } = useMutation(
+		async (homeChef) => {
+			const response = await fetch(ApiRoutes.addHomechef, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(homeChef),
+			})
+			const data = await response.json()
+			return data
+		},
+		{
+			onSuccess: async () => {
+				await queryCache.refetchQueries('homeChefs')
+				setModalVisible(false)
+			},
+		},
+	)
 
 	const handleCreate = async () => {
 		try {
-			setLoading(true)
 			const values = await form.validateFields()
-			onCreate(values)
-			console.dir(values)
+			mutate(values)
 			form.resetFields()
-			setLoading(false)
 		} catch (err) {
-			console.dir('Error: ', err)
-			setLoading(false)
+			console.error('Error: ', err)
 		}
 	}
 
-	const handleCancel = () => {
-		onCancel()
-		form.resetFields()
-	}
-
 	return (
-		<Modal
-			title="Add Home Chef"
-			visible={visible}
-			onOk={handleCreate}
-			onCancel={handleCancel}
-			confirmLoading={loading}
-		>
-			<Form form={form} initialValues={initialValues}>
+		<div className="w-full lg:w-1/2 mx-auto py-2">
+			<Form form={form} initialValues={initialValues} onFinish={handleCreate}>
 				<Form.Item name="name" label="Name" rules={[{ required: true, message: 'Please input chef name' }]}>
-					<Input value={initialValues.name} onChange={(e) => form.setFieldsValue({ name: e.target.value })} />
+					<Input />
 				</Form.Item>
 				<Form.Item name="city" label="City" rules={[{ required: true, message: 'Please input City' }]}>
-					<Input value={initialValues.city} onChange={(e) => form.setFieldsValue({ city: e.target.value })} />
+					<Input />
 				</Form.Item>
 				<Form.Item
 					name="address"
 					label="Address"
 					rules={[{ required: true, message: 'Please input the address' }]}
 				>
-					<Input
-						value={initialValues.address}
-						onChange={(e) => form.setFieldsValue({ address: e.target.value })}
-					/>
+					<Input />
 				</Form.Item>
 				<Form.Item name="description" label="Description">
-					<Input
-						value={initialValues.description}
-						onChange={(e) => form.setFieldsValue({ description: e.target.value })}
-					/>
+					<Input />
 				</Form.Item>
 				<Form.Item name="cuisine" label="Cuisine" rules={[{ required: true, message: 'Please input Cuisine' }]}>
-					<Input
-						value={initialValues.cuisine}
-						onChange={(e) => form.setFieldsValue({ cuisine: e.target.value })}
-					/>
+					<Input />
 				</Form.Item>
 				<Form.Item name="Pincode" label="Pincode" rules={[{ message: 'Please input Pincode' }]}>
-					<Input
-						type="number"
-						value={initialValues.pincode}
-						onChange={(e) => form.setFieldsValue({ pincode: e.target.value })}
-					/>
+					<Input type="number" />
 				</Form.Item>
 				<Form.Item name="state" label="State" rules={[{ required: true, message: 'Please input State' }]}>
-					<Input
-						value={initialValues.state}
-						onChange={(e) => form.setFieldsValue({ state: e.target.value })}
-					/>
+					<Input />
 				</Form.Item>
 				<Form.Item
 					name="foodType"
@@ -121,22 +108,14 @@ const AddHomeChefModal = ({ visible, onCancel, onCreate }) => {
 					label="Min Price"
 					rules={[{ required: true, message: 'Please input Min Price' }]}
 				>
-					<Input
-						type="number"
-						value={initialValues.minPrice}
-						onChange={(e) => form.setFieldsValue({ minPrice: e.target.value })}
-					/>
+					<Input type="number" />
 				</Form.Item>
 				<Form.Item
 					name="maxPrice"
 					label="Max Price"
 					rules={[{ required: true, message: 'Please input Max Price' }]}
 				>
-					<Input
-						type="number"
-						value={initialValues.maxPrice}
-						onChange={(e) => form.setFieldsValue({ maxPrice: e.target.value })}
-					/>
+					<Input type="number" />
 				</Form.Item>
 				<Form.Item
 					name="homeChefStatus"
@@ -174,24 +153,21 @@ const AddHomeChefModal = ({ visible, onCancel, onCreate }) => {
 					label="Opening Time"
 					rules={[{ required: true, message: 'Please select Opening Time' }]}
 				>
-					<TimePicker
-						value={initialValues.openingTime}
-						onChange={(value) => form.setFieldsValue({ openingTime: value })}
-					/>
+					<TimePicker />
 				</Form.Item>
 				<Form.Item
 					name="closingTime"
 					label="Closing Time"
 					rules={[{ required: true, message: 'Please select Closing Time' }]}
 				>
-					<TimePicker
-						value={initialValues.closingTime}
-						onChange={(value) => form.setFieldsValue({ closingTime: value })}
-					/>
+					<TimePicker />
 				</Form.Item>
+				<Button className="bg-white text-black" htmlType="submit" disabled={isLoading}>
+					Submit
+				</Button>
 			</Form>
-		</Modal>
+		</div>
 	)
 }
 
-export default AddHomeChefModal
+export default AddHomeChef

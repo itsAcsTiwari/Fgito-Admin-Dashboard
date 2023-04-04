@@ -23,7 +23,7 @@ const RootNavigation = () => {
 					pathname.includes(HOMECHEFS) ? 'bg-slate-300 border-r-4 border-[#009879]' : '',
 				)}
 			>
-				<Link href={PageRoutes.ADD_HOME_CHEFS}>
+				<Link href={PageRoutes.All_HOME_CHEFS}>
 					<h2
 						className={
 							pathname.includes(HOMECHEFS)
