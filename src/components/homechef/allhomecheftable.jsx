@@ -55,13 +55,14 @@ const AddHomeChefTable = ({ data }) => {
 	return (
 		<div className="w-full antialiased text-gray-900">
 			<Table
+				className="max-w-screen-lg"
 				columns={columns}
+				scroll={{ x: 'max-content' }}
 				pagination={{
 					position: ['bottomCenter'],
 					pageSize: 20,
 				}}
 				dataSource={data?.data.map((item, index) => ({ ...item, serialNumber: index + 1 }))}
-				className={`${styles.antTable} ant-table`}
 			/>
 		</div>
 	)
