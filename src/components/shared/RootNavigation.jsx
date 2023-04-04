@@ -1,4 +1,5 @@
 'use client'
+import { HOMECHEFS, ORDERS, PageRoutes } from '@src/core'
 import classNames from 'classnames'
 import { Roboto_Condensed } from 'next/font/google'
 import Link from 'next/link'
@@ -19,13 +20,13 @@ const RootNavigation = () => {
 			<div
 				className={classNames(
 					'flex flex-row text-left py-3 top-0 w-full',
-					pathname.includes('/homeChefs') ? 'bg-slate-300 border-r-4 border-[#009879]' : '',
+					pathname.includes(HOMECHEFS) ? 'bg-slate-300 border-r-4 border-[#009879]' : '',
 				)}
 			>
-				<Link href="/homeChefs/allHomeChefs">
+				<Link href={PageRoutes.ADD_HOME_CHEFS}>
 					<h2
 						className={
-							pathname.includes('/homeChefs')
+							pathname.includes(HOMECHEFS)
 								? `${navigationActiveWrapper} ${robotoCondensed.className}`
 								: `${navigationWrapper} ${robotoCondensed.className}`
 						}
@@ -37,13 +38,13 @@ const RootNavigation = () => {
 			<div
 				className={classNames(
 					'flex flex-row text-left py-3 top-0 w-full',
-					pathname.includes('/orders') ? 'bg-slate-300 border-r-4 border-[#009879]' : '',
+					pathname.includes(ORDERS) ? 'bg-slate-300 border-r-4 border-[#009879]' : '',
 				)}
 			>
-				<Link href="/orders/allOrders">
+				<Link href={PageRoutes.ALL_ORDERS}>
 					<h2
 						className={
-							pathname.includes('/orders')
+							pathname.includes(ORDERS)
 								? `${navigationActiveWrapper} ${robotoCondensed.className}`
 								: `${navigationWrapper} ${robotoCondensed.className}`
 						}
@@ -55,13 +56,13 @@ const RootNavigation = () => {
 			<div
 				className={classNames(
 					'flex flex-row text-left py-3 top-0 w-full',
-					pathname.includes('/sales') ? 'bg-slate-300 border-r-4 border-[#009879]' : '',
+					pathname.includes(PageRoutes.SALES) ? 'bg-slate-300 border-r-4 border-[#009879]' : '',
 				)}
 			>
-				<Link href="/sales">
+				<Link href={PageRoutes.SALES}>
 					<h2
 						className={
-							pathname.includes('/sales')
+							pathname.includes(PageRoutes.SALES)
 								? `${navigationActiveWrapper} ${robotoCondensed.className}`
 								: `${navigationWrapper} ${robotoCondensed.className}`
 						}

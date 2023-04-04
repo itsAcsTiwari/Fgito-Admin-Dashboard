@@ -1,11 +1,12 @@
 'use client'
 
 import { AddHomeChefTable, ErrorComponent, Loader } from '@src/components'
+import { ApiRoutes } from '@src/core'
 import { useQuery } from 'react-query'
 
 const AllHomeChefs = () => {
 	const { isLoading, error, data } = useQuery('repoData', () =>
-		fetch('/api/homeChefs/allHomeChefs').then((res) => res.json()),
+		fetch(ApiRoutes.allHomechefs).then((res) => res.json()),
 	)
 	if (isLoading) return <Loader />
 

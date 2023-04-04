@@ -5,8 +5,8 @@ import { useState } from 'react'
 
 const Page = ({ params }) => {
 	const homechefId = params.homechef
-	const [component, setComponent] = useState(<></>)
-	const [buttonClicked, setButtonClicked] = useState()
+	const [component, setComponent] = useState(<DetailsHomechef />)
+	const [buttonClicked, setButtonClicked] = useState('details')
 
 	const updateComponent = (type) => {
 		switch (type) {
@@ -27,8 +27,8 @@ const Page = ({ params }) => {
 				setButtonClicked('list food')
 				break
 			default:
-				setComponent(<></>)
-				setButtonClicked('')
+				setComponent(<DetailsHomechef />)
+				setButtonClicked('details')
 		}
 	}
 
