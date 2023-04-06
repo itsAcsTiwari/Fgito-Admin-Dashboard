@@ -1,14 +1,13 @@
 'use client'
+import { HOMECHEFS } from '@src/core'
 import { Table, Tag } from 'antd'
 import { useRouter } from 'next/navigation'
-
-import styles from './AddHomeChefTable.module.css'
 
 const AddHomeChefTable = ({ data }) => {
 	const router = useRouter()
 	// Handle id column click event
 	const handleIdClick = (id) => {
-		router.push(`/homeChefs/${id}`)
+		router.push(`${HOMECHEFS}/${id}`)
 	}
 
 	const columns = [
