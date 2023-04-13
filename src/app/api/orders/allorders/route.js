@@ -7,6 +7,9 @@ export async function GET() {
 			authToken: `${process.env.NEXT_PUBLIC_API_KEY}`,
 		},
 	})
+
 	const data = await res.json()
 	return NextResponse.json({ data })
+
 }
+
