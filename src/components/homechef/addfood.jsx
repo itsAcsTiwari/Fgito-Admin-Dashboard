@@ -2,6 +2,8 @@ import { Button, Col, Form, Input, Row, Select, TimePicker } from 'antd'
 import moment from 'moment'
 import { useMutation } from 'react-query'
 
+import RoundedInput from './roundedInput'
+
 const { Option } = Select
 
 const AddHomeChef = () => {
@@ -59,7 +61,7 @@ const AddHomeChef = () => {
 							<div className="text-gray-600 mb-1">
 								<sup>*</sup>FoodName:
 							</div>
-							<Input className="rounded" />
+							<RoundedInput />
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
@@ -67,7 +69,7 @@ const AddHomeChef = () => {
 							<div className="text-gray-600 mb-1">
 								<sup>*</sup>Food Image URL:
 							</div>
-							<Input className="rounded" />
+							<RoundedInput />
 						</Form.Item>
 					</Col>
 				</Row>
@@ -84,7 +86,7 @@ const AddHomeChef = () => {
 					<Col xs={24} sm={12}>
 						<Form.Item name="description">
 							<div className="text-gray-600 mb-1">Description:</div>
-							<Input className="rounded" />
+							<RoundedInput />
 						</Form.Item>
 					</Col>
 				</Row>
@@ -95,7 +97,7 @@ const AddHomeChef = () => {
 								<sup>*</sup>Quantity:
 							</div>
 
-							<Input type="number" min={0} className="rounded" />
+							<RoundedInput min={0} />
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
@@ -119,7 +121,7 @@ const AddHomeChef = () => {
 							<div className="text-gray-600 mb-1">
 								<sup>*</sup>Price:
 							</div>
-							<Input type="number" min={0} className="rounded" />
+							<RoundedInput min={0} />
 						</Form.Item>
 					</Col>
 				</Row>
