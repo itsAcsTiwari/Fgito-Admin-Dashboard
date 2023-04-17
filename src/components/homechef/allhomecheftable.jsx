@@ -1,14 +1,13 @@
 'use client'
+import { HOMECHEFS } from '@src/core'
 import { Table, Tag } from 'antd'
 import { useRouter } from 'next/navigation'
 
-import styles from './AddHomeChefTable.module.css'
-
-const AddHomeChefTable = ({ data }) => {
+const AllHomeChefTable = ({ data }) => {
 	const router = useRouter()
-	// Handle id column click event
+
 	const handleIdClick = (id) => {
-		router.push(`/homeChefs/${id}`)
+		router.push(`${HOMECHEFS}/${id}`)
 	}
 
 	const columns = [
@@ -42,7 +41,7 @@ const AddHomeChefTable = ({ data }) => {
 			title: 'OpeningDays',
 			dataIndex: 'OpeningDays',
 			key: 'OpeningDays',
-			render: (text) => <div className="capitalize w-20">{text}</div>,
+			render: (text) => <div className="w-20 capitalize">{text}</div>,
 		},
 		{
 			title: 'Status',
@@ -53,7 +52,7 @@ const AddHomeChefTable = ({ data }) => {
 	]
 
 	return (
-		<div className="w-full antialiased text-gray-900">
+		<div className="w-full text-gray-900 antialiased">
 			<Table
 				className="max-w-screen-lg"
 				columns={columns}
@@ -68,4 +67,4 @@ const AddHomeChefTable = ({ data }) => {
 	)
 }
 
-export default AddHomeChefTable
+export default AllHomeChefTable

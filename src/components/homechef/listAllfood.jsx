@@ -1,7 +1,7 @@
 'use client'
 
 import { ErrorComponent, Loader } from '@src/components'
-import { Option, Select, TimePicker } from 'antd'
+import { Select, TimePicker } from 'antd'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
@@ -58,10 +58,13 @@ const ListAllFood = () => {
 					</label>
 					<label>
 						Food Type:
-						<Select value={selectedFood.foodType}>
-							<Option value="0">Veg</Option>
-							<Option value="1">Non-Veg</Option>
-						</Select>
+						<Select
+							value={selectedFood.foodType}
+							options={[
+								{ value: '0', label: Veg },
+								{ value: '1', label: Non - Veg },
+							]}
+						/>
 					</label>
 					<label>
 						Description:

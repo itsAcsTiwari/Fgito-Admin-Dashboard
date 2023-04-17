@@ -26,6 +26,7 @@ const AddHomeChef = () => {
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(food),
 			})
+
 			const data = await response.json()
 			return data
 		},
@@ -34,31 +35,30 @@ const AddHomeChef = () => {
 				await queryCache.refetchQueries('food')
 				setModalVisible(false)
 			},
+			onError: (error) => {
+				console.dir(error, 'in add food mutation')
+			},
 		},
 	)
 
 	const handleCreate = async () => {
-		try {
-			const values = await form.validateFields()
-			mutate(values)
-			form.resetFields()
-		} catch (err) {
-			console.error('Error: ', err)
-		}
+		const values = await form.validateFields()
+		mutate(values)
+		form.resetFields()
 	}
 
 	return (
-		<div className="w-full rounded py-2 bg-cover bg-center">
+		<div className="w-full rounded bg-cover bg-center py-2">
 			<Form
 				form={form}
 				initialValues={initialValues}
 				onFinish={handleCreate}
-				className="bg-white p-6 rounded-lg shadow-md"
+				className="rounded-lg bg-white p-6 shadow-md"
 			>
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="foodName" rules={[{ required: true, message: 'Please input food name' }]}>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>FoodName:
 							</div>
 							<RoundedInput />
@@ -66,7 +66,7 @@ const AddHomeChef = () => {
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="foodImg" rules={[{ required: true, message: 'Please input the image URL' }]}>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Food Image URL:
 							</div>
 							<RoundedInput />
@@ -78,14 +78,14 @@ const AddHomeChef = () => {
 						name="foodPreparationTime"
 						rules={[{ required: true, message: 'Please select foodPreparationTime' }]}
 					>
-						<div className="text-gray-600 mb-1">
+						<div className="mb-1 text-gray-600">
 							<sup>*</sup>Food Preparation Time:
 						</div>
 						<TimePicker format="h:mm a" />
 					</Form.Item>
 					<Col xs={24} sm={12}>
 						<Form.Item name="description">
-							<div className="text-gray-600 mb-1">Description:</div>
+							<div className="mb-1 text-gray-600">Description:</div>
 							<RoundedInput />
 						</Form.Item>
 					</Col>
@@ -93,7 +93,7 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="quantity" rules={[{ required: true, message: 'Please enter quantity' }]}>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Quantity:
 							</div>
 
@@ -102,7 +102,7 @@ const AddHomeChef = () => {
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="foodType" rules={[{ required: true, message: 'Please select food type' }]}>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Food Type:
 							</div>
 							<Select
@@ -118,14 +118,14 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="price" rules={[{ required: true, message: 'Please enter price' }]}>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Price:
 							</div>
 							<RoundedInput min={0} />
 						</Form.Item>
 					</Col>
 				</Row>
-				<div className="flex justify-center mt-8">
+				<div className="mt-8 flex justify-center">
 					<Button className="bg-white text-black" htmlType="submit" disabled={isLoading}>
 						Submit
 					</Button>
