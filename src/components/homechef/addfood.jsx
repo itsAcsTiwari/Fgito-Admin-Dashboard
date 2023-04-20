@@ -4,8 +4,6 @@ import { useMutation } from 'react-query'
 
 import RoundedInput from './roundedInput'
 
-// const { Option } = Select
-
 const AddHomeChef = () => {
 	const [form] = Form.useForm()
 
