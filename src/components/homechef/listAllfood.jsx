@@ -64,12 +64,21 @@ const ListAllFood = () => {
 					<label>
 						Food Type:
 						<Select
+<<<<<<< HEAD
 							value={selectedFood ? selectedFood.foodType : '0'}
 							options={[
 								{ label: 'Veg', value: '0' },
 								{ label: 'Non-Veg', value: '1' },
 							]}
 						></Select>
+=======
+							value={selectedFood.foodType}
+							options={[
+								{ value: '0', label: Veg },
+								{ value: '1', label: Non - Veg },
+							]}
+						/>
+>>>>>>> 7ea1b9632f8c23cfbe0a049f84515d556b96859a
 					</label>
 					<label>
 						Description:
