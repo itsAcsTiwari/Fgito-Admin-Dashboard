@@ -1,10 +1,10 @@
-import { Button, Col, Form, Input, Row, Select, TimePicker } from 'antd'
+import { Button, Col, Form, Row, Select, TimePicker } from 'antd'
 import moment from 'moment'
 import { useMutation } from 'react-query'
 
 import RoundedInput from './roundedInput'
 
-const { Option } = Select
+// const { Option } = Select
 
 const AddHomeChef = () => {
 	const [form] = Form.useForm()
@@ -108,10 +108,11 @@ const AddHomeChef = () => {
 							<Select
 								defaultValue={initialValues.foodType}
 								onChange={(value) => form.setFieldsValue({ foodType: value })}
-							>
-								<Option value="0">Veg</Option>
-								<Option value="1">Non-Veg</Option>
-							</Select>
+								options={[
+									{ label: 'Veg', value: '0' },
+									{ label: 'Non-Veg', value: '1' },
+								]}
+							/>
 						</Form.Item>
 					</Col>
 				</Row>

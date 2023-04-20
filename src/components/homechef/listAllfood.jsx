@@ -1,24 +1,29 @@
 'use client'
-
 import { ErrorComponent, Loader } from '@src/components'
-import { Option, Select, TimePicker } from 'antd'
+import { Select, TimePicker } from 'antd'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
 
 import RoundedInput from './roundedInput'
 
+const useHandleEdit = () => {
+	const router = useRouter()
+
+	const handleEdit = (foodId) => {
+		router.push(`/editFood/${foodId}`)
+	}
+
+	return handleEdit
+}
+
 const ListAllFood = () => {
 	const { isLoading, error, data } = useQuery('repoData', () =>
 		fetch('/api/foods/allFoods').then((res) => res.json()),
 	)
 
-	const router = useRouter()
 	const [selectedFood, setSelectedFood] = useState(null)
-
-	const handleEdit = (foodId) => {
-		router.push(`/editFood/${foodId}`)
-	}
+	const handleEdit = useHandleEdit()
 
 	if (isLoading) return <Loader />
 
@@ -58,10 +63,13 @@ const ListAllFood = () => {
 					</label>
 					<label>
 						Food Type:
-						<Select value={selectedFood.foodType}>
-							<Option value="0">Veg</Option>
-							<Option value="1">Non-Veg</Option>
-						</Select>
+						<Select
+							value={selectedFood ? selectedFood.foodType : '0'}
+							options={[
+								{ label: 'Veg', value: '0' },
+								{ label: 'Non-Veg', value: '1' },
+							]}
+						></Select>
 					</label>
 					<label>
 						Description:

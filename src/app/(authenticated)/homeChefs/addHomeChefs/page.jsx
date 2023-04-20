@@ -134,8 +134,8 @@ const AddHomeChef = () => {
 								defaultValue={initialValues.foodType}
 								onChange={(value) => form.setFieldsValue({ foodType: value })}
 							>
-								<Option value="0">Veg</Option>
-								<Option value="1">Non-Veg</Option>
+								<Select.Option value="0">Veg</Select.Option>
+								<Select.Option value="1">Non-Veg</Select.Option>
 							</Select>
 						</Form.Item>
 					</Col>
@@ -168,13 +168,13 @@ const AddHomeChef = () => {
 								value={initialValues.openingDay}
 								onChange={(value) => form.setFieldsValue({ openingDay: value })}
 							>
-								<Option value="Monday">Monday</Option>
-								<Option value="Tuesday">Tuesday</Option>
-								<Option value="Wednesday">Wednesday</Option>
-								<Option value="Thursday">Thursday</Option>
-								<Option value="Friday">Friday</Option>
-								<Option value="Saturday">Saturday</Option>
-								<Option value="Sunday">Sunday</Option>
+								<Select.Option value="Monday">Monday</Select.Option>
+								<Select.Option value="Tuesday">Tuesday</Select.Option>
+								<Select.Option value="Wednesday">Wednesday</Select.Option>
+								<Select.Option value="Thursday">Thursday</Select.Option>
+								<Select.Option value="Friday">Friday</Select.Option>
+								<Select.Option value="Saturday">Saturday</Select.Option>
+								<Select.Option value="Sunday">Sunday</Select.Option>
 							</Select>
 						</Form.Item>
 					</Col>
@@ -235,8 +235,8 @@ const AddHomeChef = () => {
 								value={form.getFieldValue('homeChefStatus')}
 								onChange={(value) => form.setFieldsValue({ homeChefStatus: value })}
 							>
-								<Option value="0">Inactive</Option>
-								<Option value="1">Active</Option>
+								<Select.Option value="0">Inactive</Select.Option>
+								<Select.Option value="1">Active</Select.Option>
 							</Select>
 						</Form.Item>
 					</Col>
