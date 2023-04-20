@@ -97,7 +97,7 @@ const AddHomeChef = () => {
 								<sup>*</sup>Quantity:
 							</div>
 
-							<RoundedInput min={0} />
+							<RoundedInput type='number' min={0} />
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
@@ -122,7 +122,7 @@ const AddHomeChef = () => {
 							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Price:
 							</div>
-							<RoundedInput min={0} />
+							<RoundedInput type='number' min={0} />
 						</Form.Item>
 					</Col>
 				</Row>
