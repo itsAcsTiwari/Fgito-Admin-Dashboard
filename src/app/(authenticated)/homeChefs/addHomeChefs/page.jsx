@@ -45,8 +45,9 @@ const AddHomeChef = () => {
 		},
 		{
 			onSuccess: async () => {
-				await queryCache.refetchQueries('homeChefs')
-				setModalVisible(false)
+				// TODO: refetch homechefs on success, use refetch() from the query
+				// not the recommended way to use queryCache like this
+				// await queryCache.refetchQueries('homeChefs')
 			},
 		},
 	)
@@ -62,7 +63,7 @@ const AddHomeChef = () => {
 	}
 
 	return (
-		<div className="w-full lg:w-1/2 mx-auto py-2">
+		<div className="mx-auto w-full py-2 lg:w-1/2">
 			<Form form={form} initialValues={initialValues} onFinish={handleCreate}>
 				<Form.Item name="name" label="Name" rules={[{ required: true, message: 'Please input chef name' }]}>
 					<Input />
