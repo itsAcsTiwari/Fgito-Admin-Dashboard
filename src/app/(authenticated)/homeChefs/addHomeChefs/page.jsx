@@ -5,8 +5,6 @@ import { Button, Col, Form, Input, Row, Select, TimePicker } from 'antd'
 import moment from 'moment'
 import { useMutation } from 'react-query'
 
-const { Option } = Select
-
 const AddHomeChef = () => {
 	const [form] = Form.useForm()
 
@@ -45,8 +43,9 @@ const AddHomeChef = () => {
 		},
 		{
 			onSuccess: async () => {
-				await queryCache.refetchQueries('homeChefs')
-				setModalVisible(false)
+				// TODO: refetch homechefs on success, use refetch() from the query
+				// not the recommended way to use queryCache like this
+				// await queryCache.refetchQueries('homeChefs')
 			},
 		},
 	)
@@ -62,12 +61,12 @@ const AddHomeChef = () => {
 	}
 
 	return (
-		<div className="w-full lg:w-full mx-auto py-2">
+		<div className="mx-auto w-full py-2 lg:w-full">
 			<Form form={form} initialValues={initialValues} onFinish={handleCreate}>
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="name" rules={[{ required: true, message: 'Please input chef name' }]}>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Name:
 							</div>
 							<Input />
@@ -75,7 +74,7 @@ const AddHomeChef = () => {
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="city" rules={[{ required: true, message: 'Please input City' }]}>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>City:
 							</div>
 							<Input />
@@ -85,7 +84,7 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="address" rules={[{ required: true, message: 'Please input the address' }]}>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Address:
 							</div>
 							<Input />
@@ -93,7 +92,7 @@ const AddHomeChef = () => {
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="description">
-							<div className="text-gray-600 mb-1">Description:</div>
+							<div className="mb-1 text-gray-600">Description:</div>
 							<Input />
 						</Form.Item>
 					</Col>
@@ -101,7 +100,7 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="cuisine" rules={[{ required: true, message: 'Please input Cuisine' }]}>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Cuisine:
 							</div>
 							<Input />
@@ -109,7 +108,7 @@ const AddHomeChef = () => {
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="Pincode" rules={[{ required: true, message: 'Please input Pincode' }]}>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Pincode:
 							</div>
 							<Input type="number" />
@@ -119,7 +118,7 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="state" rules={[{ required: true, message: 'Please input State' }]}>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>State:
 							</div>
 							<Input />
@@ -127,7 +126,7 @@ const AddHomeChef = () => {
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="foodType" rules={[{ required: true, message: 'Please select Food Type' }]}>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Food Type:
 							</div>
 							<Select
@@ -143,7 +142,7 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="minPrice" rules={[{ required: true, message: 'Please input Min Price' }]}>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Min Price:
 							</div>
 							<Input type="number" min={0} />
@@ -151,7 +150,7 @@ const AddHomeChef = () => {
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="maxPrice" rules={[{ required: true, message: 'Please input Max Price' }]}>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Max Price:
 							</div>
 							<Input type="number" min={0} />
@@ -161,7 +160,7 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="openingDay" rules={[{ required: true, message: 'Please select Opening Day' }]}>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Opening Day:
 							</div>
 							<Select
@@ -183,7 +182,7 @@ const AddHomeChef = () => {
 							name="openingTime"
 							rules={[{ required: true, message: 'Please select Opening Time' }]}
 						>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Opening Time:
 							</div>
 							<TimePicker format="h:mm a" />
@@ -196,7 +195,7 @@ const AddHomeChef = () => {
 							name="closingTime"
 							rules={[{ required: true, message: 'Please select Closing Time' }]}
 						>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Closing Time:
 							</div>
 							<TimePicker format="h:mm a" />
@@ -207,7 +206,7 @@ const AddHomeChef = () => {
 							name="maxTime"
 							rules={[{ required: true, message: 'Please input Max Time for Delivery' }]}
 						>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Max Time for Delivery:
 							</div>
 							<Input type="number" min={0} />
@@ -220,7 +219,7 @@ const AddHomeChef = () => {
 							name="homeChefImage"
 							rules={[{ required: true, message: 'Please input the image URL' }]}
 						>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Image URL:
 							</div>
 							<Input />
@@ -228,7 +227,7 @@ const AddHomeChef = () => {
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="homeChefStatus" rules={[{ required: true, message: 'Please select Status' }]}>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Status:
 							</div>
 							<Select
@@ -247,14 +246,14 @@ const AddHomeChef = () => {
 							name="googleLocation"
 							rules={[{ required: true, message: 'Please input the Google Location URL' }]}
 						>
-							<div className="text-gray-600 mb-1">
+							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Google Location:
 							</div>
 							<Input />
 						</Form.Item>
 					</Col>
 				</Row>
-				<div className="flex justify-center mt-8">
+				<div className="mt-8 flex justify-center">
 					<Button className="bg-white text-black" htmlType="submit" disabled={isLoading}>
 						Submit
 					</Button>

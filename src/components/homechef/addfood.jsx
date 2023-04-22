@@ -4,7 +4,6 @@ import { useMutation } from 'react-query'
 
 import RoundedInput from './roundedInput'
 
-
 const AddHomeChef = () => {
 	const [form] = Form.useForm()
 
@@ -31,8 +30,8 @@ const AddHomeChef = () => {
 		},
 		{
 			onSuccess: async () => {
-				await queryCache.refetchQueries('food')
-				setModalVisible(false)
+				// await queryCache.refetchQueries('food')
+				// setModalVisible(false)
 			},
 			onError: (error) => {
 				console.dir(error, 'in add food mutation')
@@ -96,7 +95,7 @@ const AddHomeChef = () => {
 								<sup>*</sup>Quantity:
 							</div>
 
-							<RoundedInput type='number' min={0} />
+							<RoundedInput type="number" min={0} />
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
@@ -121,7 +120,7 @@ const AddHomeChef = () => {
 							<div className="mb-1 text-gray-600">
 								<sup>*</sup>Price:
 							</div>
-							<RoundedInput type='number' min={0} />
+							<RoundedInput type="number" min={0} />
 						</Form.Item>
 					</Col>
 				</Row>
