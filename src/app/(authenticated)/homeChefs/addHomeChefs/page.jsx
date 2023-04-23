@@ -1,7 +1,7 @@
 'use client'
 
 import { ApiRoutes } from '@src/core'
-import { Button, Col, Form, Input, Row, Select, TimePicker } from 'antd'
+import { Button, Col, Form, Input, Row, Select, TimePicker, Checkbox } from 'antd'
 import moment from 'moment'
 import { useMutation } from 'react-query'
 
@@ -25,8 +25,8 @@ const AddHomeChef = () => {
 		maxPrice: '0',
 		minPrice: '0',
 		openingDay: '',
-		maxTime: '0',
-		minTime: '0',
+		maxTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
+		minTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
 		openingTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
 		closingTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
 	}
@@ -46,6 +46,7 @@ const AddHomeChef = () => {
 				// TODO: refetch homechefs on success, use refetch() from the query
 				// not the recommended way to use queryCache like this
 				// await queryCache.refetchQueries('homeChefs')
+				client.refetchQueries('homeChefs');
 			},
 		},
 	)
@@ -61,72 +62,72 @@ const AddHomeChef = () => {
 	}
 
 	return (
-		<div className="mx-auto w-full py-2 lg:w-full">
+		<div className="mx-auto w-full py-2 lg:w-full space-y-4 text-gray-600">
 			<Form form={form} initialValues={initialValues} onFinish={handleCreate}>
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="name" rules={[{ required: true, message: 'Please input chef name' }]}>
-							<div className="mb-1 text-gray-600">
+							<div>
 								<sup>*</sup>Name:
 							</div>
-							<Input />
+							<Input  className='mb-1' placeholder='Enter Name'/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="city" rules={[{ required: true, message: 'Please input City' }]}>
-							<div className="mb-1 text-gray-600">
+							<div>
 								<sup>*</sup>City:
 							</div>
-							<Input />
+							<Input className='mb-1' placeholder='Enter City'/>
 						</Form.Item>
 					</Col>
 				</Row>
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="address" rules={[{ required: true, message: 'Please input the address' }]}>
-							<div className="mb-1 text-gray-600">
+							<div>
 								<sup>*</sup>Address:
 							</div>
-							<Input />
+							<Input className='mb-1' placeholder='Enter Address'/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="description">
-							<div className="mb-1 text-gray-600">Description:</div>
-							<Input />
+							<div>Description:</div>
+							<Input className='mb-1' placeholder='Enter Description'/>
 						</Form.Item>
 					</Col>
 				</Row>
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="cuisine" rules={[{ required: true, message: 'Please input Cuisine' }]}>
-							<div className="mb-1 text-gray-600">
+							<div>
 								<sup>*</sup>Cuisine:
 							</div>
-							<Input />
+							<Input className='mb-1' placeholder='Enter Cuisine'/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
-						<Form.Item name="Pincode" rules={[{ required: true, message: 'Please input Pincode' }]}>
-							<div className="mb-1 text-gray-600">
+						<Form.Item name="pincode" rules={[{ required: true, message: 'Please input Pincode' }]}>
+							<div>
 								<sup>*</sup>Pincode:
 							</div>
-							<Input type="number" />
+							<Input type="number" className='mb-1' placeholder='Enter Pincode'/>
 						</Form.Item>
 					</Col>
 				</Row>
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="state" rules={[{ required: true, message: 'Please input State' }]}>
-							<div className="mb-1 text-gray-600">
+							<div>
 								<sup>*</sup>State:
 							</div>
-							<Input />
+							<Input className='mb-1' placeholder='Enter State'/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="foodType" rules={[{ required: true, message: 'Please select Food Type' }]}>
-							<div className="mb-1 text-gray-600">
+							<div>
 								<sup>*</sup>Food Type:
 							</div>
 							<Select
@@ -142,25 +143,167 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="minPrice" rules={[{ required: true, message: 'Please input Min Price' }]}>
-							<div className="mb-1 text-gray-600">
-								<sup>*</sup>Min Price:
+							<div>
+								<sup>*</sup>Minimum Price:
 							</div>
-							<Input type="number" min={0} />
+							<Input type="number" min={0} className='mb-1' placeholder='Enter Minimum Price'/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="maxPrice" rules={[{ required: true, message: 'Please input Max Price' }]}>
-							<div className="mb-1 text-gray-600">
-								<sup>*</sup>Max Price:
+							<div>
+								<sup>*</sup>Maximum Price:
 							</div>
-							<Input type="number" min={0} />
+							<Input type="number" min={0} className='mb-1' placeholder='Enter Maximum Price'/>
 						</Form.Item>
 					</Col>
 				</Row>
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="openingDay" rules={[{ required: true, message: 'Please select Opening Day' }]}>
-							<div className="mb-1 text-gray-600">
+						<div>
+							<sup>*</sup>Opening Day:
+						</div>
+						<Checkbox.Group
+						value={initialValues.openingDay}
+						onChange={(value) => form.setFieldsValue({ openingDay: value })}
+						>
+							<Checkbox value="Monday">Monday</Checkbox>
+							<Checkbox value="Tuesday">Tuesday</Checkbox>
+							<Checkbox value="Wednesday">Wednesday</Checkbox>
+							<Checkbox value="Thursday">Thursday</Checkbox>
+							<Checkbox value="Friday">Friday</Checkbox>
+							<Checkbox value="Saturday">Saturday</Checkbox>
+							<Checkbox value="Sunday">Sunday</Checkbox>
+						</Checkbox.Group>
+						</Form.Item>
+					</Col>
+				</Row>
+				<Row gutter={[16, 16]}>
+				<Col xs={24} sm={12}>
+						<Form.Item
+							name="openingTime"
+							rules={[{ required: true, message: 'Please select Opening Time' }]}
+						>
+							<div>
+								<sup>*</sup>Opening Time:
+							</div>
+							<TimePicker format="h:mm a" />
+						</Form.Item>
+					</Col>
+					<Col xs={24} sm={12}>
+						<Form.Item
+							name="closingTime"
+							rules={[{ required: true, message: 'Please select Closing Time' }]}
+						>
+							<div>
+								<sup>*</sup>Closing Time:
+							</div>
+							<TimePicker format="h:mm a" />
+						</Form.Item>
+					</Col>
+				</Row>
+				<Row gutter={[16, 16]}>
+				<Col xs={24} sm={12}>
+						<Form.Item
+							name="maxTime"
+							rules={[{ required: true, message: 'Please select Maximum Time' }]}
+						>
+							<div>
+								<sup>*</sup>Maximum Preparation Time:
+							</div>
+							<TimePicker format="h:mm a" />
+						</Form.Item>
+					</Col>
+					<Col xs={24} sm={12}>
+						<Form.Item
+							name="minTime"
+							rules={[{ required: true, message: 'Please select Minimum Time' }]}
+						>
+							<div>
+								<sup>*</sup>Minimum Food Preparation Time:
+							</div>
+							<TimePicker format="h:mm a" />
+						</Form.Item>
+					</Col>
+				</Row>
+				<Row gutter={[16, 16]}>
+					<Col xs={24} sm={12}>
+						<Form.Item
+							name="latitude"
+							rules={[{ required: true, message: 'Please input the latitude' }]}
+						>
+							<div>
+								<sup>*</sup>Latitude:
+							</div>
+							<Input type='number' className='mb-1' placeholder='Enter Latitude'/>
+						</Form.Item>
+					</Col>
+					<Col xs={24} sm={12}>
+						<Form.Item
+							name="longitude"
+							rules={[{ required: true, message: 'Please input the longitude' }]}
+						>
+							<div>
+								<sup>*</sup>Longitude:
+							</div>
+							<Input type='number' className='mb-1' placeholder='Enter Longitude'/>
+						</Form.Item>
+					</Col>
+				</Row>
+				<Row gutter={[16, 16]}>
+					<Col xs={24} sm={12}>
+						<Form.Item
+							name="homeChefImage"
+							rules={[{ required: true, type: 'url', message: 'Please input the image URL' }]}
+						>
+							<div>
+								<sup>*</sup>Image URL:
+							</div>
+							<Input className='mb-1' placeholder='Enter Image URL'/>
+						</Form.Item>
+					</Col>
+					<Col xs={24} sm={12}>
+  					<Form.Item
+    					name="googleLocation"
+   				 		rules={[
+     					 { required: true, message: 'Please input the Google Location URL' },
+     					{ pattern: /^https?:\/\/(www\.)?google\.com\/maps\/.*$/,
+       					 message: 'Please enter a valid Google Maps URL',
+      					},]}>
+   						<div>
+      						<sup>*</sup>Google Location:
+    					</div>
+    					<Input className='mb-1' placeholder='Enter Google Location'/>
+ 					</Form.Item>
+					</Col>
+				</Row>
+				<div className="mt-8 flex justify-center">
+					<Button className="bg-white text-black" htmlType="submit" disabled={isLoading}>
+						Submit
+					</Button>
+				</div>
+			</Form>
+		</div>
+	)
+}
+
+export default AddHomeChef
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* <Form.Item name="openingDay" rules={[{ required: true, message: 'Please select Opening Day' }]}>
+							<div>
 								<sup>*</sup>Opening Day:
 							</div>
 							<Select
@@ -175,92 +318,4 @@ const AddHomeChef = () => {
 								<Select.Option value="Saturday">Saturday</Select.Option>
 								<Select.Option value="Sunday">Sunday</Select.Option>
 							</Select>
-						</Form.Item>
-					</Col>
-					<Col xs={24} sm={12}>
-						<Form.Item
-							name="openingTime"
-							rules={[{ required: true, message: 'Please select Opening Time' }]}
-						>
-							<div className="mb-1 text-gray-600">
-								<sup>*</sup>Opening Time:
-							</div>
-							<TimePicker format="h:mm a" />
-						</Form.Item>
-					</Col>
-				</Row>
-				<Row gutter={[16, 16]}>
-					<Col xs={24} sm={12}>
-						<Form.Item
-							name="closingTime"
-							rules={[{ required: true, message: 'Please select Closing Time' }]}
-						>
-							<div className="mb-1 text-gray-600">
-								<sup>*</sup>Closing Time:
-							</div>
-							<TimePicker format="h:mm a" />
-						</Form.Item>
-					</Col>
-					<Col xs={24} sm={12}>
-						<Form.Item
-							name="maxTime"
-							rules={[{ required: true, message: 'Please input Max Time for Delivery' }]}
-						>
-							<div className="mb-1 text-gray-600">
-								<sup>*</sup>Max Time for Delivery:
-							</div>
-							<Input type="number" min={0} />
-						</Form.Item>
-					</Col>
-				</Row>
-				<Row gutter={[16, 16]}>
-					<Col xs={24} sm={12}>
-						<Form.Item
-							name="homeChefImage"
-							rules={[{ required: true, message: 'Please input the image URL' }]}
-						>
-							<div className="mb-1 text-gray-600">
-								<sup>*</sup>Image URL:
-							</div>
-							<Input />
-						</Form.Item>
-					</Col>
-					<Col xs={24} sm={12}>
-						<Form.Item name="homeChefStatus" rules={[{ required: true, message: 'Please select Status' }]}>
-							<div className="mb-1 text-gray-600">
-								<sup>*</sup>Status:
-							</div>
-							<Select
-								value={form.getFieldValue('homeChefStatus')}
-								onChange={(value) => form.setFieldsValue({ homeChefStatus: value })}
-							>
-								<Select.Option value="0">Inactive</Select.Option>
-								<Select.Option value="1">Active</Select.Option>
-							</Select>
-						</Form.Item>
-					</Col>
-				</Row>
-				<Row gutter={[16, 16]}>
-					<Col xs={24} sm={12}>
-						<Form.Item
-							name="googleLocation"
-							rules={[{ required: true, message: 'Please input the Google Location URL' }]}
-						>
-							<div className="mb-1 text-gray-600">
-								<sup>*</sup>Google Location:
-							</div>
-							<Input />
-						</Form.Item>
-					</Col>
-				</Row>
-				<div className="mt-8 flex justify-center">
-					<Button className="bg-white text-black" htmlType="submit" disabled={isLoading}>
-						Submit
-					</Button>
-				</div>
-			</Form>
-		</div>
-	)
-}
-
-export default AddHomeChef
+						</Form.Item> */}

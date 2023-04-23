@@ -30,8 +30,7 @@ const AddHomeChef = () => {
 		},
 		{
 			onSuccess: async () => {
-				// await queryCache.refetchQueries('food')
-				// setModalVisible(false)
+				client.refetchQueries('food');
 			},
 			onError: (error) => {
 				console.dir(error, 'in add food mutation')
@@ -46,7 +45,7 @@ const AddHomeChef = () => {
 	}
 
 	return (
-		<div className="w-full rounded bg-cover bg-center py-2">
+		<div className="w-full rounded bg-cover bg-center py-2 space-y-1 text-gray-600">
 			<Form
 				form={form}
 				initialValues={initialValues}
@@ -55,19 +54,29 @@ const AddHomeChef = () => {
 			>
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
-						<Form.Item name="foodName" rules={[{ required: true, message: 'Please input food name' }]}>
-							<div className="mb-1 text-gray-600">
+						<Form.Item name="foodName" rules={[
+                { required: true, message: 'Please input food name' },
+                { min: 3, message: 'Food name must be at least 3 characters long' },
+                { max: 50, message: 'Food name cannot be longer than 50 characters' },
+              ]}>
+							<div>
 								<sup>*</sup>FoodName:
 							</div>
-							<RoundedInput />
+							<RoundedInput placeholder='Enter FoodName'/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
-						<Form.Item name="foodImg" rules={[{ required: true, message: 'Please input the image URL' }]}>
-							<div className="mb-1 text-gray-600">
+						<Form.Item name="foodImg" rules={[
+                { required: true, message: 'Please input the image URL' },
+                {
+                  type: 'url',
+                  message: 'Please enter a valid URL for the food image',
+                },
+              ]}>
+							<div>
 								<sup>*</sup>Food Image URL:
 							</div>
-							<RoundedInput />
+							<RoundedInput placeholder='Enter Food Image URL'/>
 						</Form.Item>
 					</Col>
 				</Row>
@@ -76,14 +85,14 @@ const AddHomeChef = () => {
 						name="foodPreparationTime"
 						rules={[{ required: true, message: 'Please select foodPreparationTime' }]}
 					>
-						<div className="mb-1 text-gray-600">
+						<div>
 							<sup>*</sup>Food Preparation Time:
 						</div>
 						<TimePicker format="h:mm a" />
 					</Form.Item>
 					<Col xs={24} sm={12}>
 						<Form.Item name="description">
-							<div className="mb-1 text-gray-600">Description:</div>
+							<div>Description:</div>
 							<RoundedInput />
 						</Form.Item>
 					</Col>
@@ -91,16 +100,16 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="quantity" rules={[{ required: true, message: 'Please enter quantity' }]}>
-							<div className="mb-1 text-gray-600">
+							<div>
 								<sup>*</sup>Quantity:
 							</div>
 
-							<RoundedInput type="number" min={0} />
+							<RoundedInput type="number" min={0} placeholder='Enter Quantity'/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="foodType" rules={[{ required: true, message: 'Please select food type' }]}>
-							<div className="mb-1 text-gray-600">
+							<div>
 								<sup>*</sup>Food Type:
 							</div>
 							<Select
@@ -117,10 +126,10 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="price" rules={[{ required: true, message: 'Please enter price' }]}>
-							<div className="mb-1 text-gray-600">
+							<div>
 								<sup>*</sup>Price:
 							</div>
-							<RoundedInput type="number" min={0} />
+							<RoundedInput type="number" min={0} placeholder='Enter Price'/>
 						</Form.Item>
 					</Col>
 				</Row>
