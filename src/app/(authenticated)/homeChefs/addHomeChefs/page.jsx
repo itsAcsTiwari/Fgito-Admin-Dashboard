@@ -289,33 +289,3 @@ const AddHomeChef = () => {
 }
 
 export default AddHomeChef
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <Form.Item name="openingDay" rules={[{ required: true, message: 'Please select Opening Day' }]}>
-							<div>
-								<sup>*</sup>Opening Day:
-							</div>
-							<Select
-								value={initialValues.openingDay}
-								onChange={(value) => form.setFieldsValue({ openingDay: value })}
-							>
-								<Select.Option value="Monday">Monday</Select.Option>
-								<Select.Option value="Tuesday">Tuesday</Select.Option>
-								<Select.Option value="Wednesday">Wednesday</Select.Option>
-								<Select.Option value="Thursday">Thursday</Select.Option>
-								<Select.Option value="Friday">Friday</Select.Option>
-								<Select.Option value="Saturday">Saturday</Select.Option>
-								<Select.Option value="Sunday">Sunday</Select.Option>
-							</Select>
-						</Form.Item> */}
