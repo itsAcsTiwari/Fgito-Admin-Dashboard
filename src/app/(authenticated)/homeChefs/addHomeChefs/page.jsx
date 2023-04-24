@@ -5,6 +5,8 @@ import { Button, Col, Form, Input, Row, Select, TimePicker, Checkbox } from 'ant
 import moment from 'moment'
 import { useMutation } from 'react-query'
 
+import RoundedInput from '@src/components/homechef/roundedInput'
+
 const AddHomeChef = () => {
 	const [form] = Form.useForm()
 
@@ -31,25 +33,23 @@ const AddHomeChef = () => {
 		closingTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
 	}
 
-	const { mutate, isLoading } = useMutation(
+	const { mutate, isLoading, query } = useMutation(
 		async (homeChef) => {
-			const response = await fetch(ApiRoutes.addHomechef, {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(homeChef),
-			})
-			const data = await response.json()
-			return data
+		  const response = await fetch(ApiRoutes.addHomechef, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(homeChef),
+		  })
+		  const data = await response.json()
+		  return data
 		},
 		{
-			onSuccess: async () => {
-				// TODO: refetch homechefs on success, use refetch() from the query
-				// not the recommended way to use queryCache like this
-				// await queryCache.refetchQueries('homeChefs')
-				client.refetchQueries('homeChefs');
-			},
+		  onSuccess: async () => {
+			await query.refetch()
+		  },
 		},
-	)
+	  )
+	  
 
 	const handleCreate = async () => {
 		try {
@@ -70,7 +70,7 @@ const AddHomeChef = () => {
 							<div>
 								<sup>*</sup>Name:
 							</div>
-							<Input  className='mb-1' placeholder='Enter Name'/>
+							<RoundedInput   className='mb-1' placeholder='Enter Name'/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
@@ -78,7 +78,7 @@ const AddHomeChef = () => {
 							<div>
 								<sup>*</sup>City:
 							</div>
-							<Input className='mb-1' placeholder='Enter City'/>
+							<RoundedInput  className='mb-1' placeholder='Enter City'/>
 						</Form.Item>
 					</Col>
 				</Row>
@@ -88,13 +88,13 @@ const AddHomeChef = () => {
 							<div>
 								<sup>*</sup>Address:
 							</div>
-							<Input className='mb-1' placeholder='Enter Address'/>
+							<RoundedInput  className='mb-1' placeholder='Enter Address'/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="description">
 							<div>Description:</div>
-							<Input className='mb-1' placeholder='Enter Description'/>
+							<RoundedInput  className='mb-1' placeholder='Enter Description'/>
 						</Form.Item>
 					</Col>
 				</Row>
@@ -104,7 +104,7 @@ const AddHomeChef = () => {
 							<div>
 								<sup>*</sup>Cuisine:
 							</div>
-							<Input className='mb-1' placeholder='Enter Cuisine'/>
+							<RoundedInput  className='mb-1' placeholder='Enter Cuisine'/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
@@ -112,7 +112,7 @@ const AddHomeChef = () => {
 							<div>
 								<sup>*</sup>Pincode:
 							</div>
-							<Input type="number" className='mb-1' placeholder='Enter Pincode'/>
+							<RoundedInput  type="number" className='mb-1' placeholder='Enter Pincode'/>
 						</Form.Item>
 					</Col>
 				</Row>
@@ -122,7 +122,7 @@ const AddHomeChef = () => {
 							<div>
 								<sup>*</sup>State:
 							</div>
-							<Input className='mb-1' placeholder='Enter State'/>
+							<RoundedInput  className='mb-1' placeholder='Enter State'/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
@@ -146,7 +146,7 @@ const AddHomeChef = () => {
 							<div>
 								<sup>*</sup>Minimum Price:
 							</div>
-							<Input type="number" min={0} className='mb-1' placeholder='Enter Minimum Price'/>
+							<RoundedInput  type="number" min={0} className='mb-1' placeholder='Enter Minimum Price'/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
@@ -154,7 +154,7 @@ const AddHomeChef = () => {
 							<div>
 								<sup>*</sup>Maximum Price:
 							</div>
-							<Input type="number" min={0} className='mb-1' placeholder='Enter Maximum Price'/>
+							<RoundedInput  type="number" min={0} className='mb-1' placeholder='Enter Maximum Price'/>
 						</Form.Item>
 					</Col>
 				</Row>
@@ -236,7 +236,7 @@ const AddHomeChef = () => {
 							<div>
 								<sup>*</sup>Latitude:
 							</div>
-							<Input type='number' className='mb-1' placeholder='Enter Latitude'/>
+							<RoundedInput  type='number' className='mb-1' placeholder='Enter Latitude'/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
@@ -247,7 +247,7 @@ const AddHomeChef = () => {
 							<div>
 								<sup>*</sup>Longitude:
 							</div>
-							<Input type='number' className='mb-1' placeholder='Enter Longitude'/>
+							<RoundedInput  type='number' className='mb-1' placeholder='Enter Longitude'/>
 						</Form.Item>
 					</Col>
 				</Row>
@@ -260,7 +260,7 @@ const AddHomeChef = () => {
 							<div>
 								<sup>*</sup>Image URL:
 							</div>
-							<Input className='mb-1' placeholder='Enter Image URL'/>
+							<RoundedInput  className='mb-1' placeholder='Enter Image URL'/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
@@ -274,7 +274,7 @@ const AddHomeChef = () => {
    						<div>
       						<sup>*</sup>Google Location:
     					</div>
-    					<Input className='mb-1' placeholder='Enter Google Location'/>
+    					<RoundedInput  className='mb-1' placeholder='Enter Google Location'/>
  					</Form.Item>
 					</Col>
 				</Row>

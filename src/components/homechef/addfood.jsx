@@ -17,7 +17,7 @@ const AddHomeChef = () => {
 		foodPreparationTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
 	}
 
-	const { mutate, isLoading } = useMutation(
+	const { mutate, isLoading, query } = useMutation(
 		async (food) => {
 			const response = await fetch('/api/foods/addFoods', {
 				method: 'POST',
@@ -30,7 +30,7 @@ const AddHomeChef = () => {
 		},
 		{
 			onSuccess: async () => {
-				client.refetchQueries('food');
+				await query.refetch()
 			},
 			onError: (error) => {
 				console.dir(error, 'in add food mutation')
