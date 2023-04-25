@@ -67,10 +67,7 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 				<Col xs={24} sm={12}>
             		<Form.Item name="name" rules={[{ required: true, message: 'Please input chef name' }]}>
-              			<div>
-                			<sup>*</sup>Name:
-              			</div>
-              		<RoundedInput name="name" placeholder="Enter Name" />
+              		<RoundedInput name="name" placeholder="Enter Name" label={<span><sup>*</sup>Name:</span>}/>
            		 	</Form.Item>
             		{form.getFieldError('name') && (
               		<div style={{ color: 'red' }}>{form.getFieldError('name')}</div>
@@ -78,10 +75,7 @@ const AddHomeChef = () => {
          		 </Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="city" rules={[{ required: true, message: 'Please input City' }]}>
-							<div>
-								<sup>*</sup>City:
-							</div>
-							<RoundedInput name="city"  className='mb-1' placeholder='Enter City'/>
+							<RoundedInput name="city"  className='mb-1' placeholder='Enter City' label={<span><sup>*</sup>City:</span>}/>
 						</Form.Item>
 						{form.getFieldError('city') && (
               		<div style={{ color: 'red' }}>{form.getFieldError('city')}</div>
@@ -91,10 +85,7 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="address" rules={[{ required: true, message: 'Please input the address' }]}>
-							<div>
-								<sup>*</sup>Address:
-							</div>
-							<RoundedInput name="address" className='mb-1' placeholder='Enter Address'/>
+							<RoundedInput name="address" className='mb-1' placeholder='Enter Address' label={<span><sup>*</sup>Address:</span>}/>
 						</Form.Item>
 						{form.getFieldError('address') && (
               		<div style={{ color: 'red' }}>{form.getFieldError('address')}</div>
@@ -102,8 +93,7 @@ const AddHomeChef = () => {
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="description">
-							<div>Description:</div>
-							<RoundedInput name="description" className='mb-1' placeholder='Enter Description'/>
+							<RoundedInput name="description" className='mb-1' placeholder='Enter Description' label='Description'/>
 						</Form.Item>
 						{form.getFieldError('description') && (
               		<div style={{ color: 'red' }}>{form.getFieldError('description')}</div>
@@ -113,10 +103,7 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="cuisine" rules={[{ required: true, message: 'Please input Cuisine' }]}>
-							<div>
-								<sup>*</sup>Cuisine:
-							</div>
-							<RoundedInput name="cuisine" className='mb-1' placeholder='Enter Cuisine'/>
+							<RoundedInput name="cuisine" className='mb-1' placeholder='Enter Cuisine' label={<span><sup>*</sup>Cuisine:</span>}/>
 						</Form.Item>
 						{form.getFieldError('cuisine') && (
               		<div style={{ color: 'red' }}>{form.getFieldError('cuisine')}</div>
@@ -124,10 +111,7 @@ const AddHomeChef = () => {
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="pincode" rules={[{ required: true, message: 'Please input Pincode' }]}>
-							<div>
-								<sup>*</sup>Pincode:
-							</div>
-							<RoundedInput name="pincode" type="number" className='mb-1' placeholder='Enter Pincode'/>
+							<RoundedInput name="pincode"  className='mb-1' placeholder='Enter Pincode' label={<span><sup>*</sup>Pincode:</span>}/>
 						</Form.Item>
 						{form.getFieldError('pincode') && (
               		<div style={{ color: 'red' }}>{form.getFieldError('pincode')}</div>
@@ -137,10 +121,7 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="state" rules={[{ required: true, message: 'Please input State' }]}>
-							<div>
-								<sup>*</sup>State:
-							</div>
-							<RoundedInput name="state" className='mb-1' placeholder='Enter State'/>
+							<RoundedInput name="state" className='mb-1' placeholder='Enter State'label={<span><sup>*</sup>State:</span>}/>
 						</Form.Item>
 						{form.getFieldError('state') && (
               		<div style={{ color: 'red' }}>{form.getFieldError('state')}</div>
@@ -167,10 +148,7 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="minPrice" rules={[{ required: true, message: 'Please input Min Price' }]}>
-							<div>
-								<sup>*</sup>Minimum Price:
-							</div>
-							<RoundedInput name="minPrice" type="number" min={0} className='mb-1' placeholder='Enter Minimum Price'/>
+							<RoundedInput name="minPrice"  min={0} className='mb-1' placeholder='Enter Minimum Price' label={<span><sup>*</sup>Minimum Price:</span>}/>
 						</Form.Item>
 						{form.getFieldError('minPrice') && (
               		<div style={{ color: 'red' }}>{form.getFieldError('minPrice')}</div>
@@ -178,10 +156,7 @@ const AddHomeChef = () => {
 					</Col>
 					<Col xs={24} sm={12}>
 						<Form.Item name="maxPrice" rules={[{ required: true, message: 'Please input Max Price' }]}>
-							<div>
-								<sup>*</sup>Maximum Price:
-							</div>
-							<RoundedInput name="maxPrice" type="number" min={0} className='mb-1' placeholder='Enter Maximum Price'/>
+							<RoundedInput name="maxPrice"  min={0} className='mb-1' placeholder='Enter Maximum Price' label={<span><sup>*</sup>Maximum Price:</span>}/>
 						</Form.Item>
 						{form.getFieldError('maxPrice') && (
               		<div style={{ color: 'red' }}>{form.getFieldError('maxPrice')}</div>
@@ -266,10 +241,7 @@ const AddHomeChef = () => {
 							name="latitude"
 							rules={[{ required: true, message: 'Please input the latitude' }]}
 						>
-							<div>
-								<sup>*</sup>Latitude:
-							</div>
-							<RoundedInput name="latitude" type="number" className='mb-1' placeholder='Enter Latitude'/>
+							<RoundedInput name="latitude" type="number" className='mb-1' placeholder='Enter Latitude' label={<span><sup>*</sup>Latitude:</span>}/>
 						</Form.Item>
 						{form.getFieldError('latitude') && (
               		<div style={{ color: 'red' }}>{form.getFieldError('latitude')}</div>
@@ -280,10 +252,7 @@ const AddHomeChef = () => {
 							name="longitude"
 							rules={[{ required: true, message: 'Please input the longitude' }]}
 						>
-							<div>
-								<sup>*</sup>Longitude:
-							</div>
-							<RoundedInput name="longitude" type='number' className='mb-1' placeholder='Enter Longitude'/>
+							<RoundedInput name="longitude" type='number' className='mb-1' placeholder='Enter Longitude' label={<span><sup>*</sup>Longitude:</span>}/>
 						</Form.Item>
 						{form.getFieldError('longitude') && (
               		<div style={{ color: 'red' }}>{form.getFieldError('longitude')}</div>
@@ -296,10 +265,7 @@ const AddHomeChef = () => {
 							name="homeChefImage"
 							rules={[{ required: true, type: 'url', message: 'Please input the image URL' }]}
 						>
-							<div>
-								<sup>*</sup>Image URL:
-							</div>
-							<RoundedInput name="homeChefImage" className='mb-1' placeholder='Enter Image URL'/>
+							<RoundedInput name="homeChefImage" className='mb-1' placeholder='Enter Image URL' label={<span><sup>*</sup>Image URL:</span>}/>
 						</Form.Item>
 						{form.getFieldError('homeChefImage') && (
               		<div style={{ color: 'red' }}>{form.getFieldError('homeChefImage')}</div>
@@ -313,10 +279,7 @@ const AddHomeChef = () => {
      					{ pattern: /^https?:\/\/(www\.)?google\.com\/maps\/.*$/,
        					 message: 'Please enter a valid Google Maps URL',
       					},]}>
-   						<div>
-      						<sup>*</sup>Google Location:
-    					</div>
-    					<RoundedInput name="googleLocation" className='mb-1' placeholder='Enter Google Location'/>
+    					<RoundedInput name="googleLocation" className='mb-1' placeholder='Enter Google Location' label={<span><sup>*</sup>Google Location:</span>}/>
  					</Form.Item>
 					 {form.getFieldError('googleLocation') && (
               		<div style={{ color: 'red' }}>{form.getFieldError('googleLocation')}</div>
