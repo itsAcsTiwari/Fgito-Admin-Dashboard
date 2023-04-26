@@ -46,18 +46,9 @@ const ListAllFood = () => {
       {selectedFood && (
         <form>
           <h2>Edit Food</h2>
-          <label htmlFor='foodName'>
-            Food Name:
-            <RoundedInput id="foodName" type="text" value={selectedFood.foodName} />
-          </label>
-          <label htmlFor='price'>
-            Price:
-            <RoundedInput id="price" type="number" min={0} value={selectedFood.price} />
-          </label>
-          <label htmlFor='quantity'>
-            Quantity:
-            <RoundedInput id="quantity" type="number" min={0} value={selectedFood.quantity} />
-          </label>
+            <RoundedInput  type="text" value={selectedFood.foodName} label='Food Name: '/>
+            <RoundedInput  min={0} value={selectedFood.price} label='Price: '/>
+            <RoundedInput  type="number" min={0} value={selectedFood.quantity} label='Quantity: '/>
           <label htmlFor='foodType'>
             Food Type:
             <Select
@@ -69,14 +60,8 @@ const ListAllFood = () => {
               ]}
             ></Select>
           </label>
-          <label htmlFor='description'>
-            Description:
-            <RoundedInput id="description" value={selectedFood.description} />
-          </label>
-          <label htmlFor='foodImg'>
-            Food Image URL:
-            <RoundedInput id="foodImg" value={selectedFood.foodImg} />
-          </label>
+            <RoundedInput  value={selectedFood.description} label='Description: '/>
+            <RoundedInput  value={selectedFood.foodImg} label='Food Image URL: '/>
           <label>
             Food Preparation Time:
             <TimePicker format="h:mm a" value={selectedFood.foodPreparationTime} />

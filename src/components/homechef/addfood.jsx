@@ -59,10 +59,7 @@ const AddHomeChef = () => {
                 { min: 3, message: 'Food name must be at least 3 characters long' },
                 { max: 50, message: 'Food name cannot be longer than 50 characters' },
               ]}>
-							<div>
-								<sup>*</sup>FoodName:
-							</div>
-							<RoundedInput placeholder='Enter FoodName'/>
+							<RoundedInput placeholder='Enter FoodName' label={<span><sup>*</sup>FoodName:</span>}/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
@@ -73,10 +70,7 @@ const AddHomeChef = () => {
                   message: 'Please enter a valid URL for the food image',
                 },
               ]}>
-							<div>
-								<sup>*</sup>Food Image URL:
-							</div>
-							<RoundedInput placeholder='Enter Food Image URL'/>
+							<RoundedInput placeholder='Enter Food Image URL'label={<span><sup>*</sup>Food Image URL:</span>}/>
 						</Form.Item>
 					</Col>
 				</Row>
@@ -85,26 +79,18 @@ const AddHomeChef = () => {
 						name="foodPreparationTime"
 						rules={[{ required: true, message: 'Please select foodPreparationTime' }]}
 					>
-						<div>
-							<sup>*</sup>Food Preparation Time:
-						</div>
-						<TimePicker format="h:mm a" />
+						<TimePicker format="h:mm a" label={<span><sup>*</sup>Food Preparation Time:</span>}/>
 					</Form.Item>
 					<Col xs={24} sm={12}>
 						<Form.Item name="description">
-							<div>Description:</div>
-							<RoundedInput />
+							<RoundedInput label='Description'/>
 						</Form.Item>
 					</Col>
 				</Row>
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="quantity" rules={[{ required: true, message: 'Please enter quantity' }]}>
-							<div>
-								<sup>*</sup>Quantity:
-							</div>
-
-							<RoundedInput type="number" min={0} placeholder='Enter Quantity'/>
+							<RoundedInput type="number" min={0} placeholder='Enter Quantity' label={<span><sup>*</sup>Quantity:</span>}/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
@@ -126,10 +112,7 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="price" rules={[{ required: true, message: 'Please enter price' }]}>
-							<div>
-								<sup>*</sup>Price:
-							</div>
-							<RoundedInput type="number" min={0} placeholder='Enter Price'/>
+							<RoundedInput type="number" min={0} placeholder='Enter Price' label={<span><sup>*</sup>Price:</span>}/>
 						</Form.Item>
 					</Col>
 				</Row>
