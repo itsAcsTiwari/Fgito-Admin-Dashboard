@@ -35,8 +35,9 @@
 // 	} catch (error) {
 // 		console.dir('error', error)
 // 		return NextResponse.error()
-// 	}
-// }
+// 	}   
+// }    
+
 
 import { NextResponse } from 'next/server'
 
