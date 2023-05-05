@@ -45,7 +45,7 @@ const AddHomeChef = () => {
 	}
 
 	return (
-		<div className="w-full rounded bg-cover bg-center py-2 space-y-1 text-gray-600">
+		<div className="w-full space-y-1 rounded bg-cover bg-center py-2 text-gray-600">
 			<Form
 				form={form}
 				initialValues={initialValues}
@@ -54,23 +54,43 @@ const AddHomeChef = () => {
 			>
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
-						<Form.Item name="foodName" rules={[
-                { required: true, message: 'Please input food name' },
-                { min: 3, message: 'Food name must be at least 3 characters long' },
-                { max: 50, message: 'Food name cannot be longer than 50 characters' },
-              ]}>
-							<RoundedInput placeholder='Enter FoodName' label={<span><sup>*</sup>FoodName:</span>}/>
+						<Form.Item
+							name="foodName"
+							rules={[
+								{ required: true, message: 'Please input food name' },
+								{ min: 3, message: 'Food name must be at least 3 characters long' },
+								{ max: 50, message: 'Food name cannot be longer than 50 characters' },
+							]}
+						>
+							<RoundedInput
+								placeholder="Enter FoodName"
+								label={
+									<span>
+										<sup>*</sup>FoodName:
+									</span>
+								}
+							/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
-						<Form.Item name="foodImg" rules={[
-                { required: true, message: 'Please input the image URL' },
-                {
-                  type: 'url',
-                  message: 'Please enter a valid URL for the food image',
-                },
-              ]}>
-							<RoundedInput placeholder='Enter Food Image URL'label={<span><sup>*</sup>Food Image URL:</span>}/>
+						<Form.Item
+							name="foodImg"
+							rules={[
+								{ required: true, message: 'Please input the image URL' },
+								{
+									type: 'url',
+									message: 'Please enter a valid URL for the food image',
+								},
+							]}
+						>
+							<RoundedInput
+								placeholder="Enter Food Image URL"
+								label={
+									<span>
+										<sup>*</sup>Food Image URL:
+									</span>
+								}
+							/>
 						</Form.Item>
 					</Col>
 				</Row>
@@ -79,18 +99,34 @@ const AddHomeChef = () => {
 						name="foodPreparationTime"
 						rules={[{ required: true, message: 'Please select foodPreparationTime' }]}
 					>
-						<TimePicker format="h:mm a" label={<span><sup>*</sup>Food Preparation Time:</span>}/>
+						<TimePicker
+							format="h:mm a"
+							label={
+								<span>
+									<sup>*</sup>Food Preparation Time:
+								</span>
+							}
+						/>
 					</Form.Item>
 					<Col xs={24} sm={12}>
 						<Form.Item name="description">
-							<RoundedInput label='Description'/>
+							<RoundedInput label="Description" />
 						</Form.Item>
 					</Col>
 				</Row>
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="quantity" rules={[{ required: true, message: 'Please enter quantity' }]}>
-							<RoundedInput type="number" min={0} placeholder='Enter Quantity' label={<span><sup>*</sup>Quantity:</span>}/>
+							<RoundedInput
+								type="number"
+								min={0}
+								placeholder="Enter Quantity"
+								label={
+									<span>
+										<sup>*</sup>Quantity:
+									</span>
+								}
+							/>
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
@@ -112,7 +148,16 @@ const AddHomeChef = () => {
 				<Row gutter={[16, 16]}>
 					<Col xs={24} sm={12}>
 						<Form.Item name="price" rules={[{ required: true, message: 'Please enter price' }]}>
-							<RoundedInput type="number" min={0} placeholder='Enter Price' label={<span><sup>*</sup>Price:</span>}/>
+							<RoundedInput
+								type="number"
+								min={0}
+								placeholder="Enter Price"
+								label={
+									<span>
+										<sup>*</sup>Price:
+									</span>
+								}
+							/>
 						</Form.Item>
 					</Col>
 				</Row>

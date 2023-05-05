@@ -103,8 +103,6 @@
 
 // export default OrderDetails
 
-
-
 // 'use client'
 
 // import { Button, Form, Input, Modal, Select } from 'antd'
@@ -114,7 +112,6 @@
 // 	const [showForm, setShowForm] = useState(false)
 // 	const [form] = Form.useForm()
 // 	const [orderStatus, setOrderStatus] = useState(status);
-
 
 // 	if (!order) return <></>
 // 	const { id, orderNo, orderDetails, userId } = order
@@ -145,7 +142,6 @@
 // 	useEffect(() => {
 // 		setOrderStatus(status);
 // 	  }, [status]);
-	  
 
 // 	return (
 // 		<Modal
@@ -166,8 +162,6 @@
 
 // 				<p>Order Date: {orderDate ? orderDate : ''}</p>
 // 				<p>Order Amount: {orderAmount ? orderAmount : ''}</p>
-
-				
 
 // 				<div>
 // 					<Select
@@ -220,9 +214,6 @@
 // }
 
 // export default OrderDetails
-
-
-
 
 //3
 
@@ -281,7 +272,7 @@
 // 				<p>User Id: {userId ? userId : ''}</p>
 // 				<p>User Name: {UserName ? UserName : ''}</p>
 // 				<div>
-// 					<p>Order Status: 
+// 					<p>Order Status:
 // 					<Select defaultValue={orderStatus} onChange={handleOrderStatusChange}>
 // 						<Option value="order accepted">Order Accepted</Option>
 // 						<Option value="order placed">Order Placed</Option>
@@ -343,7 +334,6 @@
 
 // export default OrderDetails;
 
-
 // 4
 
 'use client'
@@ -389,9 +379,9 @@ const OrderDetails = ({ order, onClose, isOpen }) => {
 			onOk={handleModalOk}
 			okText="OK"
 			footer={null}
-			className="w-full max-w-sm mx-auto"
+			className="mx-auto w-full max-w-sm"
 		>
-			<div className="p-4 space-y-2">
+			<div className="space-y-2 p-4">
 				<p className="font-bold">Order No.: {orderNo ? orderNo : ''}</p>
 				<p>User Id: {userId ? userId : ''}</p>
 				<p>User Name: {UserName ? UserName : ''}</p>
@@ -450,6 +440,3 @@ const OrderDetails = ({ order, onClose, isOpen }) => {
 }
 
 export default OrderDetails
-
-
-

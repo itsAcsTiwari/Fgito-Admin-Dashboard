@@ -34,11 +34,21 @@ const Page = ({ params }) => {
 
 	return (
 		<div className="flex flex-col">
-			<div className="flex flex-row mt-10 mb-5 justify-between">
+			<div className="mb-5 mt-10 flex flex-row justify-between">
 				<h2 className="my-auto">HomeChef ID: {homechefId}</h2>
 				<Button
-					handleClick={() => {
-						updateComponent('details')
+					handleClick={async () => {
+						const apiUrl = process.env.NEXT_PUBLIC_API_URL
+						const response = await fetch(`${apiUrl}/api/homeChef`, {
+							method: 'DELETE',
+							headers: { 'Content-Type': 'application/json' },
+							body: JSON.stringify({ homeChefId: homechefId }),
+						})
+						if (response.ok) {
+							updateComponent('details')
+						} else {
+							console.error('Failed to delete home chef')
+						}
 					}}
 					style="uppercase px-10 py-4 mx-1 my-1 max-w-full bg-red-300 rounded-md hover:bg-red-500"
 					name="delete"
@@ -46,8 +56,8 @@ const Page = ({ params }) => {
 			</div>
 			<div className="grid grid-cols-3">
 				<div>
-					<h2 className="text-center uppercase text-[20px] text-neutral-400 mb-10  ">options</h2>
-					<div className="flex flex-col px-auto items-center ">
+					<h2 className="mb-10 text-center text-[20px] uppercase text-neutral-400  ">options</h2>
+					<div className="px-auto flex flex-col items-center ">
 						<Button
 							handleClick={() => {
 								updateComponent('details')
@@ -83,7 +93,7 @@ const Page = ({ params }) => {
 					</div>
 				</div>
 				<div className="col-span-2 border-l-2 border-sky-500 pl-10">
-					<h2 className="text-center uppercase text-[20px] text-neutral-400 mb-10">HomeChefs Details</h2>
+					<h2 className="mb-10 text-center text-[20px] uppercase text-neutral-400">HomeChefs Details</h2>
 					{component}
 				</div>
 			</div>
