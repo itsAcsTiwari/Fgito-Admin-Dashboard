@@ -2,7 +2,7 @@ import { Button, Col, Form, Row, Select, TimePicker } from 'antd'
 import moment from 'moment'
 import { useMutation } from 'react-query'
 
-import RoundedInput from './roundedInput'
+import RoundedInput from '../shared/roundedInput'
 
 const AddHomeChef = () => {
 	const [form] = Form.useForm()

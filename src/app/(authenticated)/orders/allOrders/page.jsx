@@ -1,7 +1,6 @@
 'use client'
 
-import { ErrorComponent, Loader } from '@src/components'
-import OrdersTable from '@src/components/orders/ordersTable'
+import { ErrorComponent, Loader, OrderTable } from '@src/components'
 import { ApiRoutes } from '@src/core'
 import { useQuery } from 'react-query'
 
@@ -14,7 +13,7 @@ const Page = () => {
 	return (
 		<div>
 			<h1>Orders</h1>
-			<OrdersTable data={data} />
+			<OrderTable data={data} />
 		</div>
 	)
 }
