@@ -1,5 +1,4 @@
 import { Button, Col, Form, Row, Select, TimePicker } from 'antd'
-import moment from 'moment'
 import { useMutation } from 'react-query'
 
 import RoundedInput from './roundedInput'
@@ -7,33 +6,36 @@ import RoundedInput from './roundedInput'
 const EditHomeChef = () => {
 	const [form] = Form.useForm()
 
-	const initialValues = {
-		city: '',
-		latitude: '0',
-		longitude: '0',
-		pincode: '0',
-		state: '',
-		address: '',
-		name: '',
-		googleLocation: '',
-		description: '',
-		homeChefImage: '',
-		homeChefStatus: '0',
-		cuisine: '',
-		foodType: '0',
-		maxPrice: '0',
-		minPrice: '0',
-		openingDay: '',
-		maxTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
-		minTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
-		openingTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
-		closingTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
+	const handleUpdate = async () => {
+		const values = await form.validateFields()
+		mutate(values)
 	}
 
+	const initialValues = {
+		name: '',
+		city: '',
+		address: '',
+		description: '',
+		cuisine: '',
+		pincode: '',
+		state: '',
+		foodType: '0',
+		minPrice: 0,
+		maxPrice: 0,
+		openingDay: [],
+		openingTime: null,
+		closingTime: null,
+		maxTime: null,
+		minTime: null,
+		latitude: '',
+		longitude: '',
+		homeChefImage: '',
+		googleLocation: '',
+	}
 	const { mutate, isLoading, query } = useMutation(
 		async (homeChef) => {
 			const response = await fetch('/api/homechefs/editHomechefs', {
-				method: 'POST',
+				method: 'PUT',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(homeChef),
 			})
@@ -51,18 +53,12 @@ const EditHomeChef = () => {
 		},
 	)
 
-	const handleCreate = async () => {
-		const values = await form.validateFields()
-		mutate(values)
-		form.resetFields()
-	}
-
 	return (
 		<div className="w-full space-y-1 rounded bg-cover bg-center py-2 text-gray-600">
 			<Form
 				form={form}
 				initialValues={initialValues}
-				onFinish={handleCreate}
+				onFinish={handleUpdate}
 				className="rounded-lg bg-white p-6 shadow-md"
 			>
 				<Row gutter={[16, 16]}>
@@ -393,13 +389,14 @@ const EditHomeChef = () => {
 				</Row>
 				<div className="mt-8 flex justify-center">
 					<Button className="bg-white text-black" htmlType="submit" disabled={isLoading}>
-						Submit
+						Update
 					</Button>
 				</div>
 			</Form>
 		</div>
 	)
 }
+
 export default EditHomeChef
 
 // 'use client'
