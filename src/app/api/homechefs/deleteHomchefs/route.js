@@ -16,7 +16,7 @@ export async function DELETE(request) {
 
 	try {
 		const apiUrl = process.env.NEXT_PUBLIC_API_URL
-		const response = await fetch(`${apiUrl}/homeChef`, requestOptions)
+		const response = await fetch(`${apiUrl}/api/homeChef`, requestOptions)
 		const result = await response.text()
 		return NextResponse.json({ message: result })
 	} catch (error) {
