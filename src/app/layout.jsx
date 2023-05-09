@@ -18,7 +18,7 @@ const RootLayout = ({ children }) => {
 		<html lang="en" className={roboto.className}>
 			<body>
 				<QueryClientProvider client={queryClient}>
-					<main className="xl:max-w-screen-2xl mx-auto">{children}</main>
+					<main className="mx-auto xl:max-w-screen-2xl">{children}</main>
 					<ReactQueryDevtools initialIsOpen={false} />
 				</QueryClientProvider>
 				<Footer />
