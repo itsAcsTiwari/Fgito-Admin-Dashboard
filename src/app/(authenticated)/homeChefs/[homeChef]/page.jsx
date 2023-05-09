@@ -47,25 +47,6 @@ const Page = ({ params }) => {
 		}
 	}
 
-	// const { isLoading, isError, data, error } = useQuery('homechefById', async () => {
-	// 	const apiUrl = process.env.NEXT_PUBLIC_API_URL
-	// 	const response = await fetch(`${apiUrl}/api/homeChefById?id=${homechefId}`)
-	// 	if (!response.ok) {
-	// 		throw new Error('Failed to fetch home chef')
-	// 	}
-	// 	const json = await response.json()
-	// 	return json
-	// })
-
-	// if (isLoading) {
-	// 	return <div>Loading...</div>
-	// }
-
-	// if (isError) {
-	// 	return <div>Error: {error.message}</div>
-	// }
-	// console.dir(data)
-
 	const { isLoading, isError, data, error } = useQuery('homechefById', async () => {
 		const apiUrl = process.env.NEXT_PUBLIC_API_URL
 		const response = await fetch(`${apiUrl}/api/homeChefById?id=${homechefId}`, {
@@ -87,7 +68,6 @@ const Page = ({ params }) => {
 		return <div>Error: {error.message}</div>
 	}
 
-	// Access your data here
 	console.dir(data)
 
 	const homeChef = data
