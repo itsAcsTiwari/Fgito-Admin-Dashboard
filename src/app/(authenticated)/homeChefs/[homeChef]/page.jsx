@@ -1,6 +1,6 @@
 'use client'
 
-import { AddFood, Button, DetailsHomechef, EditHomeChef, ListAllFood } from '@src/components'
+import { AddFood, Button, DetailsHomechef, EditHomeChef, ErrorComponent, ListAllFood, Loader } from '@src/components'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
 
@@ -16,7 +16,7 @@ const Page = ({ params }) => {
 				setButtonClicked('edit')
 				break
 			case 'details':
-				setComponent(<DetailsHomechef homeChef={homeChef} />)
+				setComponent(<DetailsHomechef homechef={homeChef} />)
 				setButtonClicked('details')
 				break
 			case 'add food':
@@ -28,7 +28,7 @@ const Page = ({ params }) => {
 				setButtonClicked('list food')
 				break
 			default:
-				setComponent(<DetailsHomechef homeChef={homeChef} />)
+				setComponent(<DetailsHomechef homechef={homeChef} />)
 				setButtonClicked('details')
 		}
 	}
@@ -47,17 +47,50 @@ const Page = ({ params }) => {
 		}
 	}
 
-	const { isLoading, isError, data, error } = useQuery('homechefById', async () => {
-		const apiUrl = process.env.NEXT_PUBLIC_API_URL
-		const response = await fetch(`${apiUrl}/api/homeChefById?id=${homechefId}`, {
-			method: 'GET',
-			headers: { 'Content-Type': 'application/json' },
-		})
-		if (!response.ok) {
-			throw new Error('Failed to fetch home chef')
+	// const { isLoading, isError, data, error } = useQuery('repoData', async () => {
+	// 	const response = await fetch('/api/homechefs/getHomeChefById', {
+	// 		method: 'GET',
+	// 		headers: { 'Content-Type': 'application/json' },
+	// 		body: JSON.stringify({ homeChefId: homechefId, id: params.id }), // Pass the `id` along with `homeChefId`
+	// 	})
+	// 	console.dir(response)
+	// 	if (!response.ok) {
+	// 		throw new Error('Failed to fetch home chef')
+	// 	}
+	// 	const json = await response.json()
+	// 	console.dir('JSON', json)
+	// 	return json
+	// })
+
+	// if (isLoading) {
+	// 	return <div>Loading...</div>
+	// }
+
+	// if (isError) {
+	// 	return <div>Error: {error.message}</div>
+	// }
+
+	// console.dir(data)
+
+	// const homeChef = data
+
+	const { isLoading, isError, data, error } = useQuery('repoData', async () => {
+		try {
+			const response = await fetch(`https://fgito-api.vercel.app/api/homeChefById?id=${homechefId}`, {
+				method: 'GET',
+				headers: { 'Content-Type': 'application/json' },
+			})
+
+			if (!response.ok) {
+				throw new Error('Failed to fetch home chef')
+			}
+			const json = await response.json()
+			console.dir('JSON', json)
+			return json
+		} catch (error) {
+			console.error('error', error)
+			throw error
 		}
-		const json = await response.json()
-		return json
 	})
 
 	if (isLoading) {
@@ -123,7 +156,7 @@ const Page = ({ params }) => {
 				<div className="col-span-2 border-l-2 border-sky-500 pl-10">
 					<h2 className="mb-10 text-center text-[20px] uppercase text-neutral-400">HomeChefs Details</h2>
 					{component}
-					<DetailsHomechef homeChef={homeChef} />
+					<DetailsHomechef homechef={homeChef} />
 				</div>
 			</div>
 		</div>
