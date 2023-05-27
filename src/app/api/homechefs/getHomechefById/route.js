@@ -1,33 +1,33 @@
-export async function POST({ req }) {
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("authToken", `${process.env.NEXT_PUBLIC_API_KEY}`);
+/* eslint-disable indent */
+import { NextResponse } from 'next/server'
 
-  const { id } = await req.body();
+export async function GET({ req }) {
+	const myHeaders = new Headers()
+	myHeaders.append('Content-Type', 'application/json')
+	myHeaders.append('authToken', `${process.env.NEXT_PUBLIC_API_KEY}`)
 
-  if (!id) {
-    return null;
-  }
+	const { id } = await req.body()
 
-  const raw = JSON.strigyfy({ id: id });
+	if (!id) {
+		return null
+	}
 
-  const requestOptions = {
-    method: "POST",
-    headers: myHeaders,
-    redirect: "follow",
-    body: raw,
-  };
+	const raw = JSON.stringify({ id: id })
 
-  try {
-    const response = await fetch(
-      `https://fgito-api.vercel.app/api/homeChefById`,
-      requestOptions
-    );
-    const result = await response.text();
-    console.dir(result);
-    return NextResponse.json({ result });
-  } catch (error) {
-    console.error("error", error);
-    return NextResponse.error("An error occurred");
-  }
+	const requestOptions = {
+		method: 'GET',
+		headers: myHeaders,
+		redirect: 'follow',
+		body: raw,
+	}
+
+	try {
+		const response = await fetch('https://fgito-api.vercel.app/api/homeChefById', requestOptions)
+		const result = await response.text()
+		console.dir(result)
+		return NextResponse.json({ result })
+	} catch (error) {
+		console.error('error', error)
+		return NextResponse.error('An error occurred')
+	}
 }

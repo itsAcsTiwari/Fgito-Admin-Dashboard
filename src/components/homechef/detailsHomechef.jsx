@@ -1,12 +1,3 @@
-// import React from 'react'
-
-// const DetailsHomechef = ({ homeChef }) => {
-// 	console.dir(homeChef)
-// 	return <div>DetailsHomechef</div>
-// }
-
-// export default DetailsHomechef
-
 import React from 'react'
 
 const DetailsHomechef = ({ homeChef }) => {

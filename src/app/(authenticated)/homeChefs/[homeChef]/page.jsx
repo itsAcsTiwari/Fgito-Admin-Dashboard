@@ -3,11 +3,15 @@
 import { AddFood, Button, DetailsHomechef, EditHomeChef, ErrorComponent, ListAllFood, Loader } from '@src/components'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
+//import {useRouter} from 'next/navigation'
 
 const Page = ({ params }) => {
 	const homechefId = params.homechef
+	const { id } = params
 	const [component, setComponent] = useState(<DetailsHomechef />)
 	const [buttonClicked, setButtonClicked] = useState('details')
+	//const router = useRouter()
+	//const {id} = router.query()
 
 	const updateComponent = (type) => {
 		switch (type) {
@@ -16,7 +20,7 @@ const Page = ({ params }) => {
 				setButtonClicked('edit')
 				break
 			case 'details':
-				setComponent(<DetailsHomechef homechef={homeChef} />)
+				setComponent(<DetailsHomechef homechef={homechef} />)
 				setButtonClicked('details')
 				break
 			case 'add food':
@@ -28,7 +32,7 @@ const Page = ({ params }) => {
 				setButtonClicked('list food')
 				break
 			default:
-				setComponent(<DetailsHomechef homechef={homeChef} />)
+				setComponent(<DetailsHomechef homechef={homechef} />)
 				setButtonClicked('details')
 		}
 	}
@@ -47,37 +51,11 @@ const Page = ({ params }) => {
 		}
 	}
 
-	// const { isLoading, isError, data, error } = useQuery('repoData', async () => {
-	// 	const response = await fetch('/api/homechefs/getHomeChefById', {
-	// 		method: 'GET',
-	// 		headers: { 'Content-Type': 'application/json' },
-	// 		body: JSON.stringify({ homeChefId: homechefId, id: params.id }), // Pass the `id` along with `homeChefId`
-	// 	})
-	// 	console.dir(response)
-	// 	if (!response.ok) {
-	// 		throw new Error('Failed to fetch home chef')
-	// 	}
-	// 	const json = await response.json()
-	// 	console.dir('JSON', json)
-	// 	return json
-	// })
-
-	// if (isLoading) {
-	// 	return <div>Loading...</div>
-	// }
-
-	// if (isError) {
-	// 	return <div>Error: {error.message}</div>
-	// }
-
-	// console.dir(data)
-
-	// const homeChef = data
-
 	const { isLoading, isError, data, error } = useQuery('repoData', async () => {
 		try {
-			const response = await fetch(`https://fgito-api.vercel.app/api/homeChefById?id=${homechefId}`, {
-				method: 'GET',
+			const response = await fetch('/api/homechefs/getHomeChefById', {
+				method: 'POST',
+				body: JSON.stringify({ id }),
 				headers: { 'Content-Type': 'application/json' },
 			})
 
@@ -103,7 +81,7 @@ const Page = ({ params }) => {
 
 	console.dir(data)
 
-	const homeChef = data
+	const homechef = data
 
 	return (
 		<div className="flex flex-col">
@@ -156,7 +134,7 @@ const Page = ({ params }) => {
 				<div className="col-span-2 border-l-2 border-sky-500 pl-10">
 					<h2 className="mb-10 text-center text-[20px] uppercase text-neutral-400">HomeChefs Details</h2>
 					{component}
-					<DetailsHomechef homechef={homeChef} />
+					<DetailsHomechef homechef={homechef} />
 				</div>
 			</div>
 		</div>
