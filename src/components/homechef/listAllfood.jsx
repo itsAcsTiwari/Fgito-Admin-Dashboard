@@ -1,10 +1,10 @@
-import { ErrorComponent, Loader } from '@src/components'
 import { Select, TimePicker } from 'antd'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
 
-import RoundedInput from './roundedInput'
+import { ErrorComponent, Loader } from '../shared'
+import RoundedInput from '../shared/roundedInput'
 
 const useHandleEdit = () => {
 	const router = useRouter()
