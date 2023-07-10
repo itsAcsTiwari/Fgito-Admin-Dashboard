@@ -1,7 +1,12 @@
 import React from 'react'
 
-const DetailsHomechef = () => {
-	return <div>DetailsHomechef</div>
+const DetailsHomechef = ({ homeChef }) => {
+	console.dir(homeChef)
+	return (
+		<div>
+			<pre>{JSON.stringify(homeChef, null, 2)}</pre>
+		</div>
+	)
 }
 
 export default DetailsHomechef

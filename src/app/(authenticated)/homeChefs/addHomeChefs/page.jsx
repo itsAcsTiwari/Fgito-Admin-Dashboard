@@ -32,6 +32,12 @@ const AddHomeChef = () => {
 		closingTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
 	}
 
+	const formatTime = (time) => {
+		const hours = Math.floor(time / 60)
+		const minutes = time % 60
+		return `${hours}h ${minutes}m`
+	}
+
 	const { mutate, isLoading, query } = useMutation(
 		async (homeChef) => {
 			const response = await fetch(ApiRoutes.addHomechef, {
@@ -289,7 +295,7 @@ const AddHomeChef = () => {
 							<div>
 								<sup>*</sup>Maximum Preparation Time:
 							</div>
-							<TimePicker format="h:mm a" />
+							<TimePicker format="h:mm a" onChange={(time) => form.setFieldsValue({ maxTime: time })} />
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={12}>
@@ -297,7 +303,7 @@ const AddHomeChef = () => {
 							<div>
 								<sup>*</sup>Minimum Food Preparation Time:
 							</div>
-							<TimePicker format="h:mm a" />
+							<TimePicker format="h:mm a" onChange={(time) => form.setFieldsValue({ maxTime: time })} />
 						</Form.Item>
 					</Col>
 				</Row>

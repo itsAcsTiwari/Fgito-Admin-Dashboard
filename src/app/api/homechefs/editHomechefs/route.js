@@ -1,24 +1,26 @@
+/* eslint-disable indent */
 import { NextResponse } from 'next/server'
 
-export async function POST(request) {
+export async function PUT(request) {
 	const myHeaders = new Headers()
 	myHeaders.append('Content-Type', 'application/json')
 
-	const { homeChefId } = await request.json()
+	const { homeChefId, ...body } = await request.json()
+
 	const requestOptions = {
-		method: 'POST',
+		method: 'PUT',
 		headers: myHeaders,
-		body: JSON.stringify({ homeChefId }),
+		body: JSON.stringify(body),
 		redirect: 'follow',
 	}
 
 	try {
 		const apiUrl = process.env.NEXT_PUBLIC_API_URL
-		const response = await fetch(`${apiUrl}/api/getFood`, requestOptions)
+		const response = await fetch(`${apiUrl}/api/homeChef/${homeChefId}`, requestOptions)
 		const result = await response.text()
 		return NextResponse.json({ message: result })
 	} catch (error) {
-		console.error('error', error)
+		console.dir('error', error)
 		return NextResponse.error()
 	}
 }
