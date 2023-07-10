@@ -1,4 +1,5 @@
 'use client'
+
 import { HOMECHEFS, ORDERS, PageRoutes } from '@src/core'
 import classNames from 'classnames'
 import { Roboto_Condensed } from 'next/font/google'
@@ -19,8 +20,8 @@ const RootNavigation = () => {
 		<div className="flex flex-col">
 			<div
 				className={classNames(
-					'flex flex-row text-left py-3 top-0 w-full',
-					pathname.includes(HOMECHEFS) ? 'bg-slate-300 border-r-4 border-[#009879]' : '',
+					'top-0 flex w-full flex-row py-3 text-left',
+					pathname.includes(HOMECHEFS) ? 'border-r-4 border-[#009879] bg-slate-300' : '',
 				)}
 			>
 				<Link href={PageRoutes.All_HOME_CHEFS}>
@@ -37,8 +38,8 @@ const RootNavigation = () => {
 			</div>
 			<div
 				className={classNames(
-					'flex flex-row text-left py-3 top-0 w-full',
-					pathname.includes(ORDERS) ? 'bg-slate-300 border-r-4 border-[#009879]' : '',
+					'top-0 flex w-full flex-row py-3 text-left',
+					pathname.includes(ORDERS) ? 'border-r-4 border-[#009879] bg-slate-300' : '',
 				)}
 			>
 				<Link href={PageRoutes.ALL_ORDERS}>
@@ -55,8 +56,8 @@ const RootNavigation = () => {
 			</div>
 			<div
 				className={classNames(
-					'flex flex-row text-left py-3 top-0 w-full',
-					pathname.includes(PageRoutes.SALES) ? 'bg-slate-300 border-r-4 border-[#009879]' : '',
+					'top-0 flex w-full flex-row py-3 text-left',
+					pathname.includes(PageRoutes.SALES) ? 'border-r-4 border-[#009879] bg-slate-300' : '',
 				)}
 			>
 				<Link href={PageRoutes.SALES}>
