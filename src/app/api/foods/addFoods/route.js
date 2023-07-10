@@ -3,6 +3,8 @@ import { NextResponse } from 'next/server'
 export async function POST(request) {
 	const myHeaders = new Headers()
 	myHeaders.append('Content-Type', 'application/json')
+	myHeaders.append('Authorization', `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`)
+
 
 	const body = await request.json()
 
@@ -24,7 +26,7 @@ export async function POST(request) {
 	}
 
 	try {
-		const response = await fetch('https://fgito-api.vercel.app/api/food', requestOptions)
+		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/food`, requestOptions)
 		const result = await response.text()
 		return NextResponse.json({ message: result })
 	} catch (error) {

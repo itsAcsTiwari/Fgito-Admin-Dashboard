@@ -5,7 +5,7 @@ export async function GET() {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
-			authToken: `${process.env.NEXT_PUBLIC_API_KEY}`,
+			'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
 		},
 		redirect: 'follow'
 	})

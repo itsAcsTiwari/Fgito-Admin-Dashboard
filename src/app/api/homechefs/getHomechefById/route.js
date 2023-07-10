@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server'
 export async function GET({ req }) {
 	const myHeaders = new Headers()
 	myHeaders.append('Content-Type', 'application/json')
-	myHeaders.append('authToken', `${process.env.NEXT_PUBLIC_API_KEY}`)
+	myHeaders.append('Authorization', `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`)
 
 	const { id } = await req.body()
 
@@ -22,7 +22,7 @@ export async function GET({ req }) {
 	}
 
 	try {
-		const response = await fetch('https://fgito-api.vercel.app/api/homeChefById', requestOptions)
+		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/homeChefById`, requestOptions)
 		const result = await response.text()
 		console.dir(result)
 		return NextResponse.json({ result })
