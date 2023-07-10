@@ -1,5 +1,5 @@
 import { Button, Col, Form, Row, Select, TimePicker } from 'antd'
-import moment from 'moment'
+import * as dayjs from 'dayjs'
 import { useMutation } from 'react-query'
 
 import RoundedInput from '../shared/roundedInput'
@@ -14,7 +14,7 @@ const AddHomeChef = () => {
 		quantity: '0',
 		foodType: '0',
 		price: '0',
-		foodPreparationTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
+		foodPreparationTime: dayjs(new Date(), 'h:mm a'),
 	}
 
 	const { mutate, isLoading, query } = useMutation(

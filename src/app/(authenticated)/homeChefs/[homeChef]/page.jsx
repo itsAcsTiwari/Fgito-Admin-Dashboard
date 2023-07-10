@@ -1,17 +1,14 @@
 'use client'
 
-import { AddFood, Button, DetailsHomechef, EditHomeChef, ErrorComponent, ListAllFood, Loader } from '@src/components'
+import { AddFood, Button, DetailsHomechef, EditHomeChef, ListAllFood } from '@src/components'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
-//import {useRouter} from 'next/navigation'
 
 const Page = ({ params }) => {
 	const homechefId = params.homechef
 	const { id } = params
 	const [component, setComponent] = useState(<DetailsHomechef />)
 	const [buttonClicked, setButtonClicked] = useState('details')
-	//const router = useRouter()
-	//const {id} = router.query()
 
 	const updateComponent = (type) => {
 		switch (type) {

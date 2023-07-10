@@ -1,7 +1,7 @@
 import { Button, Col, Form, Row, Select, TimePicker } from 'antd'
 import { useMutation } from 'react-query'
 
-import RoundedInput from './roundedInput'
+import { RoundedInput } from '../shared'
 
 const EditHomeChef = () => {
 	const [form] = Form.useForm()
@@ -398,86 +398,3 @@ const EditHomeChef = () => {
 }
 
 export default EditHomeChef
-
-// 'use client'
-// import { Button, Checkbox, Form, Input, Select, TimePicker } from 'antd'
-// import moment from 'moment'
-// import { useState } from 'react'
-
-// const { Option } = Select
-
-// const EditHomeChef = ({ initialValues, onSubmit, isLoading }) => {
-// 	const [form] = Form.useForm()
-// 	const [submitting, setSubmitting] = useState(false)
-
-// 	const handleSubmit = async (values) => {
-// 		setSubmitting(true)
-// 		await onSubmit(values)
-// 		setSubmitting(false)
-// 	}
-
-// 	return (
-// 		<Form form={form} initialValues={initialValues} onFinish={handleSubmit} layout="vertical" name="edit_home_chef">
-// 			<Form.Item label="City" name="city" rules={[{ required: true }]}>
-// 				<Input />
-// 			</Form.Item>
-// 			<Form.Item label="State" name="state" rules={[{ required: true }]}>
-// 				<Input />
-// 			</Form.Item>
-// 			<Form.Item label="Pincode" name="pincode" rules={[{ required: true }]}>
-// 				<Input />
-// 			</Form.Item>
-// 			<Form.Item label="Address" name="address" rules={[{ required: true }]}>
-// 				<Input />
-// 			</Form.Item>
-// 			<Form.Item label="Name" name="name" rules={[{ required: true }]}>
-// 				<Input />
-// 			</Form.Item>
-// 			<Form.Item label="Google Location" name="googleLocation" rules={[{ required: true }]}>
-// 				<Input />
-// 			</Form.Item>
-// 			<Form.Item label="Description" name="description" rules={[{ required: true }]}>
-// 				<Input />
-// 			</Form.Item>
-// 			<Form.Item label="Cuisine" name="cuisine" rules={[{ required: true }]}>
-// 				<Input />
-// 			</Form.Item>
-// 			<Form.Item label="Food Type" name="foodType" rules={[{ required: true }]}>
-// 				<Select>
-// 					<Option value="0">Veg</Option>
-// 					<Option value="1">Non-Veg</Option>
-// 				</Select>
-// 			</Form.Item>
-// 			<Form.Item label="Minimum Price" name="minPrice" rules={[{ required: true }]}>
-// 				<Input />
-// 			</Form.Item>
-// 			<Form.Item label="Maximum Price" name="maxPrice" rules={[{ required: true }]}>
-// 				<Input />
-// 			</Form.Item>
-// 			<Form.Item label="Opening Day" name="openingDay" rules={[{ required: true }]}>
-// 				<Checkbox.Group>
-// 					<Checkbox value="0">Sunday</Checkbox>
-// 					<Checkbox value="1">Monday</Checkbox>
-// 					<Checkbox value="2">Tuesday</Checkbox>
-// 					<Checkbox value="3">Wednesday</Checkbox>
-// 					<Checkbox value="4">Thursday</Checkbox>
-// 					<Checkbox value="5">Friday</Checkbox>
-// 					<Checkbox value="6">Saturday</Checkbox>
-// 				</Checkbox.Group>
-// 			</Form.Item>
-// 			<Form.Item label="Opening Time" name="openingTime" rules={[{ required: true }]}>
-// 				<TimePicker format="h:mm a" />
-// 			</Form.Item>
-// 			<Form.Item label="Closing Time" name="closingTime" rules={[{ required: true }]}>
-// 				<TimePicker format="h:mm a" />
-// 			</Form.Item>
-// 			<Form.Item>
-// 				<Button type="primary" htmlType="submit" disabled={submitting || isLoading}>
-// 					{isLoading ? 'Loading...' : 'Submit'}
-// 				</Button>
-// 			</Form.Item>
-// 		</Form>
-// 	)
-// }
-
-// export default EditHomeChef

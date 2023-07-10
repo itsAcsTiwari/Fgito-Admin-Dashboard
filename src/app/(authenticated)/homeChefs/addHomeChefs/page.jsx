@@ -3,7 +3,7 @@
 import RoundedInput from '@src/components/shared/roundedInput'
 import { ApiRoutes } from '@src/core'
 import { Button, Checkbox, Col, Form, Row, Select, TimePicker } from 'antd'
-import moment from 'moment'
+import * as dayjs from 'dayjs'
 import { useMutation } from 'react-query'
 
 const AddHomeChef = () => {
@@ -26,10 +26,10 @@ const AddHomeChef = () => {
 		maxPrice: '0',
 		minPrice: '0',
 		openingDay: '',
-		maxTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
-		minTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
-		openingTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
-		closingTime: moment(new Date().toLocaleTimeString(), 'h:mm a'),
+		maxTime: dayjs(new Date(), 'h:mm a'),
+		minTime: dayjs(new Date(), 'h:mm a'),
+		openingTime: dayjs(new Date(), 'h:mm a'),
+		closingTime: dayjs(new Date(), 'h:mm a'),
 	}
 
 	const formatTime = (time) => {
