@@ -14,10 +14,12 @@ export async function PUT(request) {
 		body: JSON.stringify(body),
 		redirect: 'follow',
 	}
+	// console.log(requestOptions, 'requestOptions');
 
 	try {
-		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/order/${orderId}`, requestOptions)
+		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/order/${orderId}`, requestOptions)
 		const result = await response.text()
+		console.log(result, 'result');
 		return NextResponse.json({ message: result })
 	} catch (error) {
 		console.dir('error', error)

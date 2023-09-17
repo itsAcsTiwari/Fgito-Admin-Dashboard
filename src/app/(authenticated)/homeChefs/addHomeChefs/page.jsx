@@ -32,11 +32,6 @@ const AddHomeChef = () => {
 		closingTime: dayjs(new Date(), 'h:mm a'),
 	}
 
-	const formatTime = (time) => {
-		const hours = Math.floor(time / 60)
-		const minutes = time % 60
-		return `${hours}h ${minutes}m`
-	}
 
 	const { mutate, isLoading, query } = useMutation(
 		async (homeChef) => {

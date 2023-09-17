@@ -22,7 +22,7 @@ export async function GET({ req }) {
 	}
 
 	try {
-		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/homeChefById`, requestOptions)
+		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeChefById`, requestOptions)
 		const result = await response.text()
 		console.dir(result)
 		return NextResponse.json({ result })

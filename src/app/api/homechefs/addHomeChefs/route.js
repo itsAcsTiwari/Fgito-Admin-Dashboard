@@ -16,7 +16,7 @@ export async function POST(request) {
 	}
 
 	try {
-		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/homeChef`, requestOptions)
+		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeChef`, requestOptions)
 		const result = await response.text()
 		return NextResponse.json({ message: result })
 	} catch (error) {
