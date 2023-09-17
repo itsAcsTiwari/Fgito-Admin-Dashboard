@@ -14,7 +14,6 @@ const OrderDetails = ({ order, onClose, isOpen }) => {
 	if (!order) return <></>
 	const { id, orderNo, orderDetails, userId, orderStatus } = order
 	const { UserName, orderAmount, orderDate } = orderDetails
-	console.log(order);
 
 	const handleModalOk = () => {
 		console.dir('OK button clicked')
@@ -29,7 +28,7 @@ const OrderDetails = ({ order, onClose, isOpen }) => {
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify({ ...values, orderId: id })
+				body: JSON.stringify({ deliveryPerson: { ...values }, orderId: id })
 			});
 
 			if (!response.ok) {
