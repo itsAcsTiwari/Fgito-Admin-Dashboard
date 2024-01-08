@@ -13,7 +13,13 @@ export const PageRoutes = {
 export const ApiRoutes = {
   allHomechefs: '/api/homechefs/allhomechefs',
   addHomechef: '/api/homechefs/addHomeChefs',
+  getHomechefById: '/api/homechefs/getHomechefById',
+  editHomechefs: '/api/homechefs/editHomechefs',
+  deleteHomchefs: '/api/homechefs/deleteHomchefs',
+
   allOrders: '/api/orders/allorders',
-  addOrder: '/api/orders/addorder',
   updateOrder: '/api/orders/updateOrder',
+
+  addFood: '/api/foods/addFoods',
+  allFoods: '/api/foods/allFoods',
 }

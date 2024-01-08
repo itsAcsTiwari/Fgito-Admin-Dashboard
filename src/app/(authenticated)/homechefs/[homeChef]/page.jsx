@@ -1,12 +1,12 @@
 'use client'
 
 import { AddFood, Button, DetailsHomechef, EditHomeChef, ListAllFood } from '@src/components'
+import { ApiRoutes } from '@src/core'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
 
 const Page = ({ params }) => {
   const homechefId = params.homeChef
-  const { id } = params
   const [component, setComponent] = useState(<DetailsHomechef />)
   const [buttonClicked, setButtonClicked] = useState('details')
 
@@ -35,8 +35,7 @@ const Page = ({ params }) => {
   }
 
   const handleDeleteClick = async () => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL
-    const response = await fetch(`${apiUrl}/api/homechefs/deleteHomechefs`, {
+    const response = await fetch(ApiRoutes.deleteHomchefs, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ homeChefId: homechefId }),
@@ -50,9 +49,10 @@ const Page = ({ params }) => {
 
   const { isLoading, isError, data, error } = useQuery('repoData', async () => {
     try {
-      const response = await fetch('/api/homechefs/getHomeChefById', {
+      console.log('id: homechefId', homechefId)
+      const response = await fetch(ApiRoutes.getHomechefById, {
         method: 'POST',
-        body: JSON.stringify({ homechefId }),
+        body: JSON.stringify({ id: homechefId }),
         headers: { 'Content-Type': 'application/json' },
       })
 
