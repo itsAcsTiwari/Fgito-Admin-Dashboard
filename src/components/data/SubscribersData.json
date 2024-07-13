@@ -1,0 +1,310 @@
+{
+    "subscribers": [
+        {
+            "id": "#45586rgfrur",
+            "name": "Rohit Shukla",
+            "homechef": "hc A",
+            "timings": {
+                "breakfast": "8 AM",
+                "lunch": "1 PM",
+                "dinner": "8 PM"
+            },
+            "thali_type": "veg",
+            "subscription_details": {
+                "subscription_type": "Weekly",
+                "start_date": "5/07/24",
+                "end_date": "11/07/24",
+                "days": 7
+
+            },
+            "isSubscribed": "Active",
+            "total_order":32
+        },
+        {
+            "id": "#45587rgfrur",
+            "name": "Rahul Dubey",
+            "homechef": "hc B",
+            "timings": {
+                "breakfast": "9 AM",
+                "lunch": "2 PM",
+                "dinner": "10 PM"
+            },
+            "thali_type": "veg",
+            "subscription_details": {
+                "subscription_type": "Monthly",
+                "start_date": "5/07/24",
+                "end_date": "11/07/24",
+                "days": 7
+            },
+            "isSubscribed": "Inactive",
+            "total_order":12
+        },
+        {
+            "id": "#45588rgfrur",
+            "name": "Virat",
+            "homechef": "hc C",
+            "timings": {
+                "breakfast": "8 AM",
+                "lunch": "1 PM",
+                "dinner": "8 PM"
+            },
+            "thali_type": "veg",
+            "subscription_details": {
+                "subscription_type": "Random",
+                "start_date": "5/07/24",
+                "end_date": "11/07/24",
+                "days": 7
+            },
+            "isSubscribed": "Active",
+            "total_order":16
+        },
+        {
+            "id": "#45589rgfrur",
+            "name": "Shikhar",
+            "homechef": "hc D",
+            "timings": {
+                "breakfast": "8 AM",
+                "lunch": "1 PM",
+                "dinner": "8 PM"
+            },
+            "thali_type": "veg",
+            "subscription_details": {
+                "subscription_type": "Weekly",
+                "start_date": "5/07/24",
+                "end_date": "11/07/24",
+                "days": 7
+            },
+            "isSubscribed": "Active",
+            "total_order":23
+        },
+        {
+            "id": "#45590rgfrur",
+            "name": "Virat",
+            "homechef": "hc E",
+            "timings": {
+                "breakfast": "8 AM",
+                "lunch": "1 PM",
+                "dinner": "8 PM"
+            },
+            "thali_type": "veg",
+            "subscription_details": {
+                "subscription_type": "Monthly",
+                "start_date": "5/07/24",
+                "end_date": "11/07/24",
+                "days": 7
+            },
+            "isSubscribed": "Active",
+            "total_order":6
+        },
+        {
+            "id": "#45591rgfrur",
+            "name": "Ramesh",
+            "homechef": "hc F",
+            "timings": {
+                "breakfast": "8 AM",
+                "lunch": "1 PM",
+                "dinner": "8 PM"
+            },
+            "thali_type": "veg",
+            "subscription_details": {
+                "subscription_type": "Random",
+                "start_date": "5/07/24",
+                "end_date": "11/07/24",
+                "days": 7
+            },
+            "isSubscribed": "Active",
+            "total_order":45
+        },
+        {
+            "id": "#45592rgfrur",
+            "name": "Rajesh",
+            "homechef": "hc G",
+            "timings": {
+                "breakfast": "8 AM",
+                "lunch": "1 PM",
+                "dinner": "8 PM"
+            },
+            "thali_type": "veg",
+            "subscription_details": {
+                "subscription_type": "Weekly",
+                "start_date": "5/07/24",
+                "end_date": "11/07/24",
+                "days": 7
+            },
+            "isSubscribed": "Inactive",
+            "total_order":15
+        },
+        {
+            "id": "#45593rgfrur",
+            "name": "Piyush",
+            "homechef": "hc G",
+            "timings": {
+                "breakfast": "8 AM",
+                "lunch": "1 PM",
+                "dinner": "8 PM"
+            },
+            "thali_type": "veg",
+            "subscription_details": {
+                "subscription_type": "Monthly",
+                "start_date": "5/07/24",
+                "end_date": "11/07/24",
+                "days": 7
+            },
+            "isSubscribed": "Active",
+            "total_order":20
+        },
+        {
+            "id": "#45594rgfrur",
+            "name": "Pari",
+            "homechef": "hc G",
+            "timings": {
+                "breakfast": "8:30 AM",
+                "lunch": "1:30 PM",
+                "dinner": "8:45 PM"
+            },
+            "thali_type": "veg",
+            "subscription_details": {
+                "subscription_type": "Random",
+                "start_date": "5/07/24",
+                "end_date": "11/07/24",
+                "days": 7
+            },
+            "isSubscribed": "Inactive",
+            "total_order":35
+        },
+        {
+            "id": "#45595rgfrur",
+            "name": "Shalu",
+            "homechef": "hc G",
+            "timings": {
+                "breakfast": "8 AM",
+                "lunch": "1 PM",
+                "dinner": "8 PM"
+            },
+            "thali_type": "veg",
+            "subscription_details": {
+                "subscription_type": "Weekly",
+                "start_date": "5/07/24",
+                "end_date": "11/07/24",
+                "days": 7
+            },
+            "isSubscribed": "Active",
+            "total_order":7
+        },
+        {
+            "id": "#45596rgfrur",
+            "name": "Aman",
+            "homechef": "hc G",
+            "timings": {
+                "breakfast": "8 AM",
+                "lunch": "1 PM",
+                "dinner": "8 PM"
+            },
+            "thali_type": "veg",
+            "subscription_details": {
+                "subscription_type": "Monthly",
+                "start_date": "5/07/24",
+                "end_date": "11/07/24",
+                "days": 7
+            },
+            "isSubscribed": "Active",
+            "total_order":10
+        },
+        {
+            "id": "#45597rgfrur",
+            "name": "Siraj",
+            "homechef": "hc G",
+            "timings": {
+                "breakfast": "8 AM",
+                "lunch": "1 PM",
+                "dinner": "8 PM"
+            },
+            "thali_type": "veg",
+            "subscription_details": {
+                "subscription_type": "Random",
+                "start_date": "5/07/24",
+                "end_date": "11/07/24",
+                "days": 7
+            },
+            "isSubscribed": "Inactive",
+            "total_order":27
+        },
+        {
+            "id": "#45598rgfrur",
+            "name": "Prateek",
+            "homechef": "hc G",
+            "timings": {
+                "breakfast": "8 AM",
+                "lunch": "1 PM",
+                "dinner": "8 PM"
+            },
+            "thali_type": "veg",
+            "subscription_details": {
+                "subscription_type": "Weekly",
+                "start_date": "5/07/24",
+                "end_date": "11/07/24",
+                "days": 7
+            },
+            "isSubscribed": "Inactive",
+            "total_order":33
+        },
+        {
+            "id": "#45599rgfrur",
+            "name": "Ishant",
+            "homechef": "hc G",
+            "timings": {
+                "breakfast": "8 AM",
+                "lunch": "1 PM",
+                "dinner": "8 PM"
+            },
+            "thali_type": "veg",
+            "subscription_details": {
+                "subscription_type": "Weekly",
+                "start_date": "5/07/24",
+                "end_date": "11/07/24",
+                "days": 7
+            },
+            "isSubscribed": "Active",
+            "total_order":3
+        }
+    ],
+    "homechefs": [
+        {
+            "name": "A",
+            "address": "Greater Noida"
+        },
+        {
+            "name": "B",
+            "address": "Greater Noida"
+        },
+        {
+            "name": "C",
+            "address": "Greater Noida"
+        },
+        {
+            "name": "D",
+            "address": "Greater Noida"
+        },
+        {
+            "name": "E",
+            "address": "Greater Noida"
+        }
+    ],
+    "deviveryBoys": [
+        {
+            "name": "Rajesh Sharma"
+        },
+        {
+            "name": "Suraj Singh"
+        },
+        {
+            "name": "Madan Lal"
+        },
+        {
+            "name": "Deepu Kumar"
+        },
+        {
+            "name": "Chandan Kumar"
+        }
+    ]
+}

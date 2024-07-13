@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: {
+        green: {
           DEFAULT: '#3BA738',
           100: '#b1dcaf',
           200: '#89ca88',
@@ -15,13 +15,8 @@ module.exports = {
           600: '#236422',
           700: '#184316',
         },
-        GREY: {
-          DEFAULT: '#D9D9D9',
-          light: 'e8e8e8',
-          dark: '828282',
-        },
-        tint: {
-          DEFAULT: '#5089B2AB',
+        grey: {
+          DEFAULT: '#F0F0F0',
         },
       },
     },
