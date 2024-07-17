@@ -1,4 +1,4 @@
-export const home = (
+export const Home = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -6,6 +6,7 @@ export const home = (
     strokeWidth={1.5}
     stroke="currentColor"
     className="h-4 font-extrabold"
+    {...props}
   >
     <path
       strokeLinecap="round"
@@ -15,7 +16,7 @@ export const home = (
   </svg>
 )
 
-export const group = (
+export const Group = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -23,6 +24,7 @@ export const group = (
     strokeWidth={1.5}
     stroke="currentColor"
     className="h-4 font-extrabold"
+    {...props}
   >
     <path
       strokeLinecap="round"
@@ -32,8 +34,8 @@ export const group = (
   </svg>
 )
 
-export const search = (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-[1rem] w-[1rem]">
+export const Search = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" {...props}>
     <path
       fillRule="evenodd"
       d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z"
@@ -42,11 +44,8 @@ export const search = (
   </svg>
 )
 
-export const user = (
-  <svg width="46"
-   height="46" 
-   viewBox="0 0 46 46"
-    fill="none" xmlns="http://www.w3.org/2000/svg">
+export const User = (props) => (
+  <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <g filter="url(#filter0_dd_10_220)">
       <circle cx="23" cy="22" r="20" fill="#D9D9D9" />
     </g>
@@ -101,14 +100,15 @@ export const user = (
   </svg>
 )
 
-export const pen = (
+export const Pen = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="h-[1rem] w-[1rem] text-white"
+    className="h-4 w-4 text-white"
+    {...props}
   >
     <path
       strokeLinecap="round"
@@ -118,14 +118,15 @@ export const pen = (
   </svg>
 )
 
-export const submit = (
+export const Submit = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="h-[1.5rem] w-[1.5rem] text-white"
+    className="w-6 text-white lg:h-4 xl:h-6"
+    {...props}
   >
     <path strokeLinecap="round" strokeLinejoin="round" d="m7.49 12-3.75 3.75m0 0 3.75 3.75m-3.75-3.75h16.5V4.499" />
   </svg>

@@ -18,7 +18,9 @@
 
             },
             "isSubscribed": "Active",
-            "total_order":32
+            "total_order":32,
+            "weekDays":"S M T W T F S",
+            "status":"Live | Open"
         },
         {
             "id": "#45587rgfrur",
@@ -37,7 +39,9 @@
                 "days": 7
             },
             "isSubscribed": "Inactive",
-            "total_order":12
+            "total_order":12,
+            "weekDays":"S M T W T F S",
+             "status":"Open"
         },
         {
             "id": "#45588rgfrur",
@@ -56,7 +60,9 @@
                 "days": 7
             },
             "isSubscribed": "Active",
-            "total_order":16
+            "total_order":16,
+            "weekDays":"S M T W T F S",
+             "status":"Close"
         },
         {
             "id": "#45589rgfrur",
@@ -75,7 +81,9 @@
                 "days": 7
             },
             "isSubscribed": "Active",
-            "total_order":23
+            "total_order":23,
+            "weekDays":"S M T W T F S",
+             "status":"Live | Open"
         },
         {
             "id": "#45590rgfrur",
@@ -94,7 +102,9 @@
                 "days": 7
             },
             "isSubscribed": "Active",
-            "total_order":6
+            "total_order":6,
+            "weekDays":"S M T W T F S",
+             "status":"Close"
         },
         {
             "id": "#45591rgfrur",
@@ -113,7 +123,9 @@
                 "days": 7
             },
             "isSubscribed": "Active",
-            "total_order":45
+            "total_order":45,
+            "weekDays":"S M T W T F S",
+             "status":"Live | Open"
         },
         {
             "id": "#45592rgfrur",
@@ -132,7 +144,9 @@
                 "days": 7
             },
             "isSubscribed": "Inactive",
-            "total_order":15
+            "total_order":15,
+            "weekDays":"S M T W T F S",
+             "status":"Open"
         },
         {
             "id": "#45593rgfrur",
@@ -151,7 +165,9 @@
                 "days": 7
             },
             "isSubscribed": "Active",
-            "total_order":20
+            "total_order":20,
+            "weekDays":"S M T W T F S",
+             "status":"Live | Open"
         },
         {
             "id": "#45594rgfrur",
@@ -170,7 +186,9 @@
                 "days": 7
             },
             "isSubscribed": "Inactive",
-            "total_order":35
+            "total_order":35,
+            "weekDays":"S M T W T F S",
+             "status":"Open"
         },
         {
             "id": "#45595rgfrur",
@@ -189,7 +207,9 @@
                 "days": 7
             },
             "isSubscribed": "Active",
-            "total_order":7
+            "total_order":7,
+            "weekDays":"S M T W T F S",
+             "status":"Close"
         },
         {
             "id": "#45596rgfrur",
@@ -208,7 +228,9 @@
                 "days": 7
             },
             "isSubscribed": "Active",
-            "total_order":10
+            "total_order":10,
+            "weekDays":"S M T W T F S",
+             "status":"Close"
         },
         {
             "id": "#45597rgfrur",
@@ -227,7 +249,9 @@
                 "days": 7
             },
             "isSubscribed": "Inactive",
-            "total_order":27
+            "total_order":27,
+            "weekDays":"S M T W T F S",
+             "status":"Live | Open"
         },
         {
             "id": "#45598rgfrur",
@@ -246,7 +270,9 @@
                 "days": 7
             },
             "isSubscribed": "Inactive",
-            "total_order":33
+            "total_order":33,
+            "weekDays":"S M T W T F S",
+             "status":"Live | Open"
         },
         {
             "id": "#45599rgfrur",
@@ -265,46 +291,9 @@
                 "days": 7
             },
             "isSubscribed": "Active",
-            "total_order":3
+            "total_order":3,
+            "weekDays":"S M T W T F S",
+             "status":"Live | Open"
         }
-    ],
-    "homechefs": [
-        {
-            "name": "A",
-            "address": "Greater Noida"
-        },
-        {
-            "name": "B",
-            "address": "Greater Noida"
-        },
-        {
-            "name": "C",
-            "address": "Greater Noida"
-        },
-        {
-            "name": "D",
-            "address": "Greater Noida"
-        },
-        {
-            "name": "E",
-            "address": "Greater Noida"
-        }
-    ],
-    "deviveryBoys": [
-        {
-            "name": "Rajesh Sharma"
-        },
-        {
-            "name": "Suraj Singh"
-        },
-        {
-            "name": "Madan Lal"
-        },
-        {
-            "name": "Deepu Kumar"
-        },
-        {
-            "name": "Chandan Kumar"
-        }
-    ]
+    ] 
 }

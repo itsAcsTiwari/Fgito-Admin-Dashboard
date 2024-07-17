@@ -34,12 +34,12 @@ const RootLayout = ({ children }) => {
           <Toaster />
           <main className="mx-auto xl:max-w-screen-2xl">
             <div className="flex w-full flex-row items-start justify-start">
-              <div className="min-h-[100vh] w-[20%] bg-green-700">
+              <div className="min-h-screen w-1/5 bg-primary-700">
                 <Sidebar />
               </div>
-              <div className="w-75% relative min-h-[100vh]">
+              <div className="w-4/5 relative min-h-screen">
                 {children}
-                <div className="absolute bottom-0 w-[100%]">
+                <div className="absolute bottom-0 w-full">
                   <Footer />
                 </div>
               </div>
