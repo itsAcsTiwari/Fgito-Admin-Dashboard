@@ -1,12 +1,12 @@
 'use client'
 
-import { Search } from '@src/core/icons'
+import { useState } from 'react'
 import classNames from 'classnames'
+
+import { Search } from '@src/core/icons'
 import Breakfast from 'public/breakfast.jpg'
 import Dinner from 'public/dinner.jpg'
 import Lunch from 'public/lunch.jpg'
-import { useState } from 'react'
-
 import MealBox from './MealBox'
 import Userbox from './Userbox'
 

@@ -1,7 +1,8 @@
 
+import classNames from 'classnames';
+
 import SubscribersData from '@src/components/data/placeholderData.json';
 import { User } from '@src/core/icons';
-import classNames from 'classnames';
 
 const ChefBox = ({ onClick, selectedId }) => {
     const subscribersData = SubscribersData.subscribers;

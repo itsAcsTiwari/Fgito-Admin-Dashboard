@@ -1,7 +1,8 @@
 
-import { Pen, Submit } from '@src/core/icons'
-import Image from 'next/image';
 import { useState } from 'react';
+import Image from 'next/image';
+
+import { Pen, Submit } from '@src/core/icons'
 
 const MealBox = ({ meal, image }) => {
     const [isLoading, setIsLoading] = useState({

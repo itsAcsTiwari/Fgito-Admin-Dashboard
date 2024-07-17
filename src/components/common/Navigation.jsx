@@ -1,9 +1,10 @@
 'use client'
-import { NavigationRoutes } from '@src/core'
+
 import classNames from 'classnames'
 import Link from 'next/link'
+
 import { usePathname } from 'next/navigation'
-import React from 'react'
+import { NavigationRoutes } from '@src/core'
 
 const Navigation = () => {
   const pathname = usePathname()

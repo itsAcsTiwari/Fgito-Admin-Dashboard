@@ -1,9 +1,9 @@
 'use client'
 
-import { Search } from '@src/core/icons.js'
-import classNames from 'classnames'
 import { useState } from 'react'
+import classNames from 'classnames'
 
+import { Search } from '@src/core/icons.js'
 import ChefBox from './ChefBox'
 import MenuBox from './MenuBox'
 

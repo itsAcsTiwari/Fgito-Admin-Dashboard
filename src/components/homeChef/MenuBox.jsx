@@ -1,12 +1,11 @@
 
 import Image from 'next/image';
+import { useState } from 'react';
+
 import Breakfast from 'public/hc_breakfast.jpg';
 import Dinner from 'public/hc_dinner.jpg';
 import Lunch from 'public/hc_lunch.jpg';
-import { useState } from 'react';
-
 import ImageModal from './ImageModal';
-
 
 const MenuBox = () => {
     const [modalOpen, setModalOpen] = useState(false);
