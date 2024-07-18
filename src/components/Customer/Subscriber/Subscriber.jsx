@@ -1,12 +1,12 @@
 'use client'
 
-import { useState } from 'react'
-import classNames from 'classnames'
-
 import { Search } from '@src/core/icons'
+import classNames from 'classnames'
 import Breakfast from 'public/breakfast.jpg'
 import Dinner from 'public/dinner.jpg'
 import Lunch from 'public/lunch.jpg'
+import { Fragment, useState } from 'react'
+
 import MealBox from './MealBox'
 import Userbox from './Userbox'
 
@@ -52,7 +52,7 @@ const Subscriber = () => {
   ]
 
   return (
-    <>
+    <Fragment>
       <div className='py-3 px-4 space-y-8'>
         <h1 className='text-5xl uppercase tracking-wider'>Subscribers</h1>
 
@@ -125,7 +125,7 @@ const Subscriber = () => {
           </div>
         )}
       </div>
-    </>
+    </Fragment>
   )
 }
 

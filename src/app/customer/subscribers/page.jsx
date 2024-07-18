@@ -1,4 +1,3 @@
-
 import Subscriber from '@src/components/Customer/Subscriber/Subscriber'
 
 const page = () => {

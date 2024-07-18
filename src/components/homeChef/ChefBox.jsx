@@ -1,8 +1,7 @@
-
-import classNames from 'classnames';
-
 import SubscribersData from '@src/components/data/placeholderData.json';
 import { User } from '@src/core/icons';
+import classNames from 'classnames';
+import { Fragment } from 'react';
 
 const ChefBox = ({ onClick, selectedId }) => {
     const subscribersData = SubscribersData.subscribers;
@@ -28,7 +27,7 @@ const ChefBox = ({ onClick, selectedId }) => {
     };
 
     return (
-        <>
+        <Fragment>
             {subscribersData.map(subscriber => (
                 <div
                     key={subscriber.id}
@@ -56,7 +55,7 @@ const ChefBox = ({ onClick, selectedId }) => {
                     </div>
                 </div>
             ))}
-        </>
+        </Fragment>
     );
 };
 

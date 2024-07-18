@@ -1,10 +1,9 @@
-
 import Image from 'next/image';
-import { useState } from 'react';
-
 import Breakfast from 'public/hc_breakfast.jpg';
 import Dinner from 'public/hc_dinner.jpg';
 import Lunch from 'public/hc_lunch.jpg';
+import { Fragment, useState } from 'react';
+
 import ImageModal from './ImageModal';
 
 const MenuBox = () => {
@@ -40,7 +39,7 @@ const MenuBox = () => {
     ];
 
     return (
-        <>
+        <Fragment>
             <h2 className='text-center text-3xl font-semibold'>Upload Menu</h2>
             <div className='grid grid-cols-3 gap-6'>
                 {menuItems.map((item, index) => (
@@ -73,7 +72,7 @@ const MenuBox = () => {
                 imageSrc={selectedImage?.src}
                 altText={selectedImage?.alt}
             />
-        </>
+        </Fragment>
     );
 };
 

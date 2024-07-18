@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
-import classNames from 'classnames'
-
 import { Search } from '@src/core/icons.js'
+import classNames from 'classnames'
+import { Fragment, useState } from 'react'
+
 import ChefBox from './ChefBox'
 import MenuBox from './MenuBox'
 
@@ -42,8 +42,9 @@ const HomeChef = () => {
         }, 1000)
     }
 
+
     return (
-        <>
+        <Fragment>
             <div className='py-3 px-4 space-y-8'>
                 <h1 className='text-5xl uppercase tracking-wider'>Homechefs</h1>
 
@@ -119,7 +120,7 @@ const HomeChef = () => {
                     </div>
                 )}
             </div>
-        </>
+        </Fragment>
     )
 }
 

@@ -1,8 +1,6 @@
-
-import { useState } from 'react';
-import Image from 'next/image';
-
 import { Pen, Submit } from '@src/core/icons'
+import Image from 'next/image';
+import { Fragment, useState } from 'react';
 
 const MealBox = ({ meal, image }) => {
     const [isLoading, setIsLoading] = useState({
@@ -27,7 +25,7 @@ const MealBox = ({ meal, image }) => {
     };
 
     return (
-        <>
+        <Fragment>
             <div className="flex flex-row items-center justify-around rounded-md border border-primary-500 py-3 lg:text-xs xl:text-sm">
                 <span className="lg:rotate-90 transform uppercase 2xl:rotate-0">{meal}</span>
 
@@ -68,7 +66,7 @@ const MealBox = ({ meal, image }) => {
                     </div>
                 </div>
             </div>
-        </>
+        </Fragment>
     );
 };
 
