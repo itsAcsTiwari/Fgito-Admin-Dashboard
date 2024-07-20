@@ -25,14 +25,6 @@ const HomeChef = () => {
         }
     )
 
-    const statusClass = (status) => classNames(
-        'text-xs font-normal',
-        {
-            'text-primary-500': status === 'Live | Open' || status === 'Open',
-            'text-red-500': status !== 'Live | Open' && status !== 'Open'
-        }
-    )
-
     const handleButtonClick = (buttonType) => {
         setIsLoading(true)
         setActiveButton(buttonType)
@@ -68,8 +60,15 @@ const HomeChef = () => {
                         <div className="rounded-md bg-grey px-4 py-2 font-light">
                             <div className="flex flex-row justify-between items-center">
                                 <span className="font-semibold text-base">{selectedSubscriber.name}</span>
-                                <span className={statusClass(selectedSubscriber.status)}>{selectedSubscriber.status}</span>
+                                <span className={classNames(
+                                    'text-xs font-normal',
+                                    {
+                                        'text-primary-500': selectedSubscriber.status === 'Live | Open' || selectedSubscriber.status === 'Open',
+                                        'text-red-500': selectedSubscriber.status !== 'Live | Open' && selectedSubscriber.status !== 'Open'
+                                    }
+                                )}>{selectedSubscriber.status}</span>
                             </div>
+
                             <div className="space-x-1">
                                 <span>{selectedSubscriber.weekDays}</span>
                                 <span>|</span>

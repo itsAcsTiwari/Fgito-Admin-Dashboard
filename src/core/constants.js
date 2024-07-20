@@ -1,4 +1,5 @@
 import { Group, Home } from './icons'
+import { meals, menuItems } from './types'
 
 export const PageRoutes = {
   Home: '/',
@@ -40,4 +41,7 @@ export const NavigationRoutes = [
   },
 ]
 
-export const ApiRoutes = {}
+export const ApiRoutes = {
+  menuItems,
+  meals,
+}

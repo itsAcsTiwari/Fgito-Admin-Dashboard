@@ -1,10 +1,8 @@
 'use client'
 
+import { ApiRoutes } from '@src/core'
 import { Search } from '@src/core/icons'
 import classNames from 'classnames'
-import Breakfast from 'public/breakfast.jpg'
-import Dinner from 'public/dinner.jpg'
-import Lunch from 'public/lunch.jpg'
 import { Fragment, useState } from 'react'
 
 import MealBox from './MealBox'
@@ -28,14 +26,6 @@ const Subscriber = () => {
     }
   )
 
-  const statusClass = (status) => classNames(
-    'text-xs font-normal',
-    {
-      'text-primary-500': status === 'Active',
-      'text-red-500': status !== 'Active'
-    }
-  )
-
   const handleButtonClick = (buttonType) => {
     setIsLoading(true)
     setActiveButton(buttonType)
@@ -44,12 +34,6 @@ const Subscriber = () => {
       setIsLoading(false)
     }, 2000)
   }
-
-  const meals = [
-    { name: "B_Fast", image: Breakfast },
-    { name: "Lunch", image: Lunch },
-    { name: "Dinner", image: Dinner }
-  ]
 
   return (
     <Fragment>
@@ -74,17 +58,26 @@ const Subscriber = () => {
         {selectedSubscriber && (
           <div className="w-3/5 space-y-6 text-sm overflow-scroll no-scrollbar">
             <div className="rounded-md bg-grey px-4 py-2 font-light">
+
               <div className="flex flex-row justify-between items-center">
                 <span className="font-semibold text-base">{selectedSubscriber.name}</span>
-                <span className={statusClass(selectedSubscriber.isSubscribed)}>
+                <span className={classNames(
+                  'text-xs font-normal',
+                  {
+                    'text-primary-500': selectedSubscriber.isSubscribed === 'Active',
+                    'text-red-500': selectedSubscriber.isSubscribed !== 'Active'
+                  }
+                )}>
                   {selectedSubscriber.isSubscribed}
                 </span>
               </div>
+
               <div className="space-x-1">
                 <span>{selectedSubscriber.subscription_details.subscription_type}</span>
                 <span>|</span>
                 <span>BF . L . D</span>
               </div>
+
               <div className="space-x-1">
                 <span>{selectedSubscriber.id}</span>
                 <span>|</span>
@@ -92,6 +85,7 @@ const Subscriber = () => {
                 <span>|</span>
                 <span>Cooking</span>
               </div>
+
             </div>
 
             <div className="flex w-full rounded-md">
@@ -115,7 +109,7 @@ const Subscriber = () => {
               <div className="text-center">Loading...</div>
             ) : activeButton === 'schedule' ? (
               <div className='lg:space-y-6 py-2 xl:space-y-8'>
-                {meals.map((meal, index) => (
+                {ApiRoutes.meals.map((meal, index) => (
                   <MealBox key={index} meal={meal.name} image={meal.image} />
                 ))}
               </div>

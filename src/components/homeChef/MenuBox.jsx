@@ -1,7 +1,5 @@
+import { ApiRoutes } from '@src/core';
 import Image from 'next/image';
-import Breakfast from 'public/hc_breakfast.jpg';
-import Dinner from 'public/hc_dinner.jpg';
-import Lunch from 'public/hc_lunch.jpg';
 import { Fragment, useState } from 'react';
 
 import ImageModal from './ImageModal';
@@ -32,17 +30,11 @@ const MenuBox = () => {
         setLoading(prev => ({ ...prev, [mealType]: false }));
     };
 
-    const menuItems = [
-        { src: Breakfast, alt: 'breakfast icon', buttonText: 'Upload B-Fast', mealType: 'breakfast' },
-        { src: Lunch, alt: 'lunch icon', buttonText: 'Upload Lunch', mealType: 'lunch' },
-        { src: Dinner, alt: 'dinner icon', buttonText: 'Upload Dinner', mealType: 'dinner' },
-    ];
-
     return (
         <Fragment>
             <h2 className='text-center text-3xl font-semibold'>Upload Menu</h2>
             <div className='grid grid-cols-3 gap-6'>
-                {menuItems.map((item, index) => (
+                {ApiRoutes.menuItems.map((item, index) => (
                     <div key={index} className='rounded-md border border-black space-y-4 pb-4 overflow-hidden'>
                         <div
                             className='cursor-pointer'

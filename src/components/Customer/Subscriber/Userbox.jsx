@@ -6,22 +6,6 @@ import { Fragment } from 'react';
 const Userbox = ({ onClick, selectedId }) => {
     const subscribersData = SubscribersData.subscribers;
 
-    const userBoxClass = (id) => classNames(
-        'flex flex-row border rounded-md py-2 lg:mb-6 xl:mb-3 hover:cursor-pointer',
-        {
-            'border-2 border-primary-500': selectedId === id,
-            'border-black': selectedId !== id,
-        }
-    );
-
-    const statusClass = (status) => classNames(
-        'text-xs font-normal',
-        {
-            'text-primary-500': status === 'Active',
-            'text-red-500': status !== 'Active'
-        }
-    );
-
     const handleClick = (subscriber) => {
         onClick(subscriber);
     };
@@ -31,14 +15,29 @@ const Userbox = ({ onClick, selectedId }) => {
             {subscribersData.map(subscriber => (
                 <div
                     key={subscriber.id}
-                    className={userBoxClass(subscriber.id)}
+                    className={classNames(
+                        'flex flex-row border rounded-md py-2 lg:mb-6 xl:mb-3 hover:cursor-pointer',
+                        {
+                            'border-2 border-primary-500': selectedId === subscriber.id,
+                            'border-black': selectedId !== subscriber.id,
+                        }
+                    )}
                     onClick={() => handleClick(subscriber)}
                 >
-                    <div className='px-2'><User /></div>
+                    <div className='px-2'>
+                        <User />
+                    </div>
+
                     <div className='lg:text-xs xl:text-sm space-y-1 font-light w-full px-2'>
                         <div className='flex flex-row justify-between items-center'>
                             <span className='font-semibold'>{subscriber.name}</span>
-                            <span className={statusClass(subscriber.isSubscribed)}>
+                            <span className={classNames(
+                                'text-xs font-normal',
+                                {
+                                    'text-primary-500': subscriber.isSubscribed === 'Active',
+                                    'text-red-500': subscriber.isSubscribed !== 'Active'
+                                }
+                            )}>
                                 {subscriber.isSubscribed}
                             </span>
                         </div>

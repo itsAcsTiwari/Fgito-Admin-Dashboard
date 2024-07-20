@@ -6,22 +6,6 @@ import { Fragment } from 'react';
 const ChefBox = ({ onClick, selectedId }) => {
     const subscribersData = SubscribersData.subscribers;
 
-    const chefBoxClass = (id) => classNames(
-        'flex flex-row border rounded-md py-2 mb-3 hover:cursor-pointer',
-        {
-            'border-2 border-primary-500': selectedId === id,
-            'border-black': selectedId !== id,
-        }
-    );
-
-    const statusClass = (status) => classNames(
-        'text-xs font-normal',
-        {
-            'text-primary-500': status === 'Live | Open' || status === 'Open',
-            'text-red-500': status !== 'Live | Open' && status !== 'Open'
-        }
-    );
-
     const handleClick = (subscriber) => {
         onClick(subscriber);
     };
@@ -31,19 +15,31 @@ const ChefBox = ({ onClick, selectedId }) => {
             {subscribersData.map(subscriber => (
                 <div
                     key={subscriber.id}
-                    className={chefBoxClass(subscriber.id)}
+                    className={classNames(
+                        'flex flex-row border rounded-md py-2 mb-3 hover:cursor-pointer',
+                        {
+                            'border-2 border-primary-500': selectedId === subscriber.id,
+                            'border-black': selectedId !== subscriber.id,
+                        }
+                    )}
                     onClick={() => handleClick(subscriber)}
                 >
                     <div className='px-2'><User /></div>
                     <div className='text-sm space-y-1 font-light w-full px-2'>
                         <div className='flex flex-row justify-between items-center'>
                             <span className='font-semibold'>{subscriber.name}</span>
-                            <span className={statusClass(subscriber.status)}>
+                            <span className={classNames(
+                                'text-xs font-normal',
+                                {
+                                    'text-primary-500': subscriber.status === 'Live | Open' || subscriber.status === 'Open',
+                                    'text-red-500': subscriber.status !== 'Live | Open' && subscriber.status !== 'Open'
+                                }
+                            )}>
                                 {subscriber.status}
                             </span>
                         </div>
                         <div className='flex flex-row gap-2'>
-                            <span>{subscriber.subscription_details.subscription_type}</span>
+                            <span>{subscriber.weekDays}</span>
                             <span>|</span>
                             <span>BF . L . D</span>
                         </div>
@@ -54,8 +50,9 @@ const ChefBox = ({ onClick, selectedId }) => {
                         </div>
                     </div>
                 </div>
-            ))}
-        </Fragment>
+            ))
+            }
+        </Fragment >
     );
 };
 
