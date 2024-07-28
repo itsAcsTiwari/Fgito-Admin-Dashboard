@@ -1,4 +1,4 @@
-import { ApiRoutes } from '@src/core';
+import { MenuItems } from '@src/core';
 import Image from 'next/image';
 import { Fragment, useState } from 'react';
 
@@ -34,7 +34,7 @@ const MenuBox = () => {
         <Fragment>
             <h2 className='text-center text-3xl font-semibold'>Upload Menu</h2>
             <div className='grid grid-cols-3 gap-6'>
-                {ApiRoutes.menuItems.map((item, index) => (
+                {MenuItems.map((item, index) => (
                     <div key={index} className='rounded-md border border-black space-y-4 pb-4 overflow-hidden'>
                         <div
                             className='cursor-pointer'

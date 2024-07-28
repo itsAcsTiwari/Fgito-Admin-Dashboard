@@ -1,6 +1,6 @@
 'use client'
 
-import { ApiRoutes } from '@src/core'
+import { Meals } from '@src/core'
 import { Search } from '@src/core/icons'
 import classNames from 'classnames'
 import { Fragment, useState } from 'react'
@@ -18,7 +18,7 @@ const Subscriber = () => {
   }
 
   const buttonClass = (buttonType) => classNames(
-    'flex-1 rounded-md py-2 border border-[#D7D7D7]',
+    'flex-1 rounded-md py-2 border border-grey-300',
     {
       'bg-primary-500 text-white border border-black': activeButton === buttonType,
       'bg-grey text-black': activeButton !== buttonType,
@@ -109,7 +109,7 @@ const Subscriber = () => {
               <div className="text-center">Loading...</div>
             ) : activeButton === 'schedule' ? (
               <div className='lg:space-y-6 py-2 xl:space-y-8'>
-                {ApiRoutes.meals.map((meal, index) => (
+                {Meals.map((meal, index) => (
                   <MealBox key={index} meal={meal.name} image={meal.image} />
                 ))}
               </div>

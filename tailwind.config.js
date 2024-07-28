@@ -23,6 +23,7 @@ module.exports = {
         },
         grey: {
           DEFAULT: '#F0F0F0',
+          300: '#c8c8c8',
         },
       },
     },

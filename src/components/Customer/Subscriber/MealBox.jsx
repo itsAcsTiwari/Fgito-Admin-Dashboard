@@ -28,7 +28,6 @@ const MealBox = ({ meal, image }) => {
         <Fragment>
             <div className="flex flex-row items-center justify-around rounded-md border border-primary-500 py-3 lg:text-xs xl:text-sm">
                 <span className="lg:rotate-90 transform uppercase 2xl:rotate-0">{meal}</span>
-
                 <Image
                     src={image}
                     alt='icon'

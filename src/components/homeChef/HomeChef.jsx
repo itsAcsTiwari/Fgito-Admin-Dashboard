@@ -17,7 +17,7 @@ const HomeChef = () => {
     }
 
     const buttonClass = (buttonType) => classNames(
-        'flex-1 rounded-md py-2 border border-[#D7D7D7]',
+        'flex-1 rounded-md py-2 border border-grey-300',
         {
             'bg-primary-500 text-white border border-black': activeButton === buttonType,
             'bg-grey text-black': activeButton !== buttonType,
