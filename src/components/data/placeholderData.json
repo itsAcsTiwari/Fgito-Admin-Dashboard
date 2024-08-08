@@ -295,5 +295,113 @@
             "weekDays":"S M T W T F S",
              "status":"Live | Open"
         }
-    ] 
+    ],
+    "users":[
+            {
+                "id":"#abcdefghij1",
+                "name":"Ramesh",
+                "type":"Homechef",
+                "contact_number":"+912222222222",
+                "POC_Name":"Dharma"
+            },
+            {
+                "id":"#abcdefghij2",
+                "name":"Suresh",
+                "type":"Subscriber",
+                "contact_number":"+912222222222",
+                "mealsPerDay":"2 time",
+                 "meal_time":"BF . L"
+            },
+            {
+                "id":"#abcdefghij3",
+                "name":"Raju",
+                "type":"Homechef",
+                "contact_number":"+912222222222",
+                "POC_Name":"Dharma"
+            },
+            {
+                "id":"#abcdefghij4",
+                "name":"Ramesh",
+                "type":"Subscriber",
+                "contact_number":"+912222222222",
+                "mealsPerDay":"3 time",  
+                "meal_time":"BF . L . D"         
+            },
+            {
+                "id":"#abcdefghij5",
+                "name":"Ramu",
+                "type":"Homechef",
+                "contact_number":"+912222222222",
+                "POC_Name":"Dharma"
+            },
+            {
+                "id":"#abcdefghij6",
+                "name":"Ramesh",
+                "type":"Subscriber",
+                "contact_number":"+912222222222",
+                "mealsPerDay":"1 time",
+                 "meal_time":"D"
+            },
+            {
+                "id":"#abcdefghij7",
+                "name":"Satyam",
+                "type":"Homechef",
+                "contact_number":"+912222222222",
+                "POC_Name":"Dharma"
+            },
+            {
+                "id":"#abcdefghij8",
+                "name":"Ramesh",
+                "type":"Subscriber",
+                "contact_number":"+912222222222",
+                "mealsPerDay":"2 time",
+                 "meal_time":"BF . L"
+            },
+            {
+                "id":"#abcdefghij9",
+                "name":"Aman",
+                "type":"Homechef",
+                "contact_number":"+912222222222",
+                "POC_Name":"Dharma"
+            },
+            {
+                "id":"#abcdefghi10",
+                "name":"Abhinash",
+                "type":"Subscriber",
+                "contact_number":"+912222222222",
+                "mealsPerDay":"3 time",
+                "meal_time":"BF . L . D"
+            },
+           {
+            "id":"#abcdefghij11",
+            "name":"Chhotu",
+            "type":"Delivery Partner",
+            "contact_number":"+912222222222"
+           },
+           {
+            "id":"#abcdefghij12",
+            "name":"Ankit",
+            "type":"Delivery Partner",
+            "contact_number":"+912222222222"
+           },
+           {
+            "id":"#abcdefghij13",
+            "name":"Pawan",
+            "type":"Delivery Partner",
+            "contact_number":"+912222222222"
+           },
+           {
+            "id":"#abcdefghij14",
+            "name":"Prateek",
+            "type":"Delivery Partner",
+            "contact_number":"+912222222222"
+           },
+           {
+            "id":"#abcdefghij15",
+            "name":"Pradeep",
+            "type":"Delivery Partner",
+            "contact_number":"+912222222222"
+           }
+        
+        ]
 }

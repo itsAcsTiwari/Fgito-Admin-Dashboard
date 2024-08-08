@@ -5,7 +5,9 @@ import classNames from 'classnames'
 import { Fragment, useState } from 'react'
 
 import ChefBox from './ChefBox'
+import CurrentOrder from './CurrentOrder'
 import MenuBox from './MenuBox'
+import OrderHistory from './OrderHistory'
 
 const HomeChef = () => {
     const [activeButton, setActiveButton] = useState('menu')
@@ -46,7 +48,7 @@ const HomeChef = () => {
                 </div>
             </div>
 
-            <div className='flex h-96 px-4 mt-4 space-x-6'>
+            <div className='flex h-96 px-4 mt-4 mb-8 space-x-6'>
                 {/* Left section */}
                 <div className='w-1/3  overflow-scroll no-scrollbar'>
                     <ChefBox onClick={handleUserboxClick} selectedId={selectedSubscriber?.id} />
@@ -109,12 +111,14 @@ const HomeChef = () => {
                             <div className="text-center">Loading...</div>
                         ) : activeButton === 'menu' ? (
                             <div className='space-y-6'>
-                                <MenuBox />
+                                <MenuBox key={selectedSubscriber.id} />
                             </div>
                         ) : activeButton === 'order' ? (
-                            <div className="text-center">No orders available.</div>
+                            <div><CurrentOrder /></div>
                         ) : (
-                            <div className="text-center">No history available.</div>
+                            <div>
+                                <OrderHistory />
+                            </div>
                         )}
                     </div>
                 )}

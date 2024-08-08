@@ -14,13 +14,19 @@ export const PageRoutes = {
   Orders: '/orders',
   Sales: '/sales',
   Subscribers: '/subscribers',
+  Users: '/users',
+  Partners: '/partners',
+  Deliverypartners: '/deliverypartners',
 }
 
 export const NavigationRoutes = [
   {
     name: 'dashboard',
     route: PageRoutes.Home,
-    children: [{ name: 'home', route: PageRoutes.Home, icon: <Home /> }],
+    children: [
+      { name: 'home', route: PageRoutes.Home, icon: <Home /> },
+      { name: 'users', route: PageRoutes.Users, icon: <Group /> },
+    ],
   },
   {
     name: 'homechef',
@@ -33,6 +39,14 @@ export const NavigationRoutes = [
     children: [
       { route: PageRoutes.Customer, name: 'home', icon: <Home /> },
       { route: PageRoutes.Customer + PageRoutes.Subscribers, name: 'subscribers', icon: <Group /> },
+    ],
+  },
+  {
+    name: 'partners',
+    route: PageRoutes.Partners,
+    children: [
+      { route: PageRoutes.Partners, name: 'home', icon: <Home /> },
+      { route: PageRoutes.Partners + PageRoutes.Deliverypartners, name: 'delivery partners', icon: <Group /> },
     ],
   },
   {

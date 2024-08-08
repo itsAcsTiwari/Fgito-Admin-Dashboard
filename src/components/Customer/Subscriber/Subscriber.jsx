@@ -6,6 +6,7 @@ import classNames from 'classnames'
 import { Fragment, useState } from 'react'
 
 import MealBox from './MealBox'
+import OrderHistory from './OrderHistory'
 import Userbox from './Userbox'
 
 const Subscriber = () => {
@@ -46,7 +47,7 @@ const Subscriber = () => {
         </div>
       </div>
 
-      <div className='flex h-96 px-4 mt-4 space-x-6'>
+      <div className='flex h-96 px-4 mt-4 mb-8 space-x-6'>
         {/* Left section */}
         <div className='w-1/3 overflow-scroll no-scrollbar'>
           <Userbox onClick={handleUserboxClick} selectedId={selectedSubscriber?.id} />
@@ -56,9 +57,8 @@ const Subscriber = () => {
 
         {/* Right Section */}
         {selectedSubscriber && (
-          <div className="w-3/5 space-y-6 text-sm overflow-scroll no-scrollbar">
+          <div className="w-3/5 space-y-6 text-sm overflow-scroll no-scrollbar" key={selectedSubscriber.id}>
             <div className="rounded-md bg-grey px-4 py-2 font-light">
-
               <div className="flex flex-row justify-between items-center">
                 <span className="font-semibold text-base">{selectedSubscriber.name}</span>
                 <span className={classNames(
@@ -85,7 +85,6 @@ const Subscriber = () => {
                 <span>|</span>
                 <span>Cooking</span>
               </div>
-
             </div>
 
             <div className="flex w-full rounded-md">
@@ -110,11 +109,13 @@ const Subscriber = () => {
             ) : activeButton === 'schedule' ? (
               <div className='lg:space-y-6 py-2 xl:space-y-8'>
                 {Meals.map((meal, index) => (
-                  <MealBox key={index} meal={meal.name} image={meal.image} />
+                  <MealBox key={selectedSubscriber.id} meal={meal.name} image={meal.image} />
                 ))}
               </div>
             ) : (
-              <div className="text-center">No history available.</div>
+              <div>
+                <OrderHistory />
+              </div>
             )}
           </div>
         )}
