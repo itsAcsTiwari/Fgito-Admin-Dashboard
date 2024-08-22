@@ -1,12 +1,12 @@
 'use client'
 
-import { Meals } from '@src/core'
+import OrderHistory from '@src/components/common/OrderHistory'
+import { MEALS } from '@src/core'
 import { Search } from '@src/core/icons'
 import classNames from 'classnames'
 import { Fragment, useState } from 'react'
 
 import MealBox from './MealBox'
-import OrderHistory from './OrderHistory'
 import Userbox from './Userbox'
 
 const Subscriber = () => {
@@ -41,35 +41,33 @@ const Subscriber = () => {
       <div className='py-3 px-4 space-y-8'>
         <h1 className='text-5xl uppercase tracking-wider'>Subscribers</h1>
 
-        <div className='flex items-center border border-black rounded-md w-1/3 px-4'>
+        <div className='flex items-center border border-black rounded-md w-full md:w-1/2 lg:w-1/3 px-4'>
           <Search className="h-4 w-4" />
-          <input type="text" className='border-none focus:border-none focus:ring-0' placeholder='Search Subscriber' />
+          <input type="text" className='border-none focus:border-none focus:ring-0 w-full' placeholder='Search Subscriber' />
         </div>
       </div>
 
-      <div className='flex h-96 px-4 mt-4 mb-8 space-x-6'>
+      <div className='flex h-[calc(100vh-200px)] px-4 mt-4 mb-8 space-x-6'>
         {/* Left section */}
-        <div className='w-1/3 overflow-scroll no-scrollbar'>
+        <div className='w-full md:w-1/2 lg:w-1/3 overflow-auto scrollbar-hide'>
           <Userbox onClick={handleUserboxClick} selectedId={selectedSubscriber?.id} />
         </div>
 
-        <div className='w-0 h-96 border border-black'></div>
+        <div className='w-0 h-full border border-black'></div>
 
         {/* Right Section */}
         {selectedSubscriber && (
-          <div className="w-3/5 space-y-6 text-sm overflow-scroll no-scrollbar" key={selectedSubscriber.id}>
+          <div className="w-3/5 h-full space-y-6 text-sm overflow-auto scrollbar-hide" key={selectedSubscriber.id}>
             <div className="rounded-md bg-grey px-4 py-2 font-light">
               <div className="flex flex-row justify-between items-center">
                 <span className="font-semibold text-base">{selectedSubscriber.name}</span>
                 <span className={classNames(
-                  'text-xs font-normal',
+                  'w-3 h-3 rounded-full mr-4',
                   {
-                    'text-primary-500': selectedSubscriber.isSubscribed === 'Active',
-                    'text-red-500': selectedSubscriber.isSubscribed !== 'Active'
+                    'bg-primary-500': selectedSubscriber.isSubscribed === 'Active',
+                    'bg-red-500': selectedSubscriber.isSubscribed !== 'Active'
                   }
-                )}>
-                  {selectedSubscriber.isSubscribed}
-                </span>
+                )}></span>
               </div>
 
               <div className="space-x-1">
@@ -108,7 +106,7 @@ const Subscriber = () => {
               <div className="text-center">Loading...</div>
             ) : activeButton === 'schedule' ? (
               <div className='lg:space-y-6 py-2 xl:space-y-8'>
-                {Meals.map((meal, index) => (
+                {MEALS.map((meal, index) => (
                   <MealBox key={selectedSubscriber.id} meal={meal.name} image={meal.image} />
                 ))}
               </div>

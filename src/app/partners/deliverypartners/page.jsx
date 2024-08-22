@@ -1,7 +1,6 @@
 import DeliveryPartners from "@src/components/partners/deliveryPartners/DeliveryPartners"
 
-
-const page = () => {
+const Page = () => {
     return <DeliveryPartners />
 }
-export default page
+export default Page

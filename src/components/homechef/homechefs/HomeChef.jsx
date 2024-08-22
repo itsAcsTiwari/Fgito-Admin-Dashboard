@@ -1,5 +1,6 @@
 'use client'
 
+import OrderHistory from '@src/components/common/OrderHistory'
 import { Search } from '@src/core/icons.js'
 import classNames from 'classnames'
 import { Fragment, useState } from 'react'
@@ -7,7 +8,6 @@ import { Fragment, useState } from 'react'
 import ChefBox from './ChefBox'
 import CurrentOrder from './CurrentOrder'
 import MenuBox from './MenuBox'
-import OrderHistory from './OrderHistory'
 
 const HomeChef = () => {
     const [activeButton, setActiveButton] = useState('menu')
@@ -36,29 +36,28 @@ const HomeChef = () => {
         }, 1000)
     }
 
-
     return (
         <Fragment>
             <div className='py-3 px-4 space-y-8'>
                 <h1 className='text-5xl uppercase tracking-wider'>Homechefs</h1>
 
-                <div className='flex items-center border border-black rounded-md w-1/3 px-4'>
+                <div className='flex items-center border border-black rounded-md w-full md:w-1/2 lg:w-1/3 px-4'>
                     <Search />
-                    <input type="text" className='border-none focus:border-none focus:ring-0' placeholder='Search Homechef' />
+                    <input type="text" className='border-none focus:border-none focus:ring-0 w-full' placeholder='Search Homechef' />
                 </div>
             </div>
 
-            <div className='flex h-96 px-4 mt-4 mb-8 space-x-6'>
+            <div className='flex h-[calc(100vh-200px)] px-4 mt-4 mb-8 space-x-6'>
                 {/* Left section */}
-                <div className='w-1/3  overflow-scroll no-scrollbar'>
+                <div className='w-1/3 overflow-auto scrollbar-hide'>
                     <ChefBox onClick={handleUserboxClick} selectedId={selectedSubscriber?.id} />
                 </div>
 
-                <div className='w-0 h-96 border border-black'></div>
+                <div className='w-0 h-full border border-black'></div>
 
                 {/* Right Section */}
                 {selectedSubscriber && (
-                    <div className="w-3/5 space-y-6 text-sm overflow-scroll no-scrollbar">
+                    <div className="w-3/5 space-y-6 text-sm overflow-auto scrollbar-hide">
                         <div className="rounded-md bg-grey px-4 py-2 font-light">
                             <div className="flex flex-row justify-between items-center">
                                 <span className="font-semibold text-base">{selectedSubscriber.name}</span>

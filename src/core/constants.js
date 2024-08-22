@@ -10,6 +10,7 @@ import { Group, Home } from './icons'
 export const PageRoutes = {
   Home: '/',
   Homechef: '/homechef',
+  Homechefs: '/homechefs',
   Customer: '/customer',
   Orders: '/orders',
   Sales: '/sales',
@@ -31,7 +32,10 @@ export const NavigationRoutes = [
   {
     name: 'homechef',
     route: PageRoutes.Homechef,
-    children: [{ name: 'home', route: PageRoutes.Homechef, icon: <Home /> }],
+    children: [
+      { name: 'home', route: PageRoutes.Homechef, icon: <Home /> },
+      { route: PageRoutes.Homechef + PageRoutes.Homechefs, name: 'homechefs', icon: <Group /> },
+    ],
   },
   {
     name: 'customer',
@@ -63,13 +67,13 @@ export const NavigationRoutes = [
 
 export const ApiRoutes = {}
 
-export const MenuItems = [
+export const MENUITEMS = [
   { src: Breakfast_Menu, alt: 'breakfast icon', buttonText: 'Upload B-Fast', mealType: 'breakfast' },
   { src: Lunch_Menu, alt: 'lunch icon', buttonText: 'Upload Lunch', mealType: 'lunch' },
   { src: Dinner_Menu, alt: 'dinner icon', buttonText: 'Upload Dinner', mealType: 'dinner' },
 ]
 
-export const Meals = [
+export const MEALS = [
   { name: 'B_Fast', image: Breakfast },
   { name: 'Lunch', image: Lunch },
   { name: 'Dinner', image: Dinner },

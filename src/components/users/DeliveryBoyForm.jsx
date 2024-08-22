@@ -1,7 +1,8 @@
-import Input from "@src/components/common/Form/Input";
 import classNames from 'classnames';
 import { Fragment, useState } from "react";
 import { useForm } from "react-hook-form";
+
+import FormField from '../common/Form/FormField';
 
 const DeliveryBoyForm = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -29,8 +30,9 @@ const DeliveryBoyForm = () => {
     return (
         <Fragment>
             <form className="flex gap-10 px-2 py-1" onSubmit={handleSubmit(onSubmit)}>
+
                 <div className="flex flex-1 flex-col gap-4">
-                    <Input
+                    <FormField
                         label="Partner Name"
                         name="partnerName"
                         placeholder="Enter partner name"
@@ -38,7 +40,7 @@ const DeliveryBoyForm = () => {
                         error={errors.partnerName?.message}
                         disabled={loading}
                     />
-                    <Input
+                    <FormField
                         label="Mobile Number"
                         name="mobileNumber"
                         placeholder="Enter mobile number"
@@ -46,49 +48,39 @@ const DeliveryBoyForm = () => {
                         error={errors.mobileNumber?.message}
                         disabled={loading}
                     />
-                    <div className="flex flex-col gap-2">
-                        <div className="flex items-center gap-2">
-                            <label htmlFor="">Address</label>
-                            <span className="rounded-full bg-red-500 w-2 h-2"></span>
-                        </div>
-                        <Input
-                            name="address"
-                            placeholder="Enter address"
-                            {...register("address", { required: "Address is required" })}
-                            error={errors.address?.message}
-                            disabled={loading}
-                        />
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        <div className="flex items-center gap-2">
-                            <label htmlFor="">Driving License Number</label>
-                            <span className="rounded-full bg-red-500 w-2 h-2"></span>
-                        </div>
-                        <Input
-                            name="drivingLicenseNumber"
-                            placeholder="Enter driving license number"
-                            {...register("drivingLicenseNumber", { required: "Driving License Number is required" })}
-                            error={errors.drivingLicenseNumber?.message}
-                            disabled={loading}
-                        />
-                    </div>
+                    <FormField
+                        label="Address"
+                        name="address"
+                        placeholder="Enter address"
+                        showRedDot={true}
+                        {...register("address", { required: "Address is required" })}
+                        error={errors.address?.message}
+                        disabled={loading}
+                    />
+
+                    <FormField
+                        label="Driving License Number"
+                        name="drivingLicenseNumber"
+                        placeholder="Enter driving license number"
+                        showRedDot={true}
+                        {...register("drivingLicenseNumber", { required: "Driving License Number is required" })}
+                        error={errors.drivingLicenseNumber?.message}
+                        disabled={loading}
+                    />
                 </div>
 
-                <div className="flex flex-1 flex-col gap-4">
-                    <div className="flex flex-col gap-2">
-                        <div className="flex items-center gap-2">
-                            <label htmlFor="">Pan Card Number</label>
-                            <span className="rounded-full bg-red-500 w-2 h-2"></span>
-                        </div>
-                        <Input
-                            name="panCardNumber"
-                            placeholder="Enter pan card number"
-                            {...register("panCardNumber", { required: "Pan Card Number is required" })}
-                            error={errors.panCardNumber?.message}
-                            disabled={loading}
-                        />
-                    </div>
-                    <Input
+                <div className="flex flex-1 mt-2 flex-col gap-4">
+                    <FormField
+                        label="Pan Card Number"
+                        name="panCardNumber"
+                        placeholder="Enter pan card number"
+                        showRedDot={true}
+                        {...register("panCardNumber", { required: "Pan Card Number is required" })}
+                        error={errors.panCardNumber?.message}
+                        disabled={loading}
+                    />
+
+                    <FormField
                         label="WhatsApp Number"
                         name="whatsAppNumber"
                         placeholder="Enter WhatsApp number"
@@ -96,23 +88,19 @@ const DeliveryBoyForm = () => {
                         error={errors.whatsAppNumber?.message}
                         disabled={loading}
                     />
-                    <div className="flex flex-col gap-2">
-                        <div className="flex items-center gap-2">
-                            <label htmlFor="">Adhaar Card Number</label>
-                            <span className="rounded-full bg-red-500 w-2 h-2"></span>
-                        </div>
-                        <Input
-                            name="adhaarCardNumber"
-                            placeholder="Enter adhaar card number"
-                            {...register("adhaarCardNumber", { required: "Adhaar Card Number is required" })}
-                            error={errors.adhaarCardNumber?.message}
-                            disabled={loading}
-                        />
-                    </div>
+                    <FormField
+                        label="Adhaar Card Number"
+                        name="adhaarCardNumber"
+                        placeholder="Enter adhaar card number"
+                        showRedDot={true}
+                        {...register("adhaarCardNumber", { required: "Adhaar Card Number is required" })}
+                        error={errors.adhaarCardNumber?.message}
+                        disabled={loading}
+                    />
                     <button
                         type="submit"
                         className={classNames(
-                            'bg-primary-500 text-white rounded-full text-xs py-3 w-36 self-center mt-8',
+                            'bg-primary-500 text-white rounded-full text-xs py-3 w-36 self-center mt-8  hover:bg-primary-600 duration-200',
                             { 'opacity-50 cursor-not-allowed': loading }
                         )}
                         disabled={loading}

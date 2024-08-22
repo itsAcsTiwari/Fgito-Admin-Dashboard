@@ -1,7 +1,7 @@
 import Subscriber from '@src/components/Customer/Subscriber/Subscriber'
 
-const page = () => {
+const Page = () => {
   return <Subscriber />
 }
 
-export default page
+export default Page

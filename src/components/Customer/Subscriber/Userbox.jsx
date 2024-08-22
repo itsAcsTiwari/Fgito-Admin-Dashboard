@@ -16,7 +16,7 @@ const Userbox = ({ onClick, selectedId }) => {
                 <div
                     key={subscriber.id}
                     className={classNames(
-                        'flex flex-row border rounded-md py-2 lg:mb-6 xl:mb-3 hover:cursor-pointer',
+                        'flex flex-row border rounded-md py-2 mb-3 hover:cursor-pointer',
                         {
                             'border-2 border-primary-500': selectedId === subscriber.id,
                             'border-black': selectedId !== subscriber.id,
@@ -32,14 +32,12 @@ const Userbox = ({ onClick, selectedId }) => {
                         <div className='flex flex-row justify-between items-center'>
                             <span className='font-semibold'>{subscriber.name}</span>
                             <span className={classNames(
-                                'text-xs font-normal',
+                                'w-2 h-2 rounded-full mr-4',
                                 {
-                                    'text-primary-500': subscriber.isSubscribed === 'Active',
-                                    'text-red-500': subscriber.isSubscribed !== 'Active'
+                                    'bg-primary-500': subscriber.isSubscribed === 'Active',
+                                    ' bg-red-500': subscriber.isSubscribed !== 'Active'
                                 }
-                            )}>
-                                {subscriber.isSubscribed}
-                            </span>
+                            )}></span>
                         </div>
                         <div className='flex flex-row gap-2'>
                             <span>{subscriber.subscription_details.subscription_type}</span>

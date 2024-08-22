@@ -1,4 +1,4 @@
-import Input from "@src/components/common/Form/Input";
+import FormField from "@src/components/common/Form/FormField";
 import { InputTypes } from "@src/components/common/Form/InputTypes";
 import classNames from 'classnames';
 import { Fragment, useState } from "react";
@@ -31,7 +31,7 @@ const SubscriberForm = () => {
         <Fragment>
             <form className="flex gap-10 px-2" onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-1 flex-col gap-4">
-                    <Input
+                    <FormField
                         label="Subscriber Name"
                         name="subscriberName"
                         placeholder="Enter subscriber name"
@@ -39,7 +39,7 @@ const SubscriberForm = () => {
                         error={errors.subscriberName?.message}
                         disabled={loading}
                     />
-                    <Input
+                    <FormField
                         label="Mobile Number"
                         name="mobileNumber"
                         placeholder="Enter mobile number"
@@ -47,7 +47,7 @@ const SubscriberForm = () => {
                         error={errors.mobileNumber?.message}
                         disabled={loading}
                     />
-                    <Input
+                    <FormField
                         label="Address"
                         name="address"
                         placeholder="Enter address"
@@ -55,7 +55,7 @@ const SubscriberForm = () => {
                         error={errors.address?.message}
                         disabled={loading}
                     />
-                    <Input
+                    <FormField
                         label="Start Date"
                         name="startDate"
                         type={InputTypes.DATE}
@@ -63,34 +63,36 @@ const SubscriberForm = () => {
                         error={errors.startDate?.message}
                         disabled={loading}
                     />
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="homechef">Select Meals</label>
-                        <select
-                            {...register("homechef", { required: "Please select one of the option" })}
-                            className="rounded-md text-sm border-gray-300"
-                            id="homechef"
-                        >
-                            <option value="">Mother Cooks</option>
-                        </select>
-                        {errors.meals && <span className="text-red-500 text-xs px-2">{errors.meals.message}</span>}
-                    </div>
+                    <FormField
+                        label="Select Meals"
+                        name="homechef"
+                        type="select"
+                        options={[
+                            { value: "", label: "Mother Cooks" },
+                            { value: "meal1", label: "Meal 1" },
+                            { value: "meal2", label: "Meal 2" }
+                        ]}
+                        {...register("homechef", { required: "Please select one of the options" })}
+                        error={errors.homechef?.message}
+                        disabled={loading}
+                    />
                 </div>
                 <div className="flex flex-1 flex-col gap-4">
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="meals">Select Meals</label>
-                        <select
-                            {...register("meals", { required: "Please select one of the option" })}
-                            className="rounded-md text-sm border-gray-300"
-                            id="meals"
-                        >
-                            <option value="">BF | L | D</option>
-                            <option value="breakfast">Breakfast</option>
-                            <option value="lunch">Lunch</option>
-                            <option value="dinner">Dinner</option>
-                        </select>
-                        {errors.meals && <span className="text-red-500 text-xs px-2">{errors.meals.message}</span>}
-                    </div>
-                    <Input
+                    <FormField
+                        label="Select Meals"
+                        name="meals"
+                        type="select"
+                        options={[
+                            { value: "", label: "BF | L | D" },
+                            { value: "breakfast", label: "Breakfast" },
+                            { value: "lunch", label: "Lunch" },
+                            { value: "dinner", label: "Dinner" }
+                        ]}
+                        {...register("meals", { required: "Please select one of the options" })}
+                        error={errors.meals?.message}
+                        disabled={loading}
+                    />
+                    <FormField
                         label="WhatsApp Number"
                         name="whatsAppNumber"
                         placeholder="Enter WhatsApp number"
@@ -98,7 +100,7 @@ const SubscriberForm = () => {
                         error={errors.whatsAppNumber?.message}
                         disabled={loading}
                     />
-                    <Input
+                    <FormField
                         label="Google Location Link"
                         name="googleLocationLink"
                         placeholder="Enter Google location link"
@@ -106,7 +108,7 @@ const SubscriberForm = () => {
                         error={errors.googleLocationLink?.message}
                         disabled={loading}
                     />
-                    <Input
+                    <FormField
                         label="End Date"
                         name="endDate"
                         type={InputTypes.DATE}
@@ -117,7 +119,7 @@ const SubscriberForm = () => {
                     <button
                         type="submit"
                         className={classNames(
-                            'bg-primary-500 text-white rounded-full text-xs py-3 w-36 self-center mt-6',
+                            'bg-primary-500 text-white rounded-full text-xs py-3 w-36 self-center mt-10  hover:bg-primary-600 duration-200',
                             { 'opacity-50 cursor-not-allowed': loading }
                         )}
                         disabled={loading}

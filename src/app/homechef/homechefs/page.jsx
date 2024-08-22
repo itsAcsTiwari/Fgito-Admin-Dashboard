@@ -1,7 +1,8 @@
 import HomeChef from "@src/components/homechef/homechefs/HomeChef"
 
 const Page = () => {
-  return <div>Page</div>
+    return <HomeChef />
+
 }
 
 export default Page
