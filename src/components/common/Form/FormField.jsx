@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { forwardRef, Fragment } from 'react';
+import { forwardRef, Fragment } from 'react';
 
 const FormField = forwardRef(
     (

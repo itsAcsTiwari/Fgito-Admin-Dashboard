@@ -33,7 +33,7 @@ const MealBox = ({ meal, image }) => {
                     alt='icon'
                     className='lg:w-12 lg:h-12 xl:w-20 xl:h-16 2xl:w-24 h-20 rounded-md'
                 />
-                <div className="mx-4 flex items-center space-x-2 rounded-md border border-primary-500 px-2 py-2">
+                <div className="mx-4 flex items-center gap-2 rounded-md border border-primary-500 px-2 py-2">
                     <div className="flex flex-row items-center gap-2 rounded-full bg-primary-500 px-4 py-2 hover:bg-primary-600 transition duration-200">
                         <Pen />
                         <button
